@@ -102,7 +102,7 @@ export const Skills: React.FC = () => {
                 className="glass p-10 rounded-[32px] border border-border relative overflow-hidden group"
               >
                 <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
-                  {React.cloneElement(group.icon as React.ReactElement, { size: 120 })}
+                  {React.cloneElement(group.icon as React.ReactElement<{ size?: number }>, { size: 120 })}
                 </div>
 
                 <div className="flex items-center gap-4 mb-8">

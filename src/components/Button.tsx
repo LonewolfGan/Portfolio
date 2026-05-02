@@ -74,7 +74,7 @@ export const Button: React.FC<ButtonProps> = ({
     >
       {/* 2. Icon Protection with shrink-0 */}
       {leftIcon && <span className="shrink-0 inline-flex items-center justify-center">{leftIcon}</span>}
-      <span className="shrink-0">{children}</span>
+      <span className="shrink-0">{children as React.ReactNode}</span>
       {rightIcon && <span className="shrink-0 inline-flex items-center justify-center">{rightIcon}</span>}
     </motion.button>
   );

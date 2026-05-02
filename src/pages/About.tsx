@@ -11,16 +11,34 @@ export const About: React.FC = () => {
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSuccess(true);
-      setFormState({ name: '', email: '', message: '' });
+    setErrorMsg('');
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formState),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setErrorMsg(data.error || 'Something went wrong. Please try again.');
+      } else {
+        setIsSuccess(true);
+        setFormState({ name: '', email: '', message: '' });
+        setTimeout(() => setIsSuccess(false), 6000);
+      }
+    } catch {
+      setErrorMsg('Network error. Please check your connection and try again.');
+    } finally {
       setIsSubmitting(false);
-      setTimeout(() => setIsSuccess(false), 5000);
-    }, 1500);
+    }
   };
 
   const experienceData = [
@@ -298,6 +316,9 @@ export const About: React.FC = () => {
                         className="bg-foreground/5 border border-border rounded-2xl p-5 text-foreground placeholder:text-foreground/20 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none"
                       />
                     </div>
+                    {errorMsg && (
+                      <p className="text-red-500 text-sm px-1">{errorMsg}</p>
+                    )}
                     <Button
                       type="submit"
                       disabled={isSubmitting}
