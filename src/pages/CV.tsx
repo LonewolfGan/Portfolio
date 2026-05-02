@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { Button } from '../components/Button';
 import { useLanguage } from '../context/LanguageContext';
+import { SEO } from '../components/SEO';
 
 const SKILLS = {
   languages: ['JavaScript / TypeScript', 'Python', 'SQL (MariaDB, MySQL)', 'PHP', 'C++'],
@@ -104,8 +105,7 @@ export const CV: React.FC = () => {
 
   return (
     <main>
-      <title>CV | Atlas Lonewolf — Junior Full-Stack Developer</title>
-      <meta name="description" content="Curriculum Vitae of Atlas Lonewolf — skills, projects, experience. Download PDF." />
+      <SEO page="cv" />
 
       <div className="min-h-screen py-20 px-6">
         <div className="max-w-4xl mx-auto">
