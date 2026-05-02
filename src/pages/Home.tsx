@@ -1,14 +1,12 @@
 import React, { useRef } from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, Layout, Server, Database, Sparkles, Code2, GitBranch, Star } from 'lucide-react';
+import { ArrowRight, Layout, Server, Database, Sparkles, Code2 } from 'lucide-react';
 import { Button } from '../components/Button';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-
-// Portrait for pop-out effect — swap src for your own 800×900px photo
-const PORTRAIT = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=90&w=600&auto=format&fit=crop";
+import { HeroImage } from '../components/HeroImage';
 
 const getFeaturedProjects = (language: string) => [
   {
@@ -44,13 +42,9 @@ export const Home: React.FC = () => {
   const { t, language } = useLanguage();
   const container    = useRef<HTMLDivElement>(null);
   const signatureRef = useRef<HTMLSpanElement>(null);
-  const heroRef      = useRef<HTMLElement>(null);
-  const frameRef     = useRef<HTMLDivElement>(null);
-  const personRef    = useRef<HTMLDivElement>(null);
   const FEATURED_PROJECTS = getFeaturedProjects(language);
 
   useGSAP(() => {
-    // Signature entrance
     if (signatureRef.current) {
       gsap.fromTo(
         signatureRef.current,
@@ -58,41 +52,6 @@ export const Home: React.FC = () => {
         { opacity: 1, y: 0, skewX: 0, filter: 'blur(0px)', duration: 1.5, ease: 'power4.out', delay: 0.5 }
       );
     }
-
-    // Subtle float on the person
-    if (personRef.current) {
-      gsap.to(personRef.current, {
-        y: -10,
-        duration: 3,
-        ease: 'sine.inOut',
-        yoyo: true,
-        repeat: -1,
-      });
-    }
-
-    // Mouse parallax — person moves ~2× faster than the frame for depth
-    const hero = heroRef.current;
-    if (!hero || !frameRef.current || !personRef.current) return;
-
-    const onMove = (e: MouseEvent) => {
-      const { left, top, width, height } = hero.getBoundingClientRect();
-      const dx = ((e.clientX - left) / width  - 0.5) * 2; // -1 → 1
-      const dy = ((e.clientY - top)  / height - 0.5) * 2;
-
-      gsap.to(frameRef.current,  { x: dx * 8,  y: dy * 5,  duration: 1,   ease: 'power2.out', overwrite: 'auto' });
-      gsap.to(personRef.current, { x: dx * 18, y: dy * 10, duration: 0.7, ease: 'power2.out', overwrite: 'auto' });
-    };
-
-    const onLeave = () => {
-      gsap.to([frameRef.current, personRef.current], { x: 0, y: 0, duration: 1.2, ease: 'elastic.out(1,0.5)' });
-    };
-
-    hero.addEventListener('mousemove', onMove);
-    hero.addEventListener('mouseleave', onLeave);
-    return () => {
-      hero.removeEventListener('mousemove', onMove);
-      hero.removeEventListener('mouseleave', onLeave);
-    };
   }, { scope: container });
 
   return (
@@ -100,7 +59,6 @@ export const Home: React.FC = () => {
 
       {/* ── Hero: exactly fills the viewport below the fixed 80px navbar ── */}
       <section
-        ref={heroRef}
         className="relative flex flex-col bg-background overflow-hidden"
         style={{ height: 'calc(100vh - 5rem)' }}
       >
@@ -178,139 +136,8 @@ export const Home: React.FC = () => {
             </motion.div>
           </div>
 
-          {/* ── Right: 3-Layer Pop-Out ── */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="relative hidden lg:flex justify-center items-center h-full"
-          >
-            {/*
-              OUTER WRAPPER — overflow:visible so the head can escape the frame.
-              Fixed size so nothing overflows the hero height.
-            */}
-            <div className="relative w-[300px]" style={{ height: 'min(440px, 68vh)' }}>
-
-              {/* ── LAYER 0: ambient glow behind everything ── */}
-              <div className="absolute inset-x-6 top-[28%] bottom-0 rounded-[32px] blur-3xl opacity-40 pointer-events-none"
-                style={{ background: 'radial-gradient(ellipse at center, var(--color-primary) 0%, transparent 70%)' }} />
-
-              {/* ── LAYER 1 (Background / The Box): glass card ── */}
-              {/*   Starts at 24% from top → head will overflow above this line  */}
-              <div
-                ref={frameRef}
-                className="absolute inset-x-0 bottom-0 rounded-[32px] glass shadow-2xl"
-                style={{ top: '24%', border: '1px solid color-mix(in oklch, var(--color-primary) 18%, transparent)' }}
-              />
-
-              {/* ── LAYER 2 (Subject): portrait — head breaks above Layer 1 ── */}
-              {/*   z-index > frame so person appears in front inside the box   */}
-              {/*   No overflow:hidden here — the head is FREE above the frame  */}
-              <div
-                ref={personRef}
-                className="absolute inset-x-6 top-0 bottom-[6%]"
-                style={{ zIndex: 20 }}
-              >
-                <img
-                  src={PORTRAIT}
-                  alt="Atlas — Junior Developer"
-                  className="w-full h-full object-cover object-top"
-                  style={{ borderRadius: '24px 24px 28px 28px' }}
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-
-              {/* ── LAYER 3a: border ring — sits IN FRONT of the portrait ── */}
-              {/*   Same geometry as Layer 1 but NO background — only the border  */}
-              {/*   This border line appears to "trap" the person at the frame edge */}
-              <div
-                className="absolute inset-x-0 bottom-0 rounded-[32px] pointer-events-none"
-                style={{
-                  top: '24%',
-                  zIndex: 30,
-                  border: '1.5px solid color-mix(in oklch, var(--color-primary) 35%, transparent)',
-                  boxShadow: 'inset 0 1px 0 color-mix(in oklch, white 8%, transparent)',
-                }}
-              />
-
-              {/* ── LAYER 3b: bottom fade — blends feet into background ── */}
-              {/*   Hides the image bottom; person appears to "stand" in the frame */}
-              <div
-                className="absolute inset-x-0 bottom-0 pointer-events-none"
-                style={{
-                  height: '18%',
-                  zIndex: 40,
-                  background: 'linear-gradient(to top, var(--color-background) 30%, transparent 100%)',
-                  borderRadius: '0 0 32px 32px',
-                }}
-              />
-
-              {/* ── Floating UI chips (z above all layers) ── */}
-
-              {/* "Open to work" pill — above the frame top edge */}
-              <motion.div
-                initial={{ opacity: 0, y: -12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.1, duration: 0.6 }}
-                className="absolute top-1 left-0 flex items-center gap-2 px-4 py-2 rounded-full shadow-xl"
-                style={{
-                  zIndex: 50,
-                  background: 'color-mix(in oklch, var(--color-background) 70%, transparent)',
-                  backdropFilter: 'blur(12px)',
-                  border: '1px solid color-mix(in oklch, var(--color-primary) 30%, transparent)',
-                }}
-              >
-                <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                <span className="text-[11px] font-mono text-foreground/70 uppercase tracking-widest">
-                  {language === 'en' ? 'Open to work' : 'Disponible'}
-                </span>
-              </motion.div>
-
-              {/* GitHub card — top-right, overlapping the frame corner */}
-              <motion.div
-                initial={{ opacity: 0, x: 16 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1.3, duration: 0.6 }}
-                className="absolute top-[22%] -right-14 p-3 rounded-2xl shadow-xl"
-                style={{
-                  zIndex: 50,
-                  background: 'color-mix(in oklch, var(--color-background) 80%, transparent)',
-                  backdropFilter: 'blur(12px)',
-                  border: '1px solid color-mix(in oklch, var(--color-border) 60%, transparent)',
-                }}
-              >
-                <div className="flex items-center gap-1.5 mb-1">
-                  <GitBranch size={12} className="text-primary" />
-                  <span className="text-[9px] font-mono text-foreground/50 uppercase tracking-wider">GitHub</span>
-                </div>
-                <p className="text-lg font-bold text-foreground leading-none">12+</p>
-                <p className="text-[9px] text-foreground/40 font-mono mt-0.5">
-                  {language === 'en' ? 'Public repos' : 'Dépôts publics'}
-                </p>
-              </motion.div>
-
-              {/* Stack badge — bottom-left, peeking out of frame */}
-              <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.5, duration: 0.6 }}
-                className="absolute bottom-[14%] -left-14 flex items-center gap-2 px-3 py-2 rounded-xl shadow-xl"
-                style={{
-                  zIndex: 50,
-                  background: 'color-mix(in oklch, var(--color-background) 80%, transparent)',
-                  backdropFilter: 'blur(12px)',
-                  border: '1px solid color-mix(in oklch, var(--color-border) 60%, transparent)',
-                }}
-              >
-                <Star size={12} className="text-primary shrink-0" />
-                <span className="text-xs font-bold text-foreground">React</span>
-                <span className="text-foreground/20 text-[10px]">•</span>
-                <span className="text-xs font-bold text-foreground">Node</span>
-                <span className="text-foreground/20 text-[10px]">•</span>
-                <span className="text-xs font-bold text-foreground">SQL</span>
-              </motion.div>
-            </div>
-          </motion.div>
+          {/* ── Right: Pop-Out Image Component ── */}
+          <HeroImage language={language} />
         </div>
 
         {/* ── Scroll indicator — always visible at the bottom of the hero ── */}
