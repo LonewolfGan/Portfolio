@@ -116,7 +116,7 @@ export const Home: React.FC = () => {
       {/* ── Hero ── */}
       <section
         aria-label="Hero"
-        className="relative overflow-hidden bg-background"
+        className="grain relative overflow-hidden bg-background"
         style={{ height: 'calc(100vh - 5rem)', minHeight: 560 }}
       >
         {/* ── Full-height portrait — absolutely fills right side ── */}
