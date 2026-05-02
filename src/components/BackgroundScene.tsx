@@ -12,13 +12,23 @@ export const BackgroundScene: React.FC = () => {
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+
+    let renderer: THREE.WebGLRenderer;
+    try {
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    } catch {
+      return;
+    }
+
+    if (!renderer.capabilities.isWebGL2 && !renderer.getContext()) {
+      renderer.dispose();
+      return;
+    }
 
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     containerRef.current.appendChild(renderer.domElement);
 
-    // Particles
     const particlesGeometry = new THREE.BufferGeometry();
     const count = 2000;
     const positions = new Float32Array(count * 3);
@@ -44,7 +54,6 @@ export const BackgroundScene: React.FC = () => {
 
     camera.position.z = 5;
 
-    // Mouse Interaction
     let mouseX = 0;
     let mouseY = 0;
 
@@ -55,7 +64,6 @@ export const BackgroundScene: React.FC = () => {
 
     window.addEventListener('mousemove', onMouseMove);
 
-    // Animation Loop
     let animationId: number;
     const timer = new THREE.Timer();
 
@@ -66,7 +74,6 @@ export const BackgroundScene: React.FC = () => {
       particles.rotation.y = elapsedTime * 0.05;
       particles.rotation.x = elapsedTime * 0.02;
 
-      // Subtle follow mouse
       particles.position.x += (mouseX * 0.5 - particles.position.x) * 0.05;
       particles.position.y += (-mouseY * 0.5 - particles.position.y) * 0.05;
 
@@ -76,7 +83,6 @@ export const BackgroundScene: React.FC = () => {
 
     animate(performance.now());
 
-    // Resize Handler
     const handleResize = () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
@@ -89,19 +95,15 @@ export const BackgroundScene: React.FC = () => {
       window.removeEventListener('mousemove', onMouseMove);
       window.removeEventListener('resize', handleResize);
       cancelAnimationFrame(animationId);
-      
-      // Proper disposal
       particlesGeometry.dispose();
       particlesMaterial.dispose();
       renderer.dispose();
-      
-      if (containerRef.current) {
+      if (containerRef.current && renderer.domElement.parentNode === containerRef.current) {
         containerRef.current.removeChild(renderer.domElement);
       }
     };
   }, []);
 
-  // Sync theme changes without recreating the whole scene
   useEffect(() => {
     if (materialRef.current) {
       materialRef.current.color.set(theme === 'dark' ? '#4ade80' : '#10b981');
