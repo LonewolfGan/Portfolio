@@ -124,10 +124,10 @@ export const Home: React.FC = () => {
           style={{ width: '58%', zIndex: 0 }}
         >
           <img
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=90&w=900&auto=format&fit=crop"
+            src="/atlas.png"
             alt="Atlas — Junior Full-Stack Developer"
-            className="w-full h-full object-cover object-top"
-            referrerPolicy="no-referrer"
+            className="w-full h-full object-cover"
+            style={{ objectPosition: 'center 20%' }}
             fetchPriority="high"
           />
           {/* Left edge: fades photo into page background */}
