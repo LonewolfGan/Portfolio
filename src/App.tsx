@@ -14,6 +14,7 @@ import { Home } from './pages/Home';
 import { Works } from './pages/Works';
 import { Skills } from './pages/Skills';
 import { About } from './pages/About';
+import { CV } from './pages/CV';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -60,6 +61,7 @@ export default function App() {
                   <Route path="/works" element={<PageWrapper><Works /></PageWrapper>} />
                   <Route path="/skills" element={<PageWrapper><Skills /></PageWrapper>} />
                   <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
+                  <Route path="/cv" element={<PageWrapper><CV /></PageWrapper>} />
                 </Routes>
               </AnimatePresence>
             </main>

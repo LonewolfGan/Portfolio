@@ -33,6 +33,7 @@ export const Navbar: React.FC = () => {
             { name: t('nav.works'), path: '/works' },
             { name: t('nav.skills'), path: '/skills' },
             { name: t('nav.about'), path: '/about' },
+            { name: 'CV', path: '/cv' },
           ].map((item) => (
             <NavLink
               key={item.path}

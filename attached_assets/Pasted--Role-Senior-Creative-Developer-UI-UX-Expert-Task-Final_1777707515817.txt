@@ -1,0 +1,32 @@
+# Role: Senior Creative Developer & UI/UX Expert
+
+# Task: 
+Finalize my multi-page portfolio (React 18, Vite, Tailwind v4) by ensuring perfect text visibility in Dark/Light mode, creating a professional CV section, and implementing a "Pop-out" effect for the Hero image.
+
+# 1. Theme-Aware Visibility (Dark/Light Mode)
+- **Contrast Check:** Ensure all text uses semantic tokens that automatically switch contrast. 
+  - Dark: Background oklch(15% 0 0), Text oklch(98% 0.01 260).
+  - Light: Background oklch(98% 0.01 260), Text oklch(15% 0 0).
+- **Glassmorphism:** Text containers must use dynamic blurring (`backdrop-blur-md`) with borders that adapt: `border-white/10` (Dark) vs `border-black/5` (Light).
+
+# 2. Resume (CV) Integration
+- **CV Page:** Create a dedicated page (`/cv`) that acts as a web-version of my resume.
+- **Content:** Include sections for Education (Database Management), Projects (Quoter, IPTV), and Skills (Python OOP, SQL MariaDB).
+- **Download Action:** Add a standardized button (`min-w-[180px]`, `h-12`, `whitespace-nowrap`) with a Lucide "Download" icon to download the PDF version of the CV.
+
+# 3. Hero "Out-of-Box" Image Effect
+- **Visual Concept:** The image should be placed in a container where the person's head or shoulders "break" the top border of a decorative frame.
+- **Implementation:** 
+  - Use a parent container with `relative` and a background shape (like a colored circle or a glassmorphic card).
+  - Use an `img` with a `max-h` larger than the background shape and `absolute` positioning.
+  - Apply a subtle Three.js glow behind the frame for depth.
+- **Placeholder:** Use a high-quality online portrait URL for now, but ensure the code is ready for my 800x900px photo.
+
+# 4. Mandatory Layout Rules
+- **Buttons:** Maintain perfect symmetry. All buttons must be `min-w-[180px]`, `h-12`, `flex-nowrap`, and `whitespace-nowrap`.
+- **Motion:** Use GSAP to animate the "Pop-out" image so it subtly floats or reacts to mouse movement.
+
+# Output:
+- Provide the updated `app.css` for Tailwind v4 theme tokens.
+- Provide the `Hero` component with the Pop-out effect logic.
+- Provide the `CV` page component and the PDF download link logic.

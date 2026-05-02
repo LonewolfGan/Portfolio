@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Layout, Server, Database, Sparkles, Code2, GitBranch, Star } from 'lucide-react';
-
 import { Button } from '../components/Button';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
@@ -58,17 +57,22 @@ export const Home: React.FC = () => {
 
   return (
     <div ref={container} className="flex flex-col">
-      {/* ── Hero ── */}
-      <section className="relative min-h-screen flex items-center px-6 lg:px-12 bg-background">
-        <div className="max-w-7xl w-full mx-auto z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center h-full pt-10 pb-20">
 
-          {/* Left: intro */}
-          <div className="flex flex-col items-start text-left justify-center h-full">
+      {/* ── Hero: exactly fills the viewport below the fixed 80px navbar ── */}
+      <section
+        className="relative flex flex-col bg-background overflow-hidden"
+        style={{ height: 'calc(100vh - 5rem)' }}
+      >
+        {/* Grid content — fills space, leaving 72px at bottom for scroll indicator */}
+        <div className="flex-1 max-w-7xl w-full mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center py-6 min-h-0">
+
+          {/* ── Left: intro ── */}
+          <div className="flex flex-col items-start text-left justify-center">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="mb-8 inline-flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/20 rounded-full"
+              className="mb-6 inline-flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/20 rounded-full"
             >
               <Sparkles size={12} className="text-primary" />
               <span className="text-[10px] font-mono font-medium text-primary uppercase tracking-[0.2em]">{t('hero.tagline')}</span>
@@ -76,19 +80,19 @@ export const Home: React.FC = () => {
 
             <h1 className="font-display font-bold font-clash tracking-tighter leading-[1.05] text-foreground">
               <div className="overflow-hidden">
-                <span className="block text-4xl md:text-7xl lg:text-8xl">
+                <span className="block text-4xl md:text-6xl lg:text-7xl">
                   {language === 'en' ? "Hi, I'm " : 'Salut, je suis '}
                   <span ref={signatureRef} className="text-gradient font-serif italic inline-block font-normal">Atlas.</span>
                 </span>
               </div>
-              <div className="overflow-hidden mt-4">
-                <span className="block text-3xl md:text-5xl text-foreground font-medium max-w-xl">
+              <div className="overflow-hidden mt-3">
+                <span className="block text-2xl md:text-4xl lg:text-4xl text-foreground font-medium max-w-xl">
                   {t('hero.title.part2')}
                 </span>
               </div>
             </h1>
 
-            <p className="mt-8 text-lg md:text-xl text-foreground/50 max-w-xl font-light leading-relaxed">
+            <p className="mt-5 text-base md:text-lg text-foreground/50 max-w-xl font-light leading-relaxed">
               {t('hero.subtitle')}
             </p>
 
@@ -96,52 +100,62 @@ export const Home: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.8 }}
-              className="mt-12 flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
+              className="mt-8 flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
             >
-              <Button asChild size="md" className="group justify-center" rightIcon={<ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />}>
+              <Button
+                asChild size="md"
+                className="group justify-center min-w-[180px] h-12 whitespace-nowrap"
+                rightIcon={<ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />}
+              >
                 <Link to="/works">{t('hero.cta.primary')}</Link>
               </Button>
-              <Button asChild variant="secondary" size="md" className="justify-center">
+              <Button
+                asChild variant="secondary" size="md"
+                className="justify-center min-w-[160px] h-12 whitespace-nowrap"
+              >
                 <Link to="/about">{t('hero.cta.secondary')}</Link>
               </Button>
             </motion.div>
 
-            {/* Quick stats row */}
+            {/* Quick stats */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.3, duration: 0.8 }}
-              className="mt-12 flex gap-8"
+              className="mt-8 flex gap-8"
             >
               {[
                 { value: '5+', label: language === 'en' ? 'Projects' : 'Projets' },
                 { value: '3+', label: language === 'en' ? 'Languages' : 'Langages' },
-                { value: '2+', label: language === 'en' ? 'Years Learning' : 'Ans d\'apprentissage' },
+                { value: '2+', label: language === 'en' ? 'Yrs learning' : "Ans d'appr." },
               ].map(stat => (
                 <div key={stat.label} className="flex flex-col">
-                  <span className="text-2xl font-bold font-display text-foreground">{stat.value}</span>
+                  <span className="text-xl font-bold font-display text-foreground">{stat.value}</span>
                   <span className="text-[10px] font-mono text-foreground/40 uppercase tracking-widest">{stat.label}</span>
                 </div>
               ))}
             </motion.div>
           </div>
 
-          {/* Right: out-of-box image */}
+          {/* ── Right: out-of-box image ── */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, ease: 'easeOut' }}
-            className="relative hidden lg:flex justify-center items-end h-full pb-16"
+            className="relative hidden lg:flex justify-center items-center h-full"
           >
-            {/* Outer wrapper — large enough to contain the out-of-box elements */}
-            <div className="relative w-[400px] h-[520px]">
+            {/*
+              Outer wrapper: sized to fit comfortably inside the hero.
+              Max height is 80% of the available space so the grid doesn't overflow.
+            */}
+            <div className="relative w-[340px]" style={{ height: 'min(460px, 70vh)' }}>
 
-              {/* "Open to work" pill — floats above the card frame (out of box top) */}
+              {/* "Open to work" pill — floats above the card frame */}
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.1, duration: 0.6 }}
-                className="absolute top-0 left-8 z-30 glass border border-primary/30 px-4 py-2 rounded-full shadow-xl flex items-center gap-2"
+                className="absolute top-0 left-6 z-30 glass border border-primary/30 px-4 py-2 rounded-full shadow-xl flex items-center gap-2"
               >
                 <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
                 <span className="text-[11px] font-mono text-foreground/70 uppercase tracking-widest">
@@ -149,25 +163,28 @@ export const Home: React.FC = () => {
                 </span>
               </motion.div>
 
-              {/* GitHub repos card — overlaps top-right corner of frame (out of box right) */}
+              {/* GitHub repos card — top-right, overlapping frame corner */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 1.3, duration: 0.6 }}
-                className="absolute top-8 right-0 z-30 glass border border-border p-4 rounded-2xl shadow-xl"
+                className="absolute top-6 right-0 z-30 glass border border-border p-3 rounded-2xl shadow-xl"
               >
-                <div className="flex items-center gap-2 mb-1">
-                  <GitBranch size={14} className="text-primary" />
-                  <span className="text-[10px] font-mono text-foreground/50 uppercase tracking-wider">GitHub</span>
+                <div className="flex items-center gap-2 mb-0.5">
+                  <GitBranch size={13} className="text-primary" />
+                  <span className="text-[9px] font-mono text-foreground/50 uppercase tracking-wider">GitHub</span>
                 </div>
-                <p className="text-xl font-bold text-foreground">12+</p>
-                <p className="text-[10px] text-foreground/40 font-mono">
+                <p className="text-lg font-bold text-foreground leading-none">12+</p>
+                <p className="text-[9px] text-foreground/40 font-mono mt-0.5">
                   {language === 'en' ? 'Public repos' : 'Dépôts publics'}
                 </p>
               </motion.div>
 
-              {/* Main card — starts below the pill so it appears "inside the box" */}
-              <div className="absolute inset-x-0 bottom-0 top-[14%] rounded-3xl overflow-hidden glass border border-border shadow-2xl group">
+              {/* Main card — starts 14% from top so pill appears "above" the frame */}
+              <div
+                className="absolute inset-x-0 bottom-0 rounded-3xl overflow-hidden glass border border-border shadow-2xl group"
+                style={{ top: '14%' }}
+              >
                 <img
                   src={DEV_IMAGE}
                   alt="Atlas — Junior Developer"
@@ -176,32 +193,30 @@ export const Home: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
 
-                {/* Terminal snippet overlay — bottom of card (inside box) */}
-                <div className="absolute bottom-0 left-0 right-0 p-5 font-mono text-xs z-10 bg-background/30 backdrop-blur-sm border-t border-border/40">
-                  <div className="flex gap-1.5 mb-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/80" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-green-400/80" />
+                {/* Terminal snippet overlay */}
+                <div className="absolute bottom-0 left-0 right-0 px-4 py-3 font-mono text-[10px] z-10 bg-background/40 backdrop-blur-sm border-t border-border/30">
+                  <div className="flex gap-1.5 mb-1.5">
+                    <span className="w-2 h-2 rounded-full bg-red-400/80" />
+                    <span className="w-2 h-2 rounded-full bg-yellow-400/80" />
+                    <span className="w-2 h-2 rounded-full bg-green-400/80" />
                   </div>
-                  <p className="text-primary/90">
+                  <p className="text-primary/90 leading-relaxed">
                     <span className="text-foreground/40">const </span>atlas
                     <span className="text-foreground/40"> = </span>
-                    <span className="text-primary">new </span>
-                    Developer
-                    <span className="text-foreground/40">();</span>
+                    <span className="text-primary">new </span>Developer<span className="text-foreground/40">();</span>
                   </p>
-                  <p className="text-foreground/30 mt-0.5">// building the future, one commit at a time</p>
+                  <p className="text-foreground/30">// building the future, one commit at a time</p>
                 </div>
               </div>
 
-              {/* Stack badge — overlaps the bottom-left corner of the card (out of box left-bottom) */}
+              {/* Stack badge — bottom-left, overlapping frame */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.5, duration: 0.6 }}
-                className="absolute bottom-6 left-0 z-30 glass border border-border px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2"
+                className="absolute bottom-5 left-0 z-30 glass border border-border px-3 py-2 rounded-xl shadow-xl flex items-center gap-2"
               >
-                <Star size={13} className="text-primary shrink-0" />
+                <Star size={12} className="text-primary shrink-0" />
                 <span className="text-xs font-bold text-foreground">React</span>
                 <span className="text-foreground/20 text-xs">•</span>
                 <span className="text-xs font-bold text-foreground">Node</span>
@@ -212,29 +227,31 @@ export const Home: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2 }}
-          onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-3 cursor-pointer group"
-        >
-          <span className="text-[10px] font-mono uppercase tracking-[0.4em] text-foreground/40 group-hover:text-primary transition-colors">
-            {language === 'en' ? 'Scroll' : 'Défiler'}
-          </span>
+        {/* ── Scroll indicator — always visible at the bottom of the hero ── */}
+        <div className="flex-none h-18 flex items-center justify-center pb-4">
           <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            className="w-6 h-10 rounded-full border border-border group-hover:border-primary/50 flex justify-center pt-2 transition-colors"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2 }}
+            onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
+            className="flex flex-col items-center gap-2 cursor-pointer group"
           >
+            <span className="text-[10px] font-mono uppercase tracking-[0.4em] text-foreground/40 group-hover:text-primary transition-colors">
+              {language === 'en' ? 'Scroll' : 'Défiler'}
+            </span>
             <motion.div
-              animate={{ height: [4, 8, 4], opacity: [1, 0.4, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="w-1 bg-primary rounded-full"
-            />
+              animate={{ y: [0, 6, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+              className="w-6 h-9 rounded-full border border-border group-hover:border-primary/50 flex justify-center pt-2 transition-colors"
+            >
+              <motion.div
+                animate={{ height: [3, 7, 3], opacity: [1, 0.4, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="w-1 bg-primary rounded-full"
+              />
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
       </section>
 
       {/* ── Services ── */}
@@ -266,14 +283,14 @@ export const Home: React.FC = () => {
       </section>
 
       {/* ── Tech Stack strip ── */}
-      <section className="py-16 px-6 border-y border-border overflow-hidden">
+      <section className="py-16 px-6 border-y border-border">
         <div className="max-w-7xl mx-auto">
           <p className="text-center text-[10px] font-mono uppercase tracking-[0.3em] text-foreground/30 mb-10">
             {language === 'en' ? 'Technologies I work with' : 'Technologies avec lesquelles je travaille'}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             {['React', 'TypeScript', 'Node.js', 'Python', 'SQL', 'Tailwind CSS', 'Git', 'Express', 'Three.js', 'REST APIs'].map(tech => (
-              <span key={tech} className="px-5 py-2 rounded-full glass border border-border text-sm font-mono text-foreground/60 hover:text-primary hover:border-primary/30 transition-all">
+              <span key={tech} className="px-5 py-2 rounded-full glass border border-border text-sm font-mono text-foreground/60 hover:text-primary hover:border-primary/30 transition-all cursor-default">
                 {tech}
               </span>
             ))}
@@ -326,7 +343,7 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* ── What I'm learning now ── */}
+      {/* ── Currently learning ── */}
       <section className="py-20 px-6 bg-foreground/[0.02]">
         <div className="max-w-7xl mx-auto">
           <div className="glass border border-border rounded-[40px] p-10 md:p-16 relative overflow-hidden">
@@ -334,7 +351,7 @@ export const Home: React.FC = () => {
             <div className="flex items-center gap-3 mb-8">
               <Code2 size={20} className="text-primary" />
               <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-primary">
-                {language === 'en' ? 'Currently learning' : 'En cours d\'apprentissage'}
+                {language === 'en' ? 'Currently learning' : "En cours d'apprentissage"}
               </span>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -392,9 +409,13 @@ export const Home: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button asChild size="md" className="rounded-full shadow-lg shadow-primary/20">
+            <Button asChild size="md" className="rounded-full shadow-lg shadow-primary/20 min-w-[180px] h-12 whitespace-nowrap">
               <Link to="/about#contact">{t('home.contact.cta')}</Link>
+            </Button>
+            <Button asChild variant="outline" size="md" className="rounded-full min-w-[180px] h-12 whitespace-nowrap">
+              <Link to="/cv">{language === 'en' ? 'View my CV' : 'Voir mon CV'}</Link>
             </Button>
           </motion.div>
         </div>
