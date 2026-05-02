@@ -112,8 +112,9 @@ export const CV: React.FC = () => {
 
           {/* ── Header ── */}
           <motion.header
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16"
           >
             <div>
@@ -167,10 +168,10 @@ export const CV: React.FC = () => {
 
             {/* ── Summary ── */}
             <motion.section
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.05 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
               aria-label="Profile Summary"
               className="glass border border-border rounded-3xl p-8"
             >
@@ -187,10 +188,10 @@ export const CV: React.FC = () => {
 
             {/* ── Experience ── */}
             <motion.section
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.05 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
               aria-label="Work Experience"
             >
               <h2 className="flex items-center gap-3 text-sm font-mono uppercase tracking-[0.2em] text-primary mb-6">
@@ -222,10 +223,10 @@ export const CV: React.FC = () => {
 
             {/* ── Education ── */}
             <motion.section
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.05 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
               aria-label="Education"
             >
               <h2 className="flex items-center gap-3 text-sm font-mono uppercase tracking-[0.2em] text-primary mb-6">
@@ -270,10 +271,10 @@ export const CV: React.FC = () => {
 
             {/* ── Projects ── */}
             <motion.section
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.05 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
               aria-label="Projects"
             >
               <h2 className="flex items-center gap-3 text-sm font-mono uppercase tracking-[0.2em] text-primary mb-6">
@@ -305,10 +306,10 @@ export const CV: React.FC = () => {
 
             {/* ── Skills ── */}
             <motion.section
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.05 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
               aria-label="Technical Skills"
             >
               <h2 className="flex items-center gap-3 text-sm font-mono uppercase tracking-[0.2em] text-primary mb-6">
@@ -343,10 +344,10 @@ export const CV: React.FC = () => {
 
             {/* ── Currently learning ── */}
             <motion.section
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.05 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
               aria-label="Currently Learning"
               className="glass border border-primary/15 rounded-2xl p-7"
             >
