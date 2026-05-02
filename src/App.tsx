@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { gsap } from 'gsap';
@@ -17,6 +17,12 @@ import { About } from './pages/About';
 import { CV } from './pages/CV';
 
 gsap.registerPlugin(ScrollTrigger);
+
+const ScrollToTop: React.FC = () => {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); }, [pathname]);
+  return null;
+};
 
 const PageWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();
@@ -43,6 +49,7 @@ export default function App() {
     <ThemeProvider>
       <LanguageProvider>
         <Router>
+          <ScrollToTop />
           <div ref={containerRef} className="relative min-h-screen">
             <div className="fixed inset-0 grid-bg pointer-events-none opacity-30 text-foreground" />
             <div className="fixed -top-[20%] -left-[10%] w-[500px] h-[500px] glow-sphere opacity-25 pointer-events-none" />
