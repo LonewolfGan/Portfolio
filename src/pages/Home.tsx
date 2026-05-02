@@ -130,11 +130,14 @@ export const Home: React.FC = () => {
             style={{ objectPosition: 'center 20%' }}
             fetchPriority="high"
           />
+          {/* Dark overlay */}
+          <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.35)', zIndex: 1 }} />
           {/* Left edge: fades photo into page background */}
           <div
             className="absolute inset-y-0 left-0"
             style={{
               width: '55%',
+              zIndex: 2,
               background: 'linear-gradient(to right, var(--color-background) 0%, transparent 100%)',
             }}
           />
@@ -143,6 +146,7 @@ export const Home: React.FC = () => {
             className="absolute inset-x-0 bottom-0"
             style={{
               height: '30%',
+              zIndex: 2,
               background: 'linear-gradient(to top, var(--color-background) 0%, transparent 100%)',
             }}
           />
@@ -150,7 +154,7 @@ export const Home: React.FC = () => {
 
         {/* ── Main text content — left column ── */}
         <div
-          className="relative h-full flex flex-col justify-center px-6 lg:px-16 z-10 w-full sm:max-w-[52%]"
+          className="relative h-full flex flex-col justify-center px-6 lg:px-16 z-10 w-full sm:max-w-[62%]"
         >
           {/* Mobile only tagline */}
           <motion.div
