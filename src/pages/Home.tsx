@@ -8,6 +8,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { TechMarquee } from '../components/TechMarquee';
+import { SEO } from '../components/SEO';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -101,10 +102,7 @@ export const Home: React.FC = () => {
 
   return (
     <div ref={container} className="flex flex-col">
-      <title>Atlas Lonewolf | Junior Full-Stack Developer — Portfolio</title>
-      <meta name="description" content="Atlas Lonewolf — Junior Full-Stack Developer. React, Node.js, SQL. Clean interfaces, solid databases." />
-      <meta property="og:title" content="Atlas Lonewolf | Junior Full-Stack Developer" />
-      <meta property="og:description" content="Building clean interfaces & solid databases." />
+      <SEO page="home" />
 
       {/* ── Hero ── */}
       <section
