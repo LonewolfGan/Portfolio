@@ -153,7 +153,7 @@ export const CV: React.FC = () => {
                 className="min-w-[180px] h-12 whitespace-nowrap rounded-full shadow-lg shadow-primary/20"
                 rightIcon={<Download size={18} />}
               >
-                <a href="#" onClick={(e) => { e.preventDefault(); alert(language === 'en' ? 'PDF coming soon — upload your CV file to /public/atlas-cv.pdf' : 'PDF bientôt — uploadez votre CV dans /public/atlas-cv.pdf'); }}>
+                <a href="/atlas-cv.pdf" download="Atlas-Lonewolf-CV.pdf">
                   {language === 'en' ? 'Download PDF' : 'Télécharger PDF'}
                 </a>
               </Button>
@@ -377,14 +377,12 @@ export const CV: React.FC = () => {
               className="min-w-[180px] h-12 whitespace-nowrap rounded-full shadow-lg shadow-primary/20"
               rightIcon={<Download size={18} />}
             >
-              <a href="#" onClick={(e) => { e.preventDefault(); alert(language === 'en' ? 'Upload your CV PDF to /public/atlas-cv.pdf and update this href.' : 'Uploadez votre CV PDF dans /public/atlas-cv.pdf et mettez à jour ce lien.'); }}>
+              <a href="/atlas-cv.pdf" download="Atlas-Lonewolf-CV.pdf">
                 {language === 'en' ? 'Download PDF CV' : 'Télécharger CV PDF'}
               </a>
             </Button>
             <p className="text-xs text-foreground/30 mt-3 font-mono">
-              {language === 'en'
-                ? 'Place your CV PDF at /public/atlas-cv.pdf to enable the download'
-                : 'Placez votre CV PDF dans /public/atlas-cv.pdf pour activer le téléchargement'}
+              {language === 'en' ? 'PDF version' : 'Version PDF'}
             </p>
           </motion.div>
 
