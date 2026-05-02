@@ -352,18 +352,6 @@ export const Home: React.FC = () => {
       {/* ── Contact CTA ── */}
       <section aria-label="Contact" className="py-32 px-6 border-t border-border bg-foreground/[0.01]">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="mb-8 inline-flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/20 rounded-full"
-          >
-            <div className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
-            <span className="text-[10px] font-mono font-medium text-primary uppercase tracking-[0.2em]">
-              {language === 'en' ? 'Available for junior roles & freelance' : 'Disponible pour postes juniors & freelance'}
-            </span>
-          </motion.div>
-
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

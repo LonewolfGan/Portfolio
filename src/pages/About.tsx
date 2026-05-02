@@ -104,20 +104,6 @@ export const About: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
                 </div>
 
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.5 }}
-                  className="absolute -bottom-5 -right-5 z-20 glass border border-border p-4 rounded-2xl shadow-xl"
-                >
-                  <div className="flex items-center gap-2">
-                    <div className="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse" />
-                    <span className="text-xs font-mono text-foreground/70 uppercase tracking-widest">
-                      {language === 'en' ? 'Open to work' : 'Disponible'}
-                    </span>
-                  </div>
-                </motion.div>
-
                 <div className="absolute inset-0 bg-primary/10 blur-[60px] -z-10 rounded-full scale-75" />
               </motion.div>
             </div>
