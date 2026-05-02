@@ -133,12 +133,12 @@
   animation-play-state: paused;
 }
 
-/* ── Logo visibility fixes ── */
-/* Three.js SVG is white → invert to black in light mode */
-img[alt="Three.js"] { filter: invert(1); }
-/* In dark mode, Three.js should stay white */
-.dark img[alt="Three.js"] { filter: none; }
-
-/* Express & Next.js are black → invert to white in dark mode */
-.dark img[alt="Express"],
-.dark img[alt="Next.js"] { filter: invert(1); }
+/* ── Logo filter CSS variables — swap per theme ── */
+:root {
+  --filter-on-dark-bg: invert(1);   /* for white SVGs: make black in light mode */
+  --filter-on-light-bg: none;       /* for black SVGs: fine in light mode */
+}
+.dark {
+  --filter-on-dark-bg: none;        /* white SVGs: keep white in dark mode */
+  --filter-on-light-bg: invert(1);  /* black SVGs: flip to white in dark mode */
+}
