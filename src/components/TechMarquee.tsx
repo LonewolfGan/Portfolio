@@ -8,19 +8,19 @@ const TECHS = [
   { name: 'MySQL',      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg' },
   { name: 'Tailwind',   logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg' },
   { name: 'Git',        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg' },
-  { name: 'Express',    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg',    filterVar: 'var(--filter-on-light-bg)' },
+  { name: 'Express',    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg' },
   { name: 'PHP',        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg' },
   { name: 'PostgreSQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
   { name: 'Docker',     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg' },
-  { name: 'Next.js',    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg',      filterVar: 'var(--filter-on-light-bg)' },
+  { name: 'Next.js',    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg' },
   { name: 'HTML5',      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg' },
   { name: 'CSS3',       logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg' },
   { name: 'VS Code',    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg' },
 ];
 
-interface Tech { name: string; logo: string; filterVar?: string }
+interface Tech { name: string; logo: string }
 
-const Item: React.FC<Tech> = ({ name, logo, filterVar }) => (
+const Item: React.FC<Tech> = ({ name, logo }) => (
   <div className="flex items-center gap-3 px-6 py-3 rounded-2xl border border-border bg-background/60 backdrop-blur-sm hover:border-primary/30 transition-colors select-none shrink-0">
     <img
       src={logo}
@@ -29,8 +29,7 @@ const Item: React.FC<Tech> = ({ name, logo, filterVar }) => (
       height={28}
       loading="lazy"
       decoding="async"
-      className="object-contain"
-      style={filterVar ? { filter: filterVar } : undefined}
+      className="object-contain grayscale"
     />
     <span className="text-sm font-mono text-foreground/60 whitespace-nowrap">{name}</span>
   </div>
