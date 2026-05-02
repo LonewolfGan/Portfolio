@@ -11,8 +11,8 @@
   --color-background: oklch(98% 0.01 260);
   --color-foreground: oklch(15% 0 0);
   
-  --color-primary: oklch(80% 0.15 150); /* Electric Green */
-  --color-accent: oklch(90% 0.05 150);
+  --color-primary: oklch(46% 0.18 150); /* Deep forest green — legible on light bg */
+  --color-accent: oklch(88% 0.08 150);
   
   --color-surface: oklch(95% 0.01 260);
   --color-border: oklch(0% 0 0 / 5%);
@@ -41,6 +41,7 @@
   --color-border: oklch(100% 0 0 / 10%);
   --color-glass: oklch(0% 0 0 / 20%);
   
+  --color-primary: oklch(72% 0.20 150); /* Bright electric green — legible on dark bg */
   --color-brand-surface: #121214;
   /* Hero portrait shape — deep teal in dark mode */
   --color-hero-shape: oklch(26% 0.07 150);
