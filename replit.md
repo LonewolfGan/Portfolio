@@ -23,6 +23,10 @@ A personal portfolio website for "Atlas Lonewolf", a Junior Full-Stack Developer
 - `ThemeContext` — Light/dark mode
 - `LanguageContext` — EN/FR translations
 
+## Notes
+- BackgroundScene (Three.js particles) is wrapped in an ErrorBoundary — degrades gracefully in environments without WebGL (e.g. Replit preview); works fully on Vercel
+- Hero image uses an "out of box" layout: floating pill, GitHub stat card, and tech stack badge appear around the main card frame via Framer Motion with staggered delays
+
 ## Dev Setup
 - Run: `npm run dev` → starts Vite dev server on port 5000 (0.0.0.0)
 - Build: `npm run build` → outputs to `dist/`

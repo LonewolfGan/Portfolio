@@ -1,8 +1,3 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import React, { useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
@@ -11,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { ThemeProvider } from './context/ThemeContext';
 import { LanguageProvider } from './context/LanguageContext';
+import { ErrorBoundary } from './components/ErrorBoundary';
 
 import { Navbar } from './components/Navbar';
 import { BackgroundScene } from './components/BackgroundScene';
@@ -23,7 +19,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const PageWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();
-  
+
   return (
     <motion.div
       key={location.pathname}
@@ -40,21 +36,21 @@ const PageWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 export default function App() {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useGSAP(() => {
-    // Re-initialize GSAP animations when routes change
-  }, { scope: containerRef });
+  useGSAP(() => {}, { scope: containerRef });
 
   return (
     <ThemeProvider>
       <LanguageProvider>
         <Router>
           <div ref={containerRef} className="relative min-h-screen">
-            {/* Ambient Background Layers */}
-            <div className="fixed inset-0 grid-bg pointer-events-none opacity-40 text-foreground" />
-            <div className="fixed -top-[20%] -left-[10%] w-[600px] h-[600px] glow-sphere opacity-40 pointer-events-none" />
-            <div className="fixed bottom-[10%] -right-[5%] w-[400px] h-[400px] glow-sphere opacity-20 pointer-events-none" />
+            <div className="fixed inset-0 grid-bg pointer-events-none opacity-30 text-foreground" />
+            <div className="fixed -top-[20%] -left-[10%] w-[500px] h-[500px] glow-sphere opacity-25 pointer-events-none" />
+            <div className="fixed bottom-[10%] -right-[5%] w-[350px] h-[350px] glow-sphere opacity-15 pointer-events-none" />
 
-            <BackgroundScene />
+            <ErrorBoundary fallback={null}>
+              <BackgroundScene />
+            </ErrorBoundary>
+
             <Navbar />
 
             <main className="relative z-10 pt-20">
@@ -68,17 +64,16 @@ export default function App() {
               </AnimatePresence>
             </main>
 
-            {/* Footer */}
             <footer className="relative z-10 py-12 px-6 border-t border-border">
               <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="flex items-center gap-2">
-                  <div className="w-6 h-6 bg-foreground rounded-full flex items-center justify-center text-[10px] text-background font-bold">A</div>
+                  <div className="w-6 h-6 bg-gradient-to-tr from-primary to-emerald-600 rounded-md flex items-center justify-center text-[10px] text-background font-bold">A</div>
                   <span className="text-sm font-display font-medium tracking-tight uppercase text-foreground">ATLAS LONEWOLF © 2026</span>
                 </div>
                 <div className="flex gap-8 text-xs font-mono text-foreground/50 uppercase tracking-widest">
-                  <a href="#" className="hover:text-primary transition-colors">Twitter</a>
-                  <a href="#" className="hover:text-primary transition-colors">Read.cv</a>
-                  <a href="#" className="hover:text-primary transition-colors">Layers</a>
+                  <a href="https://github.com/LonewolfGan" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">GitHub</a>
+                  <a href="mailto:atlaslonewolf00@gmail.com" className="hover:text-primary transition-colors">Email</a>
+                  <a href="https://www.linkedin.com/in/atlas-lonewolf" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">LinkedIn</a>
                 </div>
                 <div className="text-xs text-foreground/30">
                   Crafted with Precision.

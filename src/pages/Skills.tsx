@@ -1,70 +1,85 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Database, Palette, ShieldCheck, Terminal, Layers } from 'lucide-react';
+import { Database, Palette, Terminal, Layers, GitBranch, Zap } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 const getSkillGroups = (language: string) => [
   {
-    title: language === 'en' ? "Languages" : "Langages",
+    title: language === 'en' ? 'Languages' : 'Langages',
     icon: <Terminal className="text-primary" size={24} />,
     skills: [
-      { name: "Python", details: language === 'en' ? "Advanced OOP & System Automation" : "POO Avancée & Automatisation Système" },
-      { name: "SQL", details: language === 'en' ? "MariaDB, MySQL, Implementation" : "MariaDB, MySQL, Implémentation" },
-      { name: "TypeScript", details: language === 'en' ? "Strict Typing & React Ecosystem" : "Typage Strict & Écosystème React" },
-      { name: "C++", details: language === 'en' ? "Embedded Systems & Low Level" : "Systèmes Embarqués & Bas Niveau" }
-    ]
+      { name: 'JavaScript / TypeScript', details: language === 'en' ? 'ES6+, async/await, type-safe React' : 'ES6+, async/await, React typé' },
+      { name: 'Python', details: language === 'en' ? 'OOP, scripting, Flask APIs, OpenCV' : 'POO, scripts, APIs Flask, OpenCV' },
+      { name: 'SQL', details: language === 'en' ? 'MariaDB, MySQL, MCD/MLD design' : 'MariaDB, MySQL, conception MCD/MLD' },
+      { name: 'PHP', details: language === 'en' ? 'Server-side logic, file handling' : 'Logique serveur, gestion de fichiers' },
+      { name: 'C++', details: language === 'en' ? 'Fundamentals, embedded systems basics' : 'Fondamentaux, bases systèmes embarqués' },
+    ],
   },
   {
-    title: language === 'en' ? "Modeling & Data" : "Modélisation & Données",
-    icon: <Database className="text-primary" size={24} />,
-    skills: [
-      { name: language === 'en' ? "Database Design" : "Conception BD", details: "MCD / MLD Architectures" },
-      { name: language === 'en' ? "System Design" : "Design Système", details: language === 'en' ? "Clean Application Logic" : "Logique d'Application Propre" },
-      { name: "API Logic", details: language === 'en' ? "RESTful Patterns" : "Modèles RESTful" }
-    ]
-  },
-  {
-    title: language === 'en' ? "Design & UX" : "Design & UX",
+    title: language === 'en' ? 'Frontend' : 'Frontend',
     icon: <Palette className="text-primary" size={24} />,
     skills: [
-      { name: language === 'en' ? "UI/UX Design" : "Design UI/UX", details: language === 'en' ? "Interface Architecture" : "Architecture d'Interface" },
-      { name: language === 'en' ? "Minimalist Styling" : "Stylisme Minimaliste", details: language === 'en' ? "Visual Systems" : "Systèmes Visuels" },
-      { name: language === 'en' ? "Asset Creation" : "Création d'Assets", details: language === 'en' ? "AI-Driven Professional Assets" : "Assets Professionnels IA" }
-    ]
+      { name: 'React 19', details: language === 'en' ? 'Hooks, Context, React Router, Redux Toolkit' : 'Hooks, Context, React Router, Redux Toolkit' },
+      { name: 'Tailwind CSS', details: language === 'en' ? 'Utility-first, responsive, dark mode' : 'Utility-first, responsive, dark mode' },
+      { name: 'Framer Motion', details: language === 'en' ? 'Animations, page transitions' : 'Animations, transitions de pages' },
+      { name: 'Three.js', details: language === 'en' ? 'WebGL particle systems, 3D scenes' : 'Particules WebGL, scènes 3D' },
+      { name: 'GSAP', details: language === 'en' ? 'Timeline animations, ScrollTrigger' : 'Animations en timeline, ScrollTrigger' },
+    ],
   },
   {
-    title: language === 'en' ? "Frameworks & Tools" : "Frameworks & Outils",
-    icon: <ShieldCheck className="text-primary" size={24} />,
+    title: language === 'en' ? 'Backend & Data' : 'Backend & Données',
+    icon: <Database className="text-primary" size={24} />,
     skills: [
-      { name: "React 18", details: language === 'en' ? "Modern Hook-based Workflows" : "Workflows Modernes basés sur les Hooks" },
-      { name: "Node.js", details: language === 'en' ? "Express & Backend Services" : "Express & Services Backend" },
-      { name: "Tailwind CSS", details: language === 'en' ? "Utility-First Styling" : "Stylisme Utility-First" }
-    ]
-  }
+      { name: 'Node.js / Express', details: language === 'en' ? 'REST APIs, middleware, routing' : 'APIs REST, middleware, routage' },
+      { name: 'Database Modeling', details: language === 'en' ? 'MCD/MLD, relational schemas, integrity' : 'MCD/MLD, schémas relationnels, intégrité' },
+      { name: 'REST API Integration', details: language === 'en' ? 'TMDB, third-party services, JSON' : 'TMDB, services tiers, JSON' },
+      { name: 'Flask', details: language === 'en' ? 'Python microservices, image processing' : 'Microservices Python, traitement d\'images' },
+    ],
+  },
+  {
+    title: language === 'en' ? 'Tools & Workflow' : 'Outils & Workflow',
+    icon: <GitBranch className="text-primary" size={24} />,
+    skills: [
+      { name: 'Git / GitHub', details: language === 'en' ? 'Version control, branches, pull requests' : 'Contrôle de version, branches, PRs' },
+      { name: 'Vite', details: language === 'en' ? 'Fast bundling, HMR, module config' : 'Bundling rapide, HMR, config modules' },
+      { name: 'VS Code', details: language === 'en' ? 'Extensions, debugger, workspace setup' : 'Extensions, débogueur, config workspace' },
+      { name: 'Vercel / Netlify', details: language === 'en' ? 'CI/CD deployments, preview URLs' : 'Déploiements CI/CD, URLs de preview' },
+    ],
+  },
+];
+
+const getLearning = (language: string) => [
+  { name: 'Next.js', desc: language === 'en' ? 'SSR, App Router, full-stack React' : 'SSR, App Router, React full-stack' },
+  { name: 'Docker', desc: language === 'en' ? 'Containerisation & reproducible builds' : 'Conteneurisation & builds reproductibles' },
+  { name: 'PostgreSQL', desc: language === 'en' ? 'Advanced SQL, indexing strategies' : 'SQL avancé, stratégies d\'indexation' },
+  { name: 'Testing (Jest)', desc: language === 'en' ? 'Unit tests & TDD fundamentals' : 'Tests unitaires & bases TDD' },
 ];
 
 export const Skills: React.FC = () => {
   const { language } = useLanguage();
   const SKILL_GROUPS = getSkillGroups(language);
+  const LEARNING = getLearning(language);
 
   return (
     <section className="py-32 px-6">
       <div className="max-w-7xl mx-auto">
+        {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-24">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="font-display font-clash text-4xl md:text-6xl font-medium tracking-tight mb-6 text-foreground"
           >
-            {language === 'en' ? "Technical Stack" : "Stack Technique"}
+            {language === 'en' ? 'Technical Stack' : 'Stack Technique'}
           </motion.h2>
           <p className="text-foreground/50 text-lg leading-relaxed font-light">
-            {language === 'en' 
-              ? "A focused overview of my core technical pillars, from foundational logic to modern frontend implementation." 
-              : "Un aperçu ciblé de mes piliers techniques, de la logique fondamentale à l'implémentation frontend moderne."}
+            {language === 'en'
+              ? 'A practical overview of the tools and languages I use to build real projects — from frontend interfaces to database schemas.'
+              : 'Un aperçu pratique des outils et langages que j\'utilise pour construire de vrais projets — des interfaces frontend aux schémas de bases de données.'}
           </p>
         </div>
 
+        {/* Skill groups grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {SKILL_GROUPS.map((group, idx) => (
             <motion.div
@@ -74,10 +89,10 @@ export const Skills: React.FC = () => {
               transition={{ delay: idx * 0.1 }}
               className="glass p-10 rounded-[32px] border border-border relative overflow-hidden group"
             >
-              <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+              <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
                 {React.cloneElement(group.icon as React.ReactElement, { size: 120 })}
               </div>
-              
+
               <div className="flex items-center gap-4 mb-8">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
                   {group.icon}
@@ -97,18 +112,36 @@ export const Skills: React.FC = () => {
           ))}
         </div>
 
-        {/* Technical Philosophy */}
-        <div className="mt-24 glass p-12 rounded-[40px] border border-border text-center relative overflow-hidden">
-           <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent pointer-events-none" />
-           <Layers className="mx-auto mb-6 text-primary/40" size={40} />
-           <h3 className="text-2xl font-display font-clash text-foreground mb-4">
-             {language === 'en' ? 'The Logic-First Architecture' : 'L\'Architecture Orientée Logique'}
-           </h3>
-           <p className="max-w-2xl mx-auto text-foreground/50 leading-relaxed font-light">
-             {language === 'en' 
-               ? "I prioritize the underlying structure and modularity of code. For me, every tool selected must reinforce the industrial-grade integrity of the application."
-               : "Je privilégie la structure sous-jacente et la modularité du code. Pour moi, chaque outil sélectionné doit renforcer l'intégrité de niveau industriel de l'application."}
-           </p>
+        {/* Currently learning */}
+        <div className="mt-16 glass p-10 md:p-14 rounded-[40px] border border-border relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent pointer-events-none" />
+          <div className="flex items-center gap-3 mb-10">
+            <Zap size={20} className="text-primary" />
+            <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-primary">
+              {language === 'en' ? 'Currently learning' : 'En cours d\'apprentissage'}
+            </span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {LEARNING.map(item => (
+              <div key={item.name} className="flex flex-col gap-2">
+                <h4 className="text-foreground font-bold">{item.name}</h4>
+                <p className="text-foreground/40 text-sm font-light">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Philosophy */}
+        <div className="mt-10 glass p-12 rounded-[40px] border border-border text-center relative overflow-hidden">
+          <Layers className="mx-auto mb-6 text-primary/40" size={40} />
+          <h3 className="text-2xl font-display font-clash text-foreground mb-4">
+            {language === 'en' ? 'The Logic-First Approach' : 'L\'approche orientée logique'}
+          </h3>
+          <p className="max-w-2xl mx-auto text-foreground/50 leading-relaxed font-light">
+            {language === 'en'
+              ? "I focus on understanding the fundamentals deeply before reaching for libraries. Every tool I add must solve a real problem — not just look impressive on a resume."
+              : "Je me concentre sur une compréhension profonde des fondamentaux avant d'utiliser des bibliothèques. Chaque outil que j'ajoute doit résoudre un vrai problème — pas juste impressionner sur un CV."}
+          </p>
         </div>
       </div>
     </section>
