@@ -39,7 +39,7 @@ const translations = {
     'works.caseStudy': 'Case Study',
     // Home Contact
     'home.contact.title': 'Ready to start a project?',
-    'home.contact.subtitle': "I'm currently available for freelance work and junior roles. Let's build something beautiful together.",
+    'home.contact.subtitle': "Got a project or an idea? Let's build something beautiful together.",
     'home.contact.cta': 'Get in touch',
     // About
     'about.title': 'The Architect behind',
@@ -95,7 +95,7 @@ const translations = {
     'works.caseStudy': 'Étude de cas',
     // Home Contact
     'home.contact.title': 'Prêt à lancer un projet ?',
-    'home.contact.subtitle': 'Je suis actuellement disponible pour du freelance et des rôles junior. Construisons quelque chose de magnifique ensemble.',
+    'home.contact.subtitle': 'Un projet ou une idée ? Construisons quelque chose de magnifique ensemble.',
     'home.contact.cta': 'Me contacter',
     // About
     'about.title': "L'Architecte derrière",

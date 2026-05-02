@@ -95,7 +95,7 @@ export const About: React.FC = () => {
   return (
     <main>
       <title>About | Atlas Lonewolf</title>
-      <meta name="description" content="About Atlas Lonewolf — junior full-stack developer, self-taught, open to junior roles and internships." />
+      <meta name="description" content="About Atlas Lonewolf — junior full-stack developer building clean React interfaces and solid SQL backends." />
 
       <div className="flex flex-col">
         {/* ── Profile ── */}

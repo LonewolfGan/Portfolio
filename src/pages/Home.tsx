@@ -7,7 +7,6 @@ import { useLanguage } from '../context/LanguageContext';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import { HeroImage } from '../components/HeroImage';
 import { TechMarquee } from '../components/TechMarquee';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -109,9 +108,9 @@ export const Home: React.FC = () => {
     <div ref={container} className="flex flex-col">
       {/* ── Page-level meta (React 19 hoists these to <head>) ── */}
       <title>Atlas Lonewolf | Junior Full-Stack Developer — Portfolio</title>
-      <meta name="description" content="Atlas Lonewolf — Junior Full-Stack Developer. React, Node.js, SQL. Open to junior roles and freelance." />
+      <meta name="description" content="Atlas Lonewolf — Junior Full-Stack Developer. React, Node.js, SQL. Clean interfaces, solid databases." />
       <meta property="og:title" content="Atlas Lonewolf | Junior Full-Stack Developer" />
-      <meta property="og:description" content="Building clean interfaces & solid databases. Open to junior roles and freelance." />
+      <meta property="og:description" content="Building clean interfaces & solid databases." />
 
       {/* ── Hero ── */}
       <section
@@ -119,9 +118,9 @@ export const Home: React.FC = () => {
         className="grain relative overflow-hidden bg-background mb-12"
         style={{ height: 'calc(100vh - 5rem)', minHeight: 560 }}
       >
-        {/* ── Full-height portrait — absolutely fills right side ── */}
+        {/* ── Full-height portrait — absolutely fills right side (desktop only) ── */}
         <div
-          className="absolute top-0 right-0 h-full"
+          className="hidden sm:block absolute top-0 right-0 h-full"
           style={{ width: '58%', zIndex: 0 }}
         >
           <img
@@ -151,8 +150,7 @@ export const Home: React.FC = () => {
 
         {/* ── Main text content — left column ── */}
         <div
-          className="relative h-full flex flex-col justify-center px-6 lg:px-16 z-10"
-          style={{ maxWidth: '52%' }}
+          className="relative h-full flex flex-col justify-center px-6 lg:px-16 z-10 w-full sm:max-w-[52%]"
         >
           {/* Mobile only tagline */}
           <motion.div
