@@ -58,42 +58,42 @@ export const Home: React.FC = () => {
 
     gsap.from('.service-card', {
       opacity: 0,
-      y: 50,
-      stagger: 0.12,
-      duration: 0.85,
-      ease: 'power3.out',
+      y: 30,
+      stagger: 0.1,
+      duration: 0.9,
+      ease: 'power4.out',
       immediateRender: false,
       scrollTrigger: {
         trigger: '.services-grid',
-        start: 'top 82%',
+        start: 'top 88%',
         once: true,
       },
     });
 
     gsap.from('.project-card', {
       opacity: 0,
-      y: 60,
-      stagger: 0.15,
-      duration: 0.9,
-      ease: 'power3.out',
+      y: 35,
+      stagger: 0.12,
+      duration: 0.95,
+      ease: 'power4.out',
       immediateRender: false,
       scrollTrigger: {
         trigger: '.projects-grid',
-        start: 'top 80%',
+        start: 'top 88%',
         once: true,
       },
     });
 
     gsap.from('.learning-item', {
       opacity: 0,
-      x: -20,
-      stagger: 0.1,
-      duration: 0.7,
-      ease: 'power3.out',
+      x: -14,
+      stagger: 0.08,
+      duration: 0.75,
+      ease: 'power4.out',
       immediateRender: false,
       scrollTrigger: {
         trigger: '.learning-section',
-        start: 'top 85%',
+        start: 'top 88%',
         once: true,
       },
     });
@@ -224,7 +224,7 @@ export const Home: React.FC = () => {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.3, duration: 0.7 }}
-            className="flex gap-8 border-t border-border/40 pt-4"
+            className="flex gap-8 pt-2"
           >
             {[
               { value: '5+', label: language === 'en' ? 'Projects' : 'Projets' },
@@ -350,29 +350,30 @@ export const Home: React.FC = () => {
       <section aria-label="Contact" className="py-32 px-6 border-t border-border bg-foreground/[0.01]">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="text-4xl md:text-6xl font-display font-clash font-bold text-foreground mb-8"
           >
             {t('home.contact.title')}
           </motion.h2>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ delay: 0.1, duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="text-lg text-foreground/50 max-w-xl mx-auto mb-12 font-light leading-relaxed"
           >
             {t('home.contact.subtitle')}
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ delay: 0.2, duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Button asChild size="md" className="rounded-full shadow-lg shadow-primary/20 min-w-[180px] h-12 whitespace-nowrap">
