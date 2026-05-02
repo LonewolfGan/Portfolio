@@ -110,7 +110,7 @@ export const Home: React.FC = () => {
               </Button>
               <Button
                 asChild variant="secondary" size="md"
-                className="justify-center min-w-[160px] h-12 whitespace-nowrap"
+                className="justify-center min-w-[180px] h-12 whitespace-nowrap"
               >
                 <Link to="/about">{t('hero.cta.secondary')}</Link>
               </Button>

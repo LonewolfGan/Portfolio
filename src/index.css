@@ -19,6 +19,8 @@
   --color-glass: oklch(100% 0 0 / 40%);
   
   --color-brand-surface: oklch(92% 0.01 260);
+  /* Hero portrait shape — soft mint in light mode */
+  --color-hero-shape: oklch(86% 0.10 150);
 
   --radius-card: 8px;
   --radius-button: 12px;
@@ -40,6 +42,8 @@
   --color-glass: oklch(0% 0 0 / 20%);
   
   --color-brand-surface: #121214;
+  /* Hero portrait shape — deep teal in dark mode */
+  --color-hero-shape: oklch(26% 0.07 150);
 }
 
 @layer base {
