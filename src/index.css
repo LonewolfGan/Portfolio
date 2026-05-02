@@ -133,9 +133,12 @@
   animation-play-state: paused;
 }
 
-/* ── Logo filter: invert Express & Three.js in dark mode ── */
+/* ── Logo visibility fixes ── */
+/* Three.js SVG is white → invert to black in light mode */
+img[alt="Three.js"] { filter: invert(1); }
+/* In dark mode, Three.js should stay white */
+.dark img[alt="Three.js"] { filter: none; }
+
+/* Express & Next.js are black → invert to white in dark mode */
 .dark img[alt="Express"],
-.dark img[alt="Three.js"],
-.dark img[alt="Next.js"] {
-  filter: invert(1);
-}
+.dark img[alt="Next.js"] { filter: invert(1); }
