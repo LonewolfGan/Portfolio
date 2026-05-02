@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { ExternalLink, Github, Code2 } from 'lucide-react';
 import { Button } from '../components/Button';
 import { useLanguage } from '../context/LanguageContext';
+import { SEO } from '../components/SEO';
 
 const getProjects = (language: string) => [
   {
@@ -68,8 +69,7 @@ export const Works: React.FC = () => {
 
   return (
     <main>
-      <title>Works | Atlas Lonewolf</title>
-      <meta name="description" content="Projects by Atlas Lonewolf — React apps, Python systems, SQL databases, and more." />
+      <SEO page="works" />
 
       <section aria-label="Projects" className="py-32 px-6">
         <div className="max-w-7xl mx-auto">
