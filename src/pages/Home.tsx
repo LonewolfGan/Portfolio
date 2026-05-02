@@ -8,6 +8,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { HeroImage } from '../components/HeroImage';
+import { TechMarquee } from '../components/TechMarquee';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -64,6 +65,7 @@ export const Home: React.FC = () => {
       stagger: 0.12,
       duration: 0.85,
       ease: 'power3.out',
+      immediateRender: false,
       scrollTrigger: {
         trigger: '.services-grid',
         start: 'top 82%',
@@ -71,19 +73,6 @@ export const Home: React.FC = () => {
       },
     });
 
-    // ── Tech pills — fade in as one group ──
-    gsap.from('.tech-pill', {
-      opacity: 0,
-      y: 20,
-      stagger: 0.04,
-      duration: 0.6,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: '.tech-strip',
-        start: 'top 88%',
-        once: true,
-      },
-    });
 
     // ── Featured project cards — staggered slide-up ──
     gsap.from('.project-card', {
@@ -92,6 +81,7 @@ export const Home: React.FC = () => {
       stagger: 0.15,
       duration: 0.9,
       ease: 'power3.out',
+      immediateRender: false,
       scrollTrigger: {
         trigger: '.projects-grid',
         start: 'top 80%',
@@ -106,9 +96,10 @@ export const Home: React.FC = () => {
       stagger: 0.1,
       duration: 0.7,
       ease: 'power3.out',
+      immediateRender: false,
       scrollTrigger: {
         trigger: '.learning-section',
-        start: 'top 82%',
+        start: 'top 85%',
         once: true,
       },
     });
@@ -259,21 +250,8 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* ── Tech Stack strip ── */}
-      <section aria-label="Technologies" className="tech-strip py-16 px-6 border-y border-border">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-center text-[10px] font-mono uppercase tracking-[0.3em] text-foreground/30 mb-10">
-            {language === 'en' ? 'Technologies I work with' : 'Technologies avec lesquelles je travaille'}
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            {['React', 'TypeScript', 'Node.js', 'Python', 'SQL', 'Tailwind CSS', 'Git', 'Express', 'Three.js', 'REST APIs'].map(tech => (
-              <span key={tech} className="tech-pill px-5 py-2 rounded-full glass border border-border text-sm font-mono text-foreground/60 hover:text-primary hover:border-primary/30 transition-all cursor-default">
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ── Tech Stack infinite marquee ── */}
+      <TechMarquee language={language} />
 
       {/* ── Featured Work ── */}
       <section aria-label="Featured Projects" className="py-24 px-6">
