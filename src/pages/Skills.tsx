@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Database, Palette, Terminal, Layers, GitBranch, Zap } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { SEO } from '../components/SEO';
 
 const getSkillGroups = (language: string) => [
   {
@@ -62,8 +63,7 @@ export const Skills: React.FC = () => {
 
   return (
     <main>
-      <title>Skills | Atlas Lonewolf</title>
-      <meta name="description" content="Technical stack of Atlas Lonewolf — JavaScript, TypeScript, React, Python, SQL, Node.js and more." />
+      <SEO page="skills" />
 
       <section aria-label="Technical Skills" className="py-32 px-6">
         <div className="max-w-7xl mx-auto">
