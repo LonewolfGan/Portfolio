@@ -1,20 +1,84 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Atlas Lonewolf — Portfolio
 
-# Run and deploy your AI Studio app
+Personal portfolio for **Atlas Lonewolf**, junior full-stack developer.  
+Built with React 19, Vite 6, TypeScript, and Tailwind CSS v4.
 
-This contains everything you need to run your app locally.
+---
 
-View your app in AI Studio: https://ai.studio/apps/59facad3-9825-44c2-a6a9-6828887bfc8e
+## Stack
 
-## Run Locally
+| Layer | Tech |
+|---|---|
+| Framework | React 19 + TypeScript |
+| Build | Vite 6 |
+| Styling | Tailwind CSS v4 |
+| Animations | Framer Motion, GSAP + ScrollTrigger |
+| Routing | React Router DOM v7 |
+| Email | Resend API (serverless) |
+| Deployment | Vercel |
 
-**Prerequisites:**  Node.js
+---
 
+## Pages
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+| Route | Description |
+|---|---|
+| `/` | Home — editorial hero, tech marquee, featured works |
+| `/works` | Works — project case studies |
+| `/skills` | Skills — tech stack & skill groups |
+| `/about` | About — bio & contact form |
+| `/cv` | CV — downloadable résumé |
+| `*` | 404 — countdown redirect to home |
+
+---
+
+## Getting Started
+
+```bash
+npm install
+npm run dev        # http://localhost:5000
+npm run build      # production build → dist/
+```
+
+---
+
+## Environment Variables
+
+| Variable | Where | Purpose |
+|---|---|---|
+| `RESEND_API_KEY` | Replit Secrets + Vercel Dashboard | Powers the contact form |
+
+---
+
+## Deployment
+
+The project is configured for **Vercel**:
+
+- `vercel.json` handles SPA routing (no 404 on refresh) and routes `/api/*` to serverless functions
+- `api/contact.ts` — Resend serverless function for the contact form
+- `public/manifest.json` — PWA manifest
+
+To deploy: push to GitHub and connect the repo in the Vercel dashboard. Add `RESEND_API_KEY` in Vercel → Settings → Environment Variables.
+
+---
+
+## Assets
+
+| File | Purpose |
+|---|---|
+| `public/atlas.png` | Hero portrait |
+| `public/atlas-cv.pdf` | CV download (add your own) |
+| `public/favicon.svg` | Site favicon |
+
+---
+
+## Features
+
+- Bilingual — English / French
+- Dark / Light mode
+- Responsive — mobile first
+- Grain texture overlay on hero
+- Infinite tech marquee (devicon logos)
+- Contact form → email via Resend
+- Auto scroll-to-top on navigation
+- 404 page with 5-second countdown redirect
