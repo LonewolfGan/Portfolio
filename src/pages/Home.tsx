@@ -149,17 +149,6 @@ export const Home: React.FC = () => {
           />
         </div>
 
-        {/* ── Top label — centred above the fold ── */}
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="absolute top-8 left-1/2 -translate-x-1/2 hidden lg:flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/20 rounded-full z-10"
-        >
-          <Sparkles size={12} className="text-primary" />
-          <span className="text-[10px] font-mono font-medium text-primary uppercase tracking-[0.2em]">{t('hero.tagline')}</span>
-        </motion.div>
-
         {/* ── Main text content — left column ── */}
         <div
           className="relative h-full flex flex-col justify-center px-6 lg:px-16 z-10"
