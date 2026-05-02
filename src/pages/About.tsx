@@ -4,7 +4,7 @@ import { Mail, Linkedin, Github, Send, Briefcase, GraduationCap, MapPin, BookOpe
 import { Button } from '../components/Button';
 import { useLanguage } from '../context/LanguageContext';
 
-const ABOUT_IMAGE = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop";
+const ABOUT_IMAGE = "/atlas.png";
 
 export const About: React.FC = () => {
   const { t, language } = useLanguage();
@@ -110,19 +110,29 @@ export const About: React.FC = () => {
                 transition={{ duration: 0.7 }}
                 className="relative"
               >
-                <div className="w-72 h-72 md:w-96 md:h-96 rounded-[48px] overflow-hidden glass border border-border shadow-2xl relative z-10">
+                {/* Outer glow ring */}
+                <div className="absolute inset-0 bg-primary/15 blur-[70px] -z-10 rounded-full scale-90" />
+                {/* Rotated accent frame */}
+                <div className="absolute inset-0 rounded-[56px] border-2 border-primary/20 rotate-3 scale-105 -z-10" />
+                <div className="absolute inset-0 rounded-[56px] border border-primary/10 -rotate-2 scale-110 -z-10" />
+
+                <div className="w-72 h-[22rem] md:w-96 md:h-[30rem] rounded-[48px] overflow-hidden shadow-2xl relative z-10">
                   <img
                     src={ABOUT_IMAGE}
                     alt="Atlas Lonewolf — Junior Full-Stack Developer"
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-full object-cover object-center grayscale brightness-80"
-                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover"
+                    style={{ objectPosition: 'center 15%' }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
+                  {/* Bottom name tag */}
+                  <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/70 via-black/30 to-transparent">
+                    <p className="text-white font-display font-bold text-lg leading-none">Atlas Lonewolf</p>
+                    <p className="text-white/60 text-xs font-mono uppercase tracking-widest mt-1">
+                      {language === 'en' ? 'Full-Stack Developer' : 'Développeur Full-Stack'}
+                    </p>
+                  </div>
                 </div>
-
-                <div className="absolute inset-0 bg-primary/10 blur-[60px] -z-10 rounded-full scale-75" />
               </motion.div>
             </div>
 
