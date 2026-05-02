@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { Mail, Linkedin, Github, Send, Briefcase, GraduationCap, MapPin, BookOpen } from 'lucide-react';
 import { Button } from '../components/Button';
 import { useLanguage } from '../context/LanguageContext';
+import { SEO } from '../components/SEO';
 
 const ABOUT_IMAGE = "/atlas.png";
 
@@ -94,8 +95,7 @@ export const About: React.FC = () => {
 
   return (
     <main>
-      <title>About | Atlas Lonewolf</title>
-      <meta name="description" content="About Atlas Lonewolf — junior full-stack developer building clean React interfaces and solid SQL backends." />
+      <SEO page="about" />
 
       <div className="flex flex-col">
         {/* ── Profile ── */}
