@@ -105,9 +105,9 @@ export const About: React.FC = () => {
             {/* Photo */}
             <div className="lg:w-1/2 relative flex justify-center">
               <motion.div
-                initial={{ opacity: 0, scale: 0.85 }}
+                initial={{ opacity: 0, scale: 0.92 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.7 }}
+                transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
                 className="relative"
               >
                 {/* Outer glow ring */}
@@ -139,9 +139,9 @@ export const About: React.FC = () => {
             {/* Bio */}
             <div className="lg:w-1/2 flex flex-col gap-8">
               <motion.h1
-                initial={{ opacity: 0, x: 20 }}
+                initial={{ opacity: 0, x: 16 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.7 }}
+                transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
                 className="text-4xl md:text-6xl font-display font-clash font-bold text-foreground"
               >
                 {t('about.title')}<br />
@@ -196,10 +196,10 @@ export const About: React.FC = () => {
                   {experienceData.map((exp, idx) => (
                     <motion.div
                       key={idx}
-                      initial={{ opacity: 0, x: -20 }}
+                      initial={{ opacity: 0, x: -12 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: idx * 0.1, duration: 0.6 }}
+                      viewport={{ once: true, amount: 0.15 }}
+                      transition={{ delay: idx * 0.08, duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
                       className="flex gap-8"
                     >
                       <div className="font-mono text-xs text-primary font-bold pt-1 shrink-0">{exp.year}</div>
