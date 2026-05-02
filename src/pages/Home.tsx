@@ -48,7 +48,6 @@ export const Home: React.FC = () => {
   const FEATURED_PROJECTS = getFeaturedProjects(language);
 
   useGSAP(() => {
-    // ── Signature entrance ──
     if (signatureRef.current) {
       gsap.fromTo(
         signatureRef.current,
@@ -57,7 +56,6 @@ export const Home: React.FC = () => {
       );
     }
 
-    // ── Service cards — staggered slide-up on scroll ──
     gsap.from('.service-card', {
       opacity: 0,
       y: 50,
@@ -72,8 +70,6 @@ export const Home: React.FC = () => {
       },
     });
 
-
-    // ── Featured project cards — staggered slide-up ──
     gsap.from('.project-card', {
       opacity: 0,
       y: 60,
@@ -88,7 +84,6 @@ export const Home: React.FC = () => {
       },
     });
 
-    // ── "Currently learning" section ──
     gsap.from('.learning-item', {
       opacity: 0,
       x: -20,
@@ -106,7 +101,6 @@ export const Home: React.FC = () => {
 
   return (
     <div ref={container} className="flex flex-col">
-      {/* ── Page-level meta (React 19 hoists these to <head>) ── */}
       <title>Atlas Lonewolf | Junior Full-Stack Developer — Portfolio</title>
       <meta name="description" content="Atlas Lonewolf — Junior Full-Stack Developer. React, Node.js, SQL. Clean interfaces, solid databases." />
       <meta property="og:title" content="Atlas Lonewolf | Junior Full-Stack Developer" />
@@ -118,7 +112,6 @@ export const Home: React.FC = () => {
         className="grain relative overflow-hidden bg-background mb-12"
         style={{ height: 'calc(100vh - 5rem)', minHeight: 560 }}
       >
-        {/* ── Full-height portrait — absolutely fills right side (desktop only) ── */}
         <div
           className="hidden sm:block absolute top-0 right-0 h-full"
           style={{ width: '58%', zIndex: 0 }}
@@ -130,18 +123,27 @@ export const Home: React.FC = () => {
             style={{ objectPosition: 'center 20%' }}
             fetchPriority="high"
           />
-          {/* Dark overlay */}
-          <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.35)', zIndex: 1 }} />
+          {/* Overlay — dark mode only */}
+          <div className="absolute inset-0 hidden dark:block dark:bg-black/35" style={{ zIndex: 1 }} />
           {/* Left edge: fades photo into page background */}
           <div
-            className="absolute inset-y-0 left-0"
+            className="hidden dark:block absolute inset-y-0 left-0"
             style={{
-              width: '55%',
+              width: '38%',
               zIndex: 2,
               background: 'linear-gradient(to right, var(--color-background) 0%, transparent 100%)',
             }}
           />
-          {/* Bottom edge: subtle fade */}
+          {/* Top edge: dark mode only */}
+          <div
+            className="hidden dark:block absolute inset-x-0 top-0"
+            style={{
+              height: '20%',
+              zIndex: 2,
+              background: 'linear-gradient(to bottom, var(--color-background) 0%, transparent 100%)',
+            }}
+          />
+          {/* Bottom edge: always visible */}
           <div
             className="absolute inset-x-0 bottom-0"
             style={{
@@ -154,9 +156,8 @@ export const Home: React.FC = () => {
 
         {/* ── Main text content — left column ── */}
         <div
-          className="relative h-full flex flex-col justify-center px-6 lg:px-16 z-10 w-full sm:max-w-[62%]"
+          className="relative h-full flex flex-col justify-start pt-[12vh] pl-6 pr-6 sm:pl-[7%] lg:pl-[9%] z-10 w-full sm:max-w-[68%]"
         >
-          {/* Mobile only tagline */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -176,7 +177,7 @@ export const Home: React.FC = () => {
             {language === 'en' ? "Hey, I'm" : 'Salut, je suis'}
           </motion.p>
 
-          <h1 className="font-display font-bold font-clash text-foreground leading-none mb-6">
+          <h1 className="font-display font-bold font-clash text-foreground leading-none mb-4">
             <span
               ref={signatureRef}
               className="block text-[clamp(4rem,10vw,9rem)] leading-none tracking-tight"
@@ -192,7 +193,7 @@ export const Home: React.FC = () => {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.7 }}
-            className="text-sm md:text-base text-foreground/45 max-w-xs font-light leading-relaxed mb-8"
+            className="text-sm md:text-base text-foreground/45 max-w-xs font-light leading-relaxed mb-5"
           >
             {t('hero.subtitle')}
           </motion.p>
@@ -201,7 +202,7 @@ export const Home: React.FC = () => {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.0, duration: 0.7 }}
-            className="flex flex-col sm:flex-row gap-3"
+            className="flex flex-col sm:flex-row gap-3 mb-5"
           >
             <Button
               asChild size="md"
@@ -217,50 +218,27 @@ export const Home: React.FC = () => {
               <Link to="/about">{t('hero.cta.secondary')}</Link>
             </Button>
           </motion.div>
+
+          {/* ── Stats ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.3, duration: 0.7 }}
+            className="flex gap-8 border-t border-border/40 pt-4"
+          >
+            {[
+              { value: '5+', label: language === 'en' ? 'Projects' : 'Projets' },
+              { value: '3+', label: language === 'en' ? 'Languages' : 'Langages' },
+              { value: '2+', label: language === 'en' ? 'Yrs learning' : "Ans d'appr." },
+            ].map(stat => (
+              <div key={stat.label} className="flex flex-col">
+                <span className="text-2xl font-bold font-display text-foreground">{stat.value}</span>
+                <span className="text-[9px] font-mono text-foreground/35 uppercase tracking-widest">{stat.label}</span>
+              </div>
+            ))}
+          </motion.div>
         </div>
 
-        {/* ── Bottom stats bar ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.3, duration: 0.7 }}
-          className="absolute bottom-8 left-6 lg:left-16 flex gap-10 z-10"
-        >
-          {[
-            { value: '5+', label: language === 'en' ? 'Projects' : 'Projets' },
-            { value: '3+', label: language === 'en' ? 'Languages' : 'Langages' },
-            { value: '2+', label: language === 'en' ? 'Yrs learning' : "Ans d'appr." },
-          ].map(stat => (
-            <div key={stat.label} className="flex flex-col">
-              <span className="text-2xl font-bold font-display text-foreground">{stat.value}</span>
-              <span className="text-[9px] font-mono text-foreground/35 uppercase tracking-widest">{stat.label}</span>
-            </div>
-          ))}
-        </motion.div>
-
-        {/* ── Scroll indicator ── */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2 }}
-          onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
-          className="absolute bottom-8 right-8 hidden lg:flex flex-col items-center gap-2 cursor-pointer group z-10"
-        >
-          <span className="text-[9px] font-mono uppercase tracking-[0.4em] text-foreground/30 group-hover:text-primary transition-colors">
-            {language === 'en' ? 'Scroll' : 'Défiler'}
-          </span>
-          <motion.div
-            animate={{ y: [0, 5, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            className="w-5 h-8 rounded-full border border-border/50 group-hover:border-primary/40 flex justify-center pt-1.5 transition-colors"
-          >
-            <motion.div
-              animate={{ height: [3, 6, 3], opacity: [1, 0.4, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="w-0.5 bg-primary rounded-full"
-            />
-          </motion.div>
-        </motion.div>
       </section>
 
       {/* ── Services ── */}
