@@ -116,110 +116,160 @@ export const Home: React.FC = () => {
       {/* ── Hero ── */}
       <section
         aria-label="Hero"
-        className="relative flex flex-col bg-background overflow-hidden"
-        style={{ height: 'calc(100vh - 5rem)' }}
+        className="relative overflow-hidden bg-background"
+        style={{ height: 'calc(100vh - 5rem)', minHeight: 560 }}
       >
-        <div className="flex-1 max-w-7xl w-full mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center py-6 min-h-0">
-
-          {/* Left: intro */}
-          <div className="flex flex-col items-start text-left justify-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="mb-6 inline-flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/20 rounded-full"
-            >
-              <Sparkles size={12} className="text-primary" />
-              <span className="text-[10px] font-mono font-medium text-primary uppercase tracking-[0.2em]">{t('hero.tagline')}</span>
-            </motion.div>
-
-            <h1 className="font-display font-bold font-clash text-foreground">
-              <div className="overflow-hidden">
-                <span className="block text-4xl md:text-6xl lg:text-7xl">
-                  {language === 'en' ? "Hi, I'm " : 'Salut, je suis '}
-                  <span ref={signatureRef} className="text-gradient font-serif italic inline-block font-normal">Atlas.</span>
-                </span>
-              </div>
-              <div className="overflow-hidden mt-3">
-                <span className="block text-2xl md:text-4xl lg:text-4xl text-foreground font-medium max-w-xl">
-                  {t('hero.title.part2')}
-                </span>
-              </div>
-            </h1>
-
-            <p className="mt-5 text-base md:text-lg text-foreground/50 max-w-xl font-light leading-relaxed">
-              {t('hero.subtitle')}
-            </p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1, duration: 0.8 }}
-              className="mt-8 flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
-            >
-              <Button
-                asChild size="md"
-                className="group justify-center min-w-[180px] h-12 whitespace-nowrap"
-                rightIcon={<ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />}
-              >
-                <Link to="/works">{t('hero.cta.primary')}</Link>
-              </Button>
-              <Button
-                asChild variant="secondary" size="md"
-                className="justify-center min-w-[180px] h-12 whitespace-nowrap"
-              >
-                <Link to="/about">{t('hero.cta.secondary')}</Link>
-              </Button>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.3, duration: 0.8 }}
-              className="mt-8 flex gap-8"
-            >
-              {[
-                { value: '5+', label: language === 'en' ? 'Projects' : 'Projets' },
-                { value: '3+', label: language === 'en' ? 'Languages' : 'Langages' },
-                { value: '2+', label: language === 'en' ? 'Yrs learning' : "Ans d'appr." },
-              ].map(stat => (
-                <div key={stat.label} className="flex flex-col">
-                  <span className="text-xl font-bold font-display text-foreground">{stat.value}</span>
-                  <span className="text-[10px] font-mono text-foreground/40 uppercase tracking-widest">{stat.label}</span>
-                </div>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* Right: Pop-Out Image */}
-          <HeroImage language={language} />
+        {/* ── Full-height portrait — absolutely fills right side ── */}
+        <div
+          className="absolute top-0 right-0 h-full"
+          style={{ width: '58%', zIndex: 0 }}
+        >
+          <img
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=90&w=900&auto=format&fit=crop"
+            alt="Atlas — Junior Full-Stack Developer"
+            className="w-full h-full object-cover object-top"
+            referrerPolicy="no-referrer"
+            fetchPriority="high"
+          />
+          {/* Left edge: fades photo into page background */}
+          <div
+            className="absolute inset-y-0 left-0"
+            style={{
+              width: '55%',
+              background: 'linear-gradient(to right, var(--color-background) 0%, transparent 100%)',
+            }}
+          />
+          {/* Bottom edge: subtle fade */}
+          <div
+            className="absolute inset-x-0 bottom-0"
+            style={{
+              height: '30%',
+              background: 'linear-gradient(to top, var(--color-background) 0%, transparent 100%)',
+            }}
+          />
         </div>
 
-        {/* Scroll indicator */}
-        <div className="flex-none h-18 flex items-center justify-center pb-4">
+        {/* ── Top label — centred above the fold ── */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="absolute top-8 left-1/2 -translate-x-1/2 hidden lg:flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/20 rounded-full z-10"
+        >
+          <Sparkles size={12} className="text-primary" />
+          <span className="text-[10px] font-mono font-medium text-primary uppercase tracking-[0.2em]">{t('hero.tagline')}</span>
+        </motion.div>
+
+        {/* ── Main text content — left column ── */}
+        <div
+          className="relative h-full flex flex-col justify-center px-6 lg:px-16 z-10"
+          style={{ maxWidth: '52%' }}
+        >
+          {/* Mobile only tagline */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2 }}
-            onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
-            className="flex flex-col items-center gap-2 cursor-pointer group"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="mb-5 inline-flex lg:hidden items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/20 rounded-full self-start"
           >
-            <span className="text-[10px] font-mono uppercase tracking-[0.4em] text-foreground/40 group-hover:text-primary transition-colors">
-              {language === 'en' ? 'Scroll' : 'Défiler'}
-            </span>
-            <motion.div
-              animate={{ y: [0, 6, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-              className="w-6 h-9 rounded-full border border-border group-hover:border-primary/50 flex justify-center pt-2 transition-colors"
+            <Sparkles size={12} className="text-primary" />
+            <span className="text-[10px] font-mono font-medium text-primary uppercase tracking-[0.2em]">{t('hero.tagline')}</span>
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="font-serif italic text-foreground/50 text-xl md:text-2xl mb-2 font-normal"
+          >
+            {language === 'en' ? "Hey, I'm" : 'Salut, je suis'}
+          </motion.p>
+
+          <h1 className="font-display font-bold font-clash text-foreground leading-none mb-6">
+            <span
+              ref={signatureRef}
+              className="block text-[clamp(4rem,10vw,9rem)] leading-none tracking-tight"
             >
-              <motion.div
-                animate={{ height: [3, 7, 3], opacity: [1, 0.4, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="w-1 bg-primary rounded-full"
-              />
-            </motion.div>
+              Atlas.
+            </span>
+            <span className="block text-xl md:text-2xl lg:text-3xl font-medium text-foreground/60 mt-3 leading-snug max-w-sm">
+              {t('hero.title.part2')}
+            </span>
+          </h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.7 }}
+            className="text-sm md:text-base text-foreground/45 max-w-xs font-light leading-relaxed mb-8"
+          >
+            {t('hero.subtitle')}
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.0, duration: 0.7 }}
+            className="flex flex-col sm:flex-row gap-3"
+          >
+            <Button
+              asChild size="md"
+              className="group justify-center min-w-[160px] h-11 whitespace-nowrap"
+              rightIcon={<ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />}
+            >
+              <Link to="/works">{t('hero.cta.primary')}</Link>
+            </Button>
+            <Button
+              asChild variant="secondary" size="md"
+              className="justify-center min-w-[160px] h-11 whitespace-nowrap"
+            >
+              <Link to="/about">{t('hero.cta.secondary')}</Link>
+            </Button>
           </motion.div>
         </div>
+
+        {/* ── Bottom stats bar ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.3, duration: 0.7 }}
+          className="absolute bottom-8 left-6 lg:left-16 flex gap-10 z-10"
+        >
+          {[
+            { value: '5+', label: language === 'en' ? 'Projects' : 'Projets' },
+            { value: '3+', label: language === 'en' ? 'Languages' : 'Langages' },
+            { value: '2+', label: language === 'en' ? 'Yrs learning' : "Ans d'appr." },
+          ].map(stat => (
+            <div key={stat.label} className="flex flex-col">
+              <span className="text-2xl font-bold font-display text-foreground">{stat.value}</span>
+              <span className="text-[9px] font-mono text-foreground/35 uppercase tracking-widest">{stat.label}</span>
+            </div>
+          ))}
+        </motion.div>
+
+        {/* ── Scroll indicator ── */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2 }}
+          onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
+          className="absolute bottom-8 right-8 hidden lg:flex flex-col items-center gap-2 cursor-pointer group z-10"
+        >
+          <span className="text-[9px] font-mono uppercase tracking-[0.4em] text-foreground/30 group-hover:text-primary transition-colors">
+            {language === 'en' ? 'Scroll' : 'Défiler'}
+          </span>
+          <motion.div
+            animate={{ y: [0, 5, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            className="w-5 h-8 rounded-full border border-border/50 group-hover:border-primary/40 flex justify-center pt-1.5 transition-colors"
+          >
+            <motion.div
+              animate={{ height: [3, 6, 3], opacity: [1, 0.4, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="w-0.5 bg-primary rounded-full"
+            />
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* ── Services ── */}
