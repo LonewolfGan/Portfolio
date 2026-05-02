@@ -67,90 +67,98 @@ export const Works: React.FC = () => {
   const projects = getProjects(language);
 
   return (
-    <section className="py-32 px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-24">
-          <div className="max-w-2xl">
-            <motion.h2 
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="font-display font-clash text-4xl md:text-7xl font-bold tracking-tight mb-8 text-foreground"
-            >
-              {t('works.title')}
-            </motion.h2>
-            <p className="text-foreground/50 text-xl leading-relaxed font-light">
-              {t('works.subtitle')}
-            </p>
+    <main>
+      <title>Works | Atlas Lonewolf</title>
+      <meta name="description" content="Projects by Atlas Lonewolf — React apps, Python systems, SQL databases, and more." />
+
+      <section aria-label="Projects" className="py-32 px-6">
+        <div className="max-w-7xl mx-auto">
+          <header className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-24">
+            <div className="max-w-2xl">
+              <motion.h1
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="font-display font-clash text-4xl md:text-7xl font-bold mb-8 text-foreground"
+              >
+                {t('works.title')}
+              </motion.h1>
+              <p className="text-foreground/50 text-xl leading-relaxed font-light">
+                {t('works.subtitle')}
+              </p>
+            </div>
+          </header>
+
+          <div className="grid grid-cols-1 gap-32">
+            {projects.map((project, idx) => (
+              <motion.article
+                key={project.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                className={`flex flex-col ${idx % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 lg:gap-24 items-center`}
+              >
+                <div className="flex-1 w-full group overflow-hidden rounded-[40px] glass border border-border relative">
+                  <div className="absolute inset-0 bg-primary/20 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                  <img
+                    src={project.image}
+                    alt={`${project.title} — ${project.tech_details}`}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full aspect-[4/3] object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+
+                <div className="flex-1 flex flex-col gap-6">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center text-primary">
+                      <Code2 size={16} />
+                    </div>
+                    <span className="text-xs font-mono tracking-[.3em] uppercase text-primary font-bold">{project.tech_details}</span>
+                  </div>
+
+                  <h2 className="text-4xl md:text-5xl font-display font-clash font-bold text-foreground">{project.title}</h2>
+                  <p className="text-foreground/50 text-lg leading-relaxed max-w-xl font-light">
+                    {project.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 mt-2">
+                    {project.tags.map(tag => (
+                      <span key={tag} className="px-4 py-1.5 rounded-full border border-border bg-foreground/5 text-[10px] uppercase tracking-widest text-foreground/40">{tag}</span>
+                    ))}
+                  </div>
+
+                  <div className="flex gap-4 mt-8">
+                    <Button
+                      asChild
+                      size="md"
+                      className="rounded-full group justify-center min-w-[180px] h-12 whitespace-nowrap"
+                      rightIcon={<ExternalLink size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
+                      aria-label={`${t('works.caseStudy')} — ${project.title}`}
+                    >
+                      <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
+                        {t('works.caseStudy')}
+                      </a>
+                    </Button>
+                    <Button
+                      asChild
+                      variant="outline"
+                      size="md"
+                      className="rounded-full w-12 h-12 min-w-0 p-0 text-foreground/40 hover:text-foreground shrink-0"
+                      aria-label={`View ${project.title} source on GitHub`}
+                    >
+                      <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
+                        <Github size={20} />
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </motion.article>
+            ))}
           </div>
         </div>
-
-        <div className="grid grid-cols-1 gap-32">
-          {projects.map((project, idx) => (
-            <motion.div 
-              key={project.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              className={`flex flex-col ${idx % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 lg:gap-24 items-center`}
-            >
-              <div className="flex-1 w-full group overflow-hidden rounded-[40px] glass border border-border relative">
-                <div className="absolute inset-0 bg-primary/20 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full aspect-[4/3] object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-
-              <div className="flex-1 flex flex-col gap-6">
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center text-primary">
-                    <Code2 size={16} />
-                  </div>
-                  <span className="text-xs font-mono tracking-[.3em] uppercase text-primary font-bold">{project.tech_details}</span>
-                </div>
-                
-                <h3 className="text-4xl md:text-5xl font-display font-clash font-bold text-foreground tracking-tight">{project.title}</h3>
-                <p className="text-foreground/50 text-lg leading-relaxed max-w-xl font-light">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {project.tags.map(tag => (
-                    <span key={tag} className="px-4 py-1.5 rounded-full border border-border bg-foreground/5 text-[10px] uppercase tracking-widest text-foreground/40">{tag}</span>
-                  ))}
-                </div>
-
-                <div className="flex gap-4 mt-8">
-                  <Button 
-                    asChild 
-                    size="md" 
-                    className="rounded-full group justify-center"
-                    rightIcon={<ExternalLink size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
-                    aria-label={`${t('works.caseStudy')} for ${project.title}`}
-                  >
-                    <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
-                      {t('works.caseStudy')}
-                    </a>
-                  </Button>
-                  <Button 
-                    asChild 
-                    variant="outline" 
-                    size="md" 
-                    className="rounded-full w-12 h-12 min-w-0 p-0 text-foreground/40 hover:text-foreground shrink-0"
-                    aria-label={`View ${project.title} code on GitHub`}
-                  >
-                    <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
-                      <Github size={20} />
-                    </a>
-                  </Button>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 };

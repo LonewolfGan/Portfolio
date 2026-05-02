@@ -5,8 +5,11 @@ import { Button } from '../components/Button';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { HeroImage } from '../components/HeroImage';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const getFeaturedProjects = (language: string) => [
   {
@@ -45,6 +48,7 @@ export const Home: React.FC = () => {
   const FEATURED_PROJECTS = getFeaturedProjects(language);
 
   useGSAP(() => {
+    // ── Signature entrance ──
     if (signatureRef.current) {
       gsap.fromTo(
         signatureRef.current,
@@ -52,20 +56,81 @@ export const Home: React.FC = () => {
         { opacity: 1, y: 0, skewX: 0, filter: 'blur(0px)', duration: 1.5, ease: 'power4.out', delay: 0.5 }
       );
     }
+
+    // ── Service cards — staggered slide-up on scroll ──
+    gsap.from('.service-card', {
+      opacity: 0,
+      y: 50,
+      stagger: 0.12,
+      duration: 0.85,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.services-grid',
+        start: 'top 82%',
+        once: true,
+      },
+    });
+
+    // ── Tech pills — fade in as one group ──
+    gsap.from('.tech-pill', {
+      opacity: 0,
+      y: 20,
+      stagger: 0.04,
+      duration: 0.6,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.tech-strip',
+        start: 'top 88%',
+        once: true,
+      },
+    });
+
+    // ── Featured project cards — staggered slide-up ──
+    gsap.from('.project-card', {
+      opacity: 0,
+      y: 60,
+      stagger: 0.15,
+      duration: 0.9,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.projects-grid',
+        start: 'top 80%',
+        once: true,
+      },
+    });
+
+    // ── "Currently learning" section ──
+    gsap.from('.learning-item', {
+      opacity: 0,
+      x: -20,
+      stagger: 0.1,
+      duration: 0.7,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.learning-section',
+        start: 'top 82%',
+        once: true,
+      },
+    });
   }, { scope: container });
 
   return (
     <div ref={container} className="flex flex-col">
+      {/* ── Page-level meta (React 19 hoists these to <head>) ── */}
+      <title>Atlas Lonewolf | Junior Full-Stack Developer — Portfolio</title>
+      <meta name="description" content="Atlas Lonewolf — Junior Full-Stack Developer. React, Node.js, SQL. Open to junior roles and freelance." />
+      <meta property="og:title" content="Atlas Lonewolf | Junior Full-Stack Developer" />
+      <meta property="og:description" content="Building clean interfaces & solid databases. Open to junior roles and freelance." />
 
-      {/* ── Hero: exactly fills the viewport below the fixed 80px navbar ── */}
+      {/* ── Hero ── */}
       <section
+        aria-label="Hero"
         className="relative flex flex-col bg-background overflow-hidden"
         style={{ height: 'calc(100vh - 5rem)' }}
       >
-        {/* Grid content — fills space, leaving 72px at bottom for scroll indicator */}
         <div className="flex-1 max-w-7xl w-full mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center py-6 min-h-0">
 
-          {/* ── Left: intro ── */}
+          {/* Left: intro */}
           <div className="flex flex-col items-start text-left justify-center">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -77,7 +142,7 @@ export const Home: React.FC = () => {
               <span className="text-[10px] font-mono font-medium text-primary uppercase tracking-[0.2em]">{t('hero.tagline')}</span>
             </motion.div>
 
-            <h1 className="font-display font-bold font-clash tracking-tighter leading-[1.05] text-foreground">
+            <h1 className="font-display font-bold font-clash text-foreground">
               <div className="overflow-hidden">
                 <span className="block text-4xl md:text-6xl lg:text-7xl">
                   {language === 'en' ? "Hi, I'm " : 'Salut, je suis '}
@@ -116,7 +181,6 @@ export const Home: React.FC = () => {
               </Button>
             </motion.div>
 
-            {/* Quick stats */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -136,11 +200,11 @@ export const Home: React.FC = () => {
             </motion.div>
           </div>
 
-          {/* ── Right: Pop-Out Image Component ── */}
+          {/* Right: Pop-Out Image */}
           <HeroImage language={language} />
         </div>
 
-        {/* ── Scroll indicator — always visible at the bottom of the hero ── */}
+        {/* Scroll indicator */}
         <div className="flex-none h-18 flex items-center justify-center pb-4">
           <motion.div
             initial={{ opacity: 0 }}
@@ -168,7 +232,7 @@ export const Home: React.FC = () => {
       </section>
 
       {/* ── Services ── */}
-      <section className="py-24 px-6 bg-foreground/[0.02]">
+      <section aria-label="Services" className="py-24 px-6 bg-foreground/[0.02]">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-16">
             <div className="max-w-2xl">
@@ -177,33 +241,33 @@ export const Home: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="services-grid grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { title: t('services.card1.title'), icon: <Server className="text-primary" size={32} />, description: t('services.card1.desc') },
               { title: t('services.card2.title'), icon: <Layout className="text-primary" size={32} />, description: t('services.card2.desc') },
               { title: t('services.card3.title'), icon: <Database className="text-primary" size={32} />, description: t('services.card3.desc') },
             ].map((service, idx) => (
-              <div key={idx} className="glass p-8 rounded-3xl border border-border hover:border-primary/20 group transition-all">
+              <article key={idx} className="service-card glass p-8 rounded-3xl border border-border hover:border-primary/20 group transition-all">
                 <div className="mb-6 w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                   {service.icon}
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3 tracking-tight">{service.title}</h3>
+                <h3 className="text-xl font-bold text-foreground mb-3">{service.title}</h3>
                 <p className="text-foreground/50 leading-relaxed font-light">{service.description}</p>
-              </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
       {/* ── Tech Stack strip ── */}
-      <section className="py-16 px-6 border-y border-border">
+      <section aria-label="Technologies" className="tech-strip py-16 px-6 border-y border-border">
         <div className="max-w-7xl mx-auto">
           <p className="text-center text-[10px] font-mono uppercase tracking-[0.3em] text-foreground/30 mb-10">
             {language === 'en' ? 'Technologies I work with' : 'Technologies avec lesquelles je travaille'}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             {['React', 'TypeScript', 'Node.js', 'Python', 'SQL', 'Tailwind CSS', 'Git', 'Express', 'Three.js', 'REST APIs'].map(tech => (
-              <span key={tech} className="px-5 py-2 rounded-full glass border border-border text-sm font-mono text-foreground/60 hover:text-primary hover:border-primary/30 transition-all cursor-default">
+              <span key={tech} className="tech-pill px-5 py-2 rounded-full glass border border-border text-sm font-mono text-foreground/60 hover:text-primary hover:border-primary/30 transition-all cursor-default">
                 {tech}
               </span>
             ))}
@@ -212,7 +276,7 @@ export const Home: React.FC = () => {
       </section>
 
       {/* ── Featured Work ── */}
-      <section className="py-24 px-6">
+      <section aria-label="Featured Projects" className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-between items-end mb-16">
             <h2 className="text-3xl md:text-5xl font-display font-clash font-medium text-foreground">{t('works.featured')}</h2>
@@ -221,13 +285,15 @@ export const Home: React.FC = () => {
             </Button>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+          <div className="projects-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
             {FEATURED_PROJECTS.map((project, idx) => (
-              <div key={idx} className="flex flex-col gap-6 group">
+              <article key={idx} className="project-card flex flex-col gap-6 group">
                 <div className="aspect-video rounded-3xl overflow-hidden glass border border-border relative cursor-pointer">
                   <img
                     src={project.image}
-                    alt={project.title}
+                    alt={`Screenshot of ${project.title} project`}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
                     referrerPolicy="no-referrer"
                   />
@@ -242,7 +308,7 @@ export const Home: React.FC = () => {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-foreground mb-2 tracking-tight">{project.title}</h3>
+                  <h3 className="text-2xl font-bold text-foreground mb-2">{project.title}</h3>
                   <p className="text-foreground/50 line-clamp-2 mb-4 font-light leading-relaxed">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map(tag => (
@@ -250,14 +316,14 @@ export const Home: React.FC = () => {
                     ))}
                   </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
       {/* ── Currently learning ── */}
-      <section className="py-20 px-6 bg-foreground/[0.02]">
+      <section aria-label="Currently Learning" className="learning-section py-20 px-6 bg-foreground/[0.02]">
         <div className="max-w-7xl mx-auto">
           <div className="glass border border-border rounded-[40px] p-10 md:p-16 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 blur-[80px] pointer-events-none" />
@@ -273,8 +339,8 @@ export const Home: React.FC = () => {
                 { title: 'Docker', desc: language === 'en' ? 'Containerising apps for reproducible deployments' : 'Conteneuriser les apps pour des déploiements reproductibles' },
                 { title: 'PostgreSQL', desc: language === 'en' ? 'Advanced querying, indexing & data modeling' : 'Requêtes avancées, indexation & modélisation de données' },
               ].map(item => (
-                <div key={item.title} className="flex flex-col gap-2 border-l-2 border-primary/20 pl-6">
-                  <h4 className="text-foreground font-bold tracking-tight">{item.title}</h4>
+                <div key={item.title} className="learning-item flex flex-col gap-2 border-l-2 border-primary/20 pl-6">
+                  <h4 className="text-foreground font-bold">{item.title}</h4>
                   <p className="text-foreground/40 text-sm font-light leading-relaxed">{item.desc}</p>
                 </div>
               ))}
@@ -284,7 +350,7 @@ export const Home: React.FC = () => {
       </section>
 
       {/* ── Contact CTA ── */}
-      <section className="py-32 px-6 border-t border-border bg-foreground/[0.01]">
+      <section aria-label="Contact" className="py-32 px-6 border-t border-border bg-foreground/[0.01]">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -302,7 +368,7 @@ export const Home: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-display font-clash font-bold text-foreground tracking-tight mb-8"
+            className="text-4xl md:text-6xl font-display font-clash font-bold text-foreground mb-8"
           >
             {t('home.contact.title')}
           </motion.h2>
