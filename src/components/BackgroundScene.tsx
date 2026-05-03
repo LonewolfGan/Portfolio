@@ -43,10 +43,10 @@ export const BackgroundScene: React.FC = () => {
     const particlesMaterial = new THREE.PointsMaterial({
       size: 0.02,
       sizeAttenuation: true,
-      color: theme === 'dark' ? '#4ade80' : '#10b981',
+      color: theme === 'dark' ? '#4ade80' : '#059669',
       transparent: true,
-      opacity: theme === 'dark' ? 0.4 : 0.18,
-      blending: theme === 'dark' ? THREE.AdditiveBlending : THREE.NormalBlending,
+      opacity: theme === 'dark' ? 0.4 : 0.45,
+      blending: THREE.AdditiveBlending,
     });
     materialRef.current = particlesMaterial;
 
@@ -111,9 +111,8 @@ export const BackgroundScene: React.FC = () => {
 
   useEffect(() => {
     if (materialRef.current) {
-      materialRef.current.color.set(theme === 'dark' ? '#4ade80' : '#10b981');
-      materialRef.current.opacity = theme === 'dark' ? 0.4 : 0.18;
-      materialRef.current.blending = theme === 'dark' ? THREE.AdditiveBlending : THREE.NormalBlending;
+      materialRef.current.color.set(theme === 'dark' ? '#4ade80' : '#059669');
+      materialRef.current.opacity = theme === 'dark' ? 0.4 : 0.45;
       materialRef.current.needsUpdate = true;
     }
   }, [theme]);

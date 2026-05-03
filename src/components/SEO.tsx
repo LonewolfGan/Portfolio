@@ -5,7 +5,9 @@ import { useLanguage } from '../context/LanguageContext';
 type Page = 'home' | 'works' | 'skills' | 'about' | 'cv';
 
 const BASE_URL = 'https://atlaslonewolf.dev';
-const OG_IMAGE = `${BASE_URL}/og-image.png`;
+const OG_IMAGE = typeof window !== 'undefined'
+  ? `${window.location.origin}/og-image.png`
+  : `${BASE_URL}/og-image.png`;
 
 const META: Record<Page, { en: { title: string; description: string; url: string }; fr: { title: string; description: string; url: string } }> = {
   home: {

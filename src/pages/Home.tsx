@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, Layout, Server, Database, Sparkles, Code2 } from 'lucide-react';
+import { ArrowRight, Layout, Server, Globe, Sparkles, Code2 } from 'lucide-react';
 import { Button } from '../components/Button';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
@@ -253,7 +253,7 @@ export const Home: React.FC = () => {
             {[
               { title: t('services.card1.title'), icon: <Server className="text-primary" size={32} />, description: t('services.card1.desc') },
               { title: t('services.card2.title'), icon: <Layout className="text-primary" size={32} />, description: t('services.card2.desc') },
-              { title: t('services.card3.title'), icon: <Database className="text-primary" size={32} />, description: t('services.card3.desc') },
+              { title: t('services.card3.title'), icon: <Globe className="text-primary" size={32} />, description: t('services.card3.desc') },
             ].map((service, idx) => (
               <article key={idx} className="service-card glass p-8 rounded-3xl border border-border hover:border-primary/20 group transition-all">
                 <div className="mb-6 w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">

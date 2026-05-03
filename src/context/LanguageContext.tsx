@@ -18,8 +18,8 @@ const translations = {
     // Hero
     'hero.tagline': 'Building Tomorrow • Junior Dev',
     'hero.title.part1': "Hi, I'm Atlas.",
-    'hero.title.part2': 'I build clean interfaces & solid databases.',
-    'hero.subtitle': 'Junior Full-Stack Dev with a focus on React and SQL. I love minimalist design and solving complex logic problems.',
+    'hero.title.part2': 'I build clean interfaces & powerful websites.',
+    'hero.subtitle': 'Junior Full-Stack Dev with a focus on React, Node.js and WordPress. I love minimalist design and solving complex problems.',
     'hero.cta.primary': 'View my projects',
     'hero.cta.secondary': "Let's talk",
     // Services/Expertise
@@ -29,8 +29,8 @@ const translations = {
     'services.card1.desc': 'Building robust web applications from scratch using React, Node.js, and modern TypeScript workflows.',
     'services.card2.title': 'UI/UX Design',
     'services.card2.desc': 'Crafting clean, minimalist interfaces with a focus on usability and professional aesthetics.',
-    'services.card3.title': 'Database Modeling',
-    'services.card3.desc': 'Deep dive into SQL and relational modeling (MCD/MLD) for industrial-grade data integrity.',
+    'services.card3.title': 'WordPress & CMS',
+    'services.card3.desc': 'Building custom themes, plugins and performant WordPress sites — from simple blogs to full client projects.',
     // Works
     'works.title': 'The Gallery.',
     'works.subtitle': 'An archive of academic projects, technical deep-dives, and early-stage commercial explorations.',
@@ -74,8 +74,8 @@ const translations = {
     // Hero
     'hero.tagline': 'Bâtir Demain • Dév Junior',
     'hero.title.part1': 'Salut, je suis Atlas.',
-    'hero.title.part2': 'Je crée des interfaces épurées et des bases de données robustes.',
-    'hero.subtitle': 'Dév Full-stack Junior axé sur React et SQL. Passionné par le design minimaliste et la résolution de problèmes complexes.',
+    'hero.title.part2': 'Je crée des interfaces épurées et des sites web puissants.',
+    'hero.subtitle': 'Dév Full-stack Junior axé sur React, Node.js et WordPress. Passionné par le design minimaliste et la résolution de problèmes complexes.',
     'hero.cta.primary': 'Voir mes projets',
     'hero.cta.secondary': 'Discutons',
     // Services/Expertise
@@ -85,8 +85,8 @@ const translations = {
     'services.card1.desc': 'Création d\'applications web robustes à partir de zéro en utilisant React, Node.js et TypeScript.',
     'services.card2.title': 'Design UI/UX',
     'services.card2.desc': 'Conception d\'interfaces épurées et minimalistes axées sur l\'ergonomie et une esthétique professionnelle.',
-    'services.card3.title': 'Modélisation de Données',
-    'services.card3.desc': 'Approfondissement SQL et modélisation relationnelle (MCD/MLD) pour une intégrité des données de niveau industriel.',
+    'services.card3.title': 'WordPress & CMS',
+    'services.card3.desc': 'Création de thèmes personnalisés, plugins et sites WordPress performants — des blogs simples aux projets clients complets.',
     // Works
     'works.title': 'La Galerie.',
     'works.subtitle': 'Une archive de projets académiques, d\'approfondissements techniques et de premières explorations commerciales.',

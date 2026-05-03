@@ -15,6 +15,7 @@ const TECHS = [
   { name: 'Next.js',    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg',         dark: true  },
   { name: 'HTML5',      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg',           dark: false },
   { name: 'CSS3',       logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg',             dark: false },
+  { name: 'WordPress',  logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/wordpress/wordpress-plain.svg',   dark: true  },
   { name: 'VS Code',    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg',         dark: false },
 ];
 

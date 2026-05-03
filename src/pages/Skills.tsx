@@ -21,6 +21,7 @@ const getSkillGroups = (language: string) => [
     icon: <Palette className="text-primary" size={24} />,
     skills: [
       { name: 'React 19', details: language === 'en' ? 'Hooks, Context, React Router, Redux Toolkit' : 'Hooks, Context, React Router, Redux Toolkit' },
+      { name: 'WordPress', details: language === 'en' ? 'Custom themes, plugins, ACF, WooCommerce' : 'Thèmes sur mesure, plugins, ACF, WooCommerce' },
       { name: 'Tailwind CSS', details: language === 'en' ? 'Utility-first, responsive, dark mode' : 'Utility-first, responsive, dark mode' },
       { name: 'Framer Motion', details: language === 'en' ? 'Animations, page transitions' : 'Animations, transitions de pages' },
       { name: 'Three.js', details: language === 'en' ? 'WebGL particle systems, 3D scenes' : 'Particules WebGL, scènes 3D' },
@@ -85,8 +86,8 @@ export const Skills: React.FC = () => {
               className="text-foreground/50 text-lg leading-relaxed font-light"
             >
               {language === 'en'
-                ? "A practical overview of the tools and languages I use to build real projects — from frontend interfaces to database schemas."
-                : "Un aperçu pratique des outils et langages que j'utilise pour construire de vrais projets — des interfaces frontend aux schémas de bases de données."}
+                ? "A practical overview of the tools and languages I use to build real projects — from React frontends to WordPress sites and backend APIs."
+                : "Un aperçu pratique des outils et langages que j'utilise pour construire de vrais projets — des frontends React aux sites WordPress et APIs backend."}
             </motion.p>
           </header>
 
