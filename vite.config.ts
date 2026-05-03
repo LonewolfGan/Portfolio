@@ -5,6 +5,18 @@ import {defineConfig, loadEnv} from 'vite';
 
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
+
+  // Automatically resolve the public app URL:
+  // 1. VITE_APP_URL if explicitly set (e.g. custom domain in Vercel settings)
+  // 2. VERCEL_URL injected automatically by Vercel on every deployment
+  // 3. Fallback for local dev
+  if (!process.env.VITE_APP_URL) {
+    if (process.env.VERCEL_URL) {
+      process.env.VITE_APP_URL = `https://${process.env.VERCEL_URL}`;
+    } else {
+      process.env.VITE_APP_URL = 'http://localhost:5000';
+    }
+  }
   return {
     plugins: [react(), tailwindcss()],
     define: {
