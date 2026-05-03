@@ -50,3 +50,8 @@ run = ["node", "./dist/index.cjs"]
 [postMerge]
 path = "scripts/post-merge.sh"
 timeoutMs = 120000
+
+[userenv]
+
+[userenv.shared]
+VITE_APP_URL = "https://portfolio-chi-puce-7o5a8st463.vercel.app"
