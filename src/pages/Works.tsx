@@ -138,7 +138,7 @@ export const Works: React.FC = () => {
                       aria-label={`${t('works.caseStudy')} — ${project.title}`}
                     >
                       <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
-                        {t('works.caseStudy')}
+                        {language === 'en' ? 'View Project' : 'Voir le projet'}
                       </a>
                     </Button>
                     <Button

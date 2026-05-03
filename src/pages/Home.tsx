@@ -296,7 +296,7 @@ export const Home: React.FC = () => {
                     <div className="translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
                       <Button asChild size="sm" className="rounded-full min-w-[130px] h-10 whitespace-nowrap">
                         <a href={project.link} target="_blank" rel="noopener noreferrer">
-                          {language === 'en' ? 'Case Study' : 'Étude de cas'}
+                          {language === 'en' ? 'View Project' : 'Voir le projet'}
                         </a>
                       </Button>
                     </div>
