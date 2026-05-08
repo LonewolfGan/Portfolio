@@ -136,7 +136,7 @@ export const About: React.FC = () => {
                 initial={{ opacity: 0, x: 16 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="text-4xl md:text-6xl font-display font-clash font-bold text-foreground"
+                className="text-4xl md:text-5xl font-display font-clash font-bold text-foreground"
               >
                 {t('about.title')}<br />
                 <span className="text-gradient font-serif italic font-normal">{t('about.logic')}</span>

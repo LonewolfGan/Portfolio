@@ -180,7 +180,7 @@ export const Home: React.FC = () => {
           <h1 className="font-display font-bold font-clash text-foreground leading-none mb-4">
             <span
               ref={signatureRef}
-              className="block text-[clamp(4rem,10vw,9rem)] leading-none tracking-tight will-change-transform"
+              className="block text-[clamp(4rem,8vw,7rem)] leading-none tracking-tight will-change-transform"
             >
               Honore
             </span>
@@ -246,7 +246,7 @@ export const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-16">
             <div className="max-w-2xl">
-              <h2 className="text-3xl md:text-5xl font-display font-clash font-medium text-foreground mb-6">{t('services.title')}</h2>
+              <h2 className="text-3xl md:text-4xl font-display font-clash font-medium text-foreground mb-6">{t('services.title')}</h2>
               <p className="text-foreground/50 text-lg">{t('services.subtitle')}</p>
             </div>
           </div>
@@ -276,7 +276,7 @@ export const Home: React.FC = () => {
       <section aria-label="Featured Projects" className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-between items-end mb-16">
-            <h2 className="text-3xl md:text-5xl font-display font-clash font-medium text-foreground">{t('works.featured')}</h2>
+            <h2 className="text-3xl md:text-4xl font-display font-clash font-medium text-foreground">{t('works.featured')}</h2>
             <Button asChild variant="ghost" className="text-primary hover:text-primary/80 min-w-[180px] h-12 whitespace-nowrap" rightIcon={<ArrowRight size={16} />}>
               <Link to="/works">{t('works.viewAll')}</Link>
             </Button>

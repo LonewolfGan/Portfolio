@@ -139,7 +139,7 @@ export const CV: React.FC = () => {
               <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-primary mb-4">
                 Curriculum Vitae
               </p>
-              <h1 className="text-5xl md:text-7xl font-display font-clash font-bold text-foreground leading-none mb-4">
+              <h1 className="text-4xl md:text-6xl font-display font-clash font-bold text-foreground leading-none mb-4">
                 TCHOHLO<br /><span className="text-gradient font-serif italic font-normal">K. Honore</span>
               </h1>
               <p className="text-lg text-foreground/50 font-light">
