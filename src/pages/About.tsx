@@ -236,48 +236,62 @@ export const About: React.FC = () => {
           <div className="max-w-5xl mx-auto glass rounded-[54px] p-8 md:p-20 relative overflow-hidden">
             <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-primary/10 blur-[100px] translate-x-1/2 translate-y-1/2 pointer-events-none" />
 
-            <div className="flex flex-col lg:flex-row gap-20 relative z-10">
-              <div className="lg:w-1/3 flex flex-col gap-8">
-                <h2 className="text-4xl md:text-5xl font-display font-clash font-bold text-foreground leading-[1.1]">
-                  {t('contact.title')}<br />
-                  <span className="italic font-serif">{t('contact.future')}</span>
-                </h2>
-                <p className="text-foreground/40 font-light">{t('contact.subtitle')}</p>
+            <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 relative z-10">
+              <div className="lg:w-[38%] flex flex-col gap-10">
+                <div className="flex flex-col gap-6">
+                  <h2 className="text-4xl md:text-5xl font-display font-clash font-bold text-foreground leading-[1.1]">
+                    {t('contact.title')}<br />
+                    <span className="italic font-serif">{t('contact.future')}</span>
+                  </h2>
+                  <p className="text-foreground/40 font-light max-w-sm">{t('contact.subtitle')}</p>
+                </div>
 
-                <address className="flex flex-col gap-6 mt-4 not-italic">
-                  <a href="mailto:h.dev.contact@gmail.com" className="flex items-center gap-4 group cursor-pointer">
-                    <div className="w-12 h-12 rounded-2xl bg-foreground/5 flex items-center justify-center text-foreground/50 group-hover:bg-primary/20 group-hover:text-primary transition-all">
-                      <Mail size={20} />
+                <address className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 not-italic">
+                  <a href="mailto:h.dev.contact@gmail.com" className="flex items-center gap-4 group cursor-pointer p-4 rounded-2xl bg-foreground/[0.03] border border-border/50 hover:bg-primary/5 hover:border-primary/20 transition-all">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                      <Mail size={18} />
                     </div>
-                    <span className="text-foreground/60 font-medium group-hover:text-foreground transition-colors">h.dev.contact@gmail.com</span>
+                    <div className="flex flex-col">
+                      <span className="text-[10px] font-mono uppercase tracking-widest text-foreground/30">Email</span>
+                      <span className="text-foreground/70 text-sm font-medium group-hover:text-foreground transition-colors">h.dev.contact@gmail.com</span>
+                    </div>
                   </a>
-                  <a href="https://www.linkedin.com/in/h-dev" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group cursor-pointer">
-                    <div className="w-12 h-12 rounded-2xl bg-foreground/5 flex items-center justify-center text-foreground/50 group-hover:bg-primary/20 group-hover:text-primary transition-all">
-                      <Linkedin size={20} />
+                  <a href="https://www.linkedin.com/in/h-dev" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group cursor-pointer p-4 rounded-2xl bg-foreground/[0.03] border border-border/50 hover:bg-primary/5 hover:border-primary/20 transition-all">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                      <Linkedin size={18} />
                     </div>
-                    <span className="text-foreground/60 font-medium group-hover:text-foreground transition-colors">linkedin.com/in/h-dev</span>
+                    <div className="flex flex-col">
+                      <span className="text-[10px] font-mono uppercase tracking-widest text-foreground/30">LinkedIn</span>
+                      <span className="text-foreground/70 text-sm font-medium group-hover:text-foreground transition-colors">h-dev</span>
+                    </div>
                   </a>
-                  <a href="https://wa.me/212706135005" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group cursor-pointer">
-                    <div className="w-12 h-12 rounded-2xl bg-foreground/5 flex items-center justify-center text-foreground/50 group-hover:bg-primary/20 group-hover:text-primary transition-all">
-                      <Phone size={20} />
+                  <a href="https://wa.me/212706135005" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group cursor-pointer p-4 rounded-2xl bg-foreground/[0.03] border border-border/50 hover:bg-primary/5 hover:border-primary/20 transition-all">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                      <Phone size={18} />
                     </div>
-                    <span className="text-foreground/60 font-medium group-hover:text-foreground transition-colors">+212 706 135 005</span>
+                    <div className="flex flex-col">
+                      <span className="text-[10px] font-mono uppercase tracking-widest text-foreground/30">WhatsApp</span>
+                      <span className="text-foreground/70 text-sm font-medium group-hover:text-foreground transition-colors">+212 706 135 005</span>
+                    </div>
                   </a>
-                  <a href="https://github.com/LonewolfGan" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group cursor-pointer">
-                    <div className="w-12 h-12 rounded-2xl bg-foreground/5 flex items-center justify-center text-foreground/50 group-hover:bg-primary/20 group-hover:text-primary transition-all">
-                      <Github size={20} />
+                  <a href="https://github.com/LonewolfGan" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group cursor-pointer p-4 rounded-2xl bg-foreground/[0.03] border border-border/50 hover:bg-primary/5 hover:border-primary/20 transition-all">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                      <Github size={18} />
                     </div>
-                    <span className="text-foreground/60 font-medium group-hover:text-foreground transition-colors">github.com/LonewolfGan</span>
+                    <div className="flex flex-col">
+                      <span className="text-[10px] font-mono uppercase tracking-widest text-foreground/30">GitHub</span>
+                      <span className="text-foreground/70 text-sm font-medium group-hover:text-foreground transition-colors">LonewolfGan</span>
+                    </div>
                   </a>
                 </address>
               </div>
 
-              <div className="lg:w-2/3">
+              <div className="lg:w-[62%]">
                 {isSuccess ? (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="h-full flex flex-col items-center justify-center text-center p-12 glass rounded-3xl border border-primary/20"
+                    className="h-full min-h-[400px] flex flex-col items-center justify-center text-center p-12 glass rounded-3xl border border-primary/20"
                   >
                     <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6">
                       <Send size={32} />
@@ -319,7 +333,7 @@ export const About: React.FC = () => {
                     <div className="flex flex-col gap-3">
                       <label htmlFor="message" className="text-[10px] font-bold text-foreground/30 uppercase tracking-[.2em] ml-2">{t('contact.message')}</label>
                       <textarea
-                        required id="message" rows={5}
+                        required id="message" rows={8}
                         placeholder={language === 'en' ? 'Tell me about your project or opportunity...' : 'Parlez-moi de votre projet ou opportunité...'}
                         value={formState.message}
                         onChange={(e) => setFormState({ ...formState, message: e.target.value })}
@@ -333,7 +347,7 @@ export const About: React.FC = () => {
                       type="submit"
                       disabled={isSubmitting}
                       size="md"
-                      className="rounded-2xl group min-w-[180px] h-12 whitespace-nowrap"
+                      className="rounded-2xl group min-w-[180px] h-14 whitespace-nowrap"
                       rightIcon={<Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
                     >
                       {isSubmitting ? t('contact.sending') : t('contact.send')}

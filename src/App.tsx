@@ -81,14 +81,14 @@ export default function App() {
                   <div className="w-6 h-6 bg-primary rounded-md flex items-center justify-center text-[10px] text-background font-bold">T</div>
                   <span className="text-sm font-display font-medium tracking-tight uppercase text-foreground">TCHOHLO K. HONORE © 2026</span>
                 </div>
-                <div className="flex gap-8 text-xs font-mono text-foreground/50 uppercase tracking-widest">
+                <div className="flex items-center gap-3 text-xs font-mono text-foreground/50 uppercase tracking-widest">
                   <a href="https://github.com/LonewolfGan" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">GitHub</a>
+                  <span className="w-1 h-1 rounded-full bg-foreground/20" />
                   <a href="mailto:h.dev.contact@gmail.com" className="hover:text-primary transition-colors">Email</a>
+                  <span className="w-1 h-1 rounded-full bg-foreground/20" />
                   <a href="https://www.linkedin.com/in/h-dev" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">LinkedIn</a>
+                  <span className="w-1 h-1 rounded-full bg-foreground/20" />
                   <a href="https://wa.me/212706135005" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">WhatsApp</a>
-                </div>
-                <div className="text-xs text-foreground/30">
-                  Crafted with Precision.
                 </div>
               </div>
             </footer>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import {
-  Download, Mail, Github, Linkedin, MapPin,
+  Download, Mail, Github, Linkedin, MapPin, Phone,
   Code2, Database, GitBranch, Terminal, ExternalLink, GraduationCap, Briefcase, Star
 } from 'lucide-react';
 import { Button } from '../components/Button';
