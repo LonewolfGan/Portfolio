@@ -40,7 +40,7 @@ export const Navbar: React.FC = () => {
         className="fixed top-0 left-0 right-0 z-50 flex justify-center p-4 md:p-6 pointer-events-none"
       >
         {/* ── Desktop pill ── */}
-        <div className="hidden md:flex items-center gap-2 px-6 py-2 pointer-events-auto glass rounded-full shadow-2xl backdrop-blur-xl">
+        <div className="hidden xl:flex items-center gap-2 px-6 py-2 pointer-events-auto glass rounded-full shadow-2xl backdrop-blur-xl">
           <Link to="/" className="flex items-center gap-3 group shrink-0">
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-background font-display font-bold text-sm">
               T
@@ -86,8 +86,8 @@ export const Navbar: React.FC = () => {
           </div>
         </div>
 
-        {/* ── Mobile bar ── */}
-        <div className="flex md:hidden w-full items-center justify-between px-4 py-2.5 pointer-events-auto glass rounded-2xl shadow-2xl backdrop-blur-xl">
+        {/* ── Mobile/Tablet bar ── */}
+        <div className="flex xl:hidden w-full items-center justify-between px-4 py-2.5 pointer-events-auto glass rounded-2xl shadow-2xl backdrop-blur-xl">
           <Link to="/" className="flex items-center gap-2.5">
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-background font-display font-bold text-sm">
               T
@@ -118,7 +118,7 @@ export const Navbar: React.FC = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-40 bg-background/60 backdrop-blur-sm md:hidden"
+              className="fixed inset-0 z-40 bg-background/60 backdrop-blur-sm xl:hidden"
               onClick={() => setOpen(false)}
             />
 
@@ -129,7 +129,7 @@ export const Navbar: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}
               transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed top-[72px] left-4 right-4 z-50 md:hidden glass rounded-2xl shadow-2xl backdrop-blur-xl border border-border overflow-hidden"
+              className="fixed top-[72px] left-4 right-4 z-50 xl:hidden glass rounded-2xl shadow-2xl backdrop-blur-xl border border-border overflow-hidden"
             >
               {/* Nav links */}
               <nav className="flex flex-col py-2">
