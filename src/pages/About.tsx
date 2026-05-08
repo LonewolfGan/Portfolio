@@ -246,42 +246,30 @@ export const About: React.FC = () => {
                   <p className="text-foreground/40 font-light max-w-sm">{t('contact.subtitle')}</p>
                 </div>
 
-                <address className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 not-italic">
-                  <a href="mailto:h.dev.contact@gmail.com" className="flex items-center gap-4 group cursor-pointer p-4 rounded-2xl bg-foreground/[0.03] border border-border/50 hover:bg-primary/5 hover:border-primary/20 transition-all">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                      <Mail size={18} />
+                <address className="flex flex-col gap-6 mt-4 not-italic">
+                  <a href="mailto:atlaslonewolf00@gmail.com" className="flex items-center gap-4 group cursor-pointer">
+                    <div className="w-12 h-12 rounded-2xl bg-foreground/5 flex items-center justify-center text-foreground/50 group-hover:bg-primary/20 group-hover:text-primary transition-all">
+                      <Mail size={20} />
                     </div>
-                    <div className="flex flex-col">
-                      <span className="text-[10px] font-mono uppercase tracking-widest text-foreground/30">Email</span>
-                      <span className="text-foreground/70 text-sm font-medium group-hover:text-foreground transition-colors">h.dev.contact@gmail.com</span>
-                    </div>
+                    <span className="text-foreground/60 font-medium group-hover:text-foreground transition-colors">atlaslonewolf00@gmail.com</span>
                   </a>
-                  <a href="https://www.linkedin.com/in/h-dev" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group cursor-pointer p-4 rounded-2xl bg-foreground/[0.03] border border-border/50 hover:bg-primary/5 hover:border-primary/20 transition-all">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                      <Linkedin size={18} />
+                  <a href="https://www.linkedin.com/in/h-dev" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group cursor-pointer">
+                    <div className="w-12 h-12 rounded-2xl bg-foreground/5 flex items-center justify-center text-foreground/50 group-hover:bg-primary/20 group-hover:text-primary transition-all">
+                      <Linkedin size={20} />
                     </div>
-                    <div className="flex flex-col">
-                      <span className="text-[10px] font-mono uppercase tracking-widest text-foreground/30">LinkedIn</span>
-                      <span className="text-foreground/70 text-sm font-medium group-hover:text-foreground transition-colors">h-dev</span>
-                    </div>
+                    <span className="text-foreground/60 font-medium group-hover:text-foreground transition-colors">linkedin.com/in/h-dev</span>
                   </a>
-                  <a href="https://wa.me/212706135005" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group cursor-pointer p-4 rounded-2xl bg-foreground/[0.03] border border-border/50 hover:bg-primary/5 hover:border-primary/20 transition-all">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                      <Phone size={18} />
+                  <a href="https://wa.me/212706135005" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group cursor-pointer">
+                    <div className="w-12 h-12 rounded-2xl bg-foreground/5 flex items-center justify-center text-foreground/50 group-hover:bg-primary/20 group-hover:text-primary transition-all">
+                      <Phone size={20} />
                     </div>
-                    <div className="flex flex-col">
-                      <span className="text-[10px] font-mono uppercase tracking-widest text-foreground/30">WhatsApp</span>
-                      <span className="text-foreground/70 text-sm font-medium group-hover:text-foreground transition-colors">+212 706 135 005</span>
-                    </div>
+                    <span className="text-foreground/60 font-medium group-hover:text-foreground transition-colors">+212 706 135 005</span>
                   </a>
-                  <a href="https://github.com/LonewolfGan" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group cursor-pointer p-4 rounded-2xl bg-foreground/[0.03] border border-border/50 hover:bg-primary/5 hover:border-primary/20 transition-all">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                      <Github size={18} />
+                  <a href="https://github.com/LonewolfGan" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group cursor-pointer">
+                    <div className="w-12 h-12 rounded-2xl bg-foreground/5 flex items-center justify-center text-foreground/50 group-hover:bg-primary/20 group-hover:text-primary transition-all">
+                      <Github size={20} />
                     </div>
-                    <div className="flex flex-col">
-                      <span className="text-[10px] font-mono uppercase tracking-widest text-foreground/30">GitHub</span>
-                      <span className="text-foreground/70 text-sm font-medium group-hover:text-foreground transition-colors">LonewolfGan</span>
-                    </div>
+                    <span className="text-foreground/60 font-medium group-hover:text-foreground transition-colors">github.com/LonewolfGan</span>
                   </a>
                 </address>
               </div>

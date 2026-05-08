@@ -148,7 +148,7 @@ export const CV: React.FC = () => {
 
               <address className="flex flex-wrap gap-4 mt-6 not-italic">
                 {[
-                  { icon: <Mail size={13} />, label: 'h.dev.contact@gmail.com', href: 'mailto:h.dev.contact@gmail.com' },
+                  { icon: <Mail size={13} />, label: 'atlaslonewolf00@gmail.com', href: 'mailto:atlaslonewolf00@gmail.com' },
                   { icon: <Github size={13} />, label: 'github.com/LonewolfGan', href: 'https://github.com/LonewolfGan' },
                   { icon: <Linkedin size={13} />, label: 'LinkedIn', href: 'https://www.linkedin.com/in/h-dev' },
                   { icon: <Phone size={13} />, label: '+212 706 135 005', href: 'https://wa.me/212706135005' },
