@@ -117,7 +117,7 @@ const getExperience = (language: string) => [
 ];
 
 export const CV: React.FC = () => {
-  const { language } = useLanguage();
+  const { t, language } = useLanguage();
   const projects = getProjects(language);
   const experience = getExperience(language);
 
@@ -152,14 +152,14 @@ export const CV: React.FC = () => {
                   { icon: <Github size={13} />, label: 'github.com/LonewolfGan', href: 'https://github.com/LonewolfGan' },
                   { icon: <Linkedin size={13} />, label: 'LinkedIn', href: 'https://www.linkedin.com/in/h-dev' },
                   { icon: <Phone size={13} />, label: '+212 706 135 005', href: 'https://wa.me/212706135005' },
-                  { icon: <MapPin size={13} />, label: 'Remote / Global', href: null },
+                  { icon: <MapPin size={13} />, label: t('about.location.value'), href: null },
                 ].map(item => (
                   item.href
                     ? <a key={item.label} href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-xs font-mono text-foreground/50 hover:text-primary transition-colors">
+                      className="flex items-center gap-1.5 text-xs font-mono text-primary sm:text-foreground/50 sm:hover:text-primary transition-colors">
                       <span className="text-primary">{item.icon}</span>{item.label}
                     </a>
-                    : <span key={item.label} className="flex items-center gap-1.5 text-xs font-mono text-foreground/50">
+                    : <span key={item.label} className="flex items-center gap-1.5 text-xs font-mono text-primary sm:text-foreground/50">
                       <span className="text-primary">{item.icon}</span>{item.label}
                     </span>
                 ))}
@@ -177,9 +177,6 @@ export const CV: React.FC = () => {
                   {language === 'en' ? 'Download PDF' : 'Télécharger PDF'}
                 </a>
               </Button>
-              <p className="text-[10px] font-mono text-foreground/30 text-center mt-2">
-                {language === 'en' ? 'PDF version' : 'Version PDF'}
-              </p>
             </div>
           </motion.header>
 
@@ -429,9 +426,6 @@ export const CV: React.FC = () => {
                 {language === 'en' ? 'Download PDF CV' : 'Télécharger CV PDF'}
               </a>
             </Button>
-            <p className="text-xs text-foreground/30 mt-3 font-mono">
-              {language === 'en' ? 'PDF version' : 'Version PDF'}
-            </p>
           </motion.div>
 
         </div>

@@ -146,20 +146,20 @@ export const About: React.FC = () => {
                 {t('about.bio')}
               </p>
 
-              <div className="grid grid-cols-2 gap-6 mt-2">
-                <div className="flex flex-col gap-2">
-                  <div className="flex items-center gap-2 text-foreground/40 uppercase text-[10px] tracking-widest font-bold">
-                    <MapPin size={12} /> {t('about.location')}
+                <div className="flex grid grid-cols-2 gap-6 mt-2">
+                  <div className="flex flex-col gap-2">
+                    <div className="flex items-center gap-2 text-foreground/40 uppercase text-[10px] tracking-widest font-bold">
+                      <MapPin size={12} /> {t('about.location')}
+                    </div>
+                    <span className="text-foreground font-medium">{t('about.location.value')}</span>
                   </div>
-                  <span className="text-foreground font-medium">Remote / Global</span>
-                </div>
-                <div className="flex flex-col gap-2">
-                  <div className="flex items-center gap-2 text-foreground/40 uppercase text-[10px] tracking-widest font-bold">
-                    <Briefcase size={12} /> {t('about.role')}
+                  <div className="flex flex-col gap-2">
+                    <div className="flex items-center gap-2 text-foreground/40 uppercase text-[10px] tracking-widest font-bold">
+                      <Briefcase size={12} /> {t('about.role')}
+                    </div>
+                    <span className="text-foreground font-medium">{t('about.role.value')}</span>
                   </div>
-                  <span className="text-foreground font-medium">{t('about.role.value')}</span>
                 </div>
-              </div>
 
               <div className="flex gap-4 mt-4">
                 <Button asChild size="md" className="rounded-full justify-center min-w-[180px] h-12 whitespace-nowrap">

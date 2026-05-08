@@ -168,16 +168,6 @@ export const Home: React.FC = () => {
         <div
           className="relative h-full flex flex-col justify-start pt-[12vh] pl-6 pr-6 sm:pl-[7%] lg:pl-[9%] z-10 w-full sm:max-w-[68%]"
         >
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="mb-5 inline-flex lg:hidden items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/20 rounded-full self-start will-change-transform"
-          >
-            <Sparkles size={12} className="text-primary" />
-            <span className="text-[10px] font-mono font-medium text-primary uppercase tracking-[0.2em]">{t('hero.tagline')}</span>
-          </motion.div>
-
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -301,11 +291,11 @@ export const Home: React.FC = () => {
                     alt={`Screenshot of ${project.title} project`}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
+                    className="w-full h-full object-cover lg:grayscale lg:opacity-60 lg:group-hover:grayscale-0 lg:group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent flex items-end p-6">
-                    <div className="translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent flex items-end p-6">
+                    <div className="lg:translate-y-4 lg:group-hover:translate-y-0 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-500">
                       <Button asChild size="sm" className="rounded-full min-w-[130px] h-10 whitespace-nowrap">
                         <a href={project.link} target="_blank" rel="noopener noreferrer">
                           {language === 'en' ? 'View Project' : 'Voir le projet'}
