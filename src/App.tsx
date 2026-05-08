@@ -78,8 +78,8 @@ export default function App() {
             <footer className="relative z-10 py-12 px-6 border-t border-border">
               <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="flex items-center gap-2">
-                  <div className="w-6 h-6 bg-primary rounded-md flex items-center justify-center text-[10px] text-background font-bold">A</div>
-                  <span className="text-sm font-display font-medium tracking-tight uppercase text-foreground">ATLAS LONEWOLF © 2026</span>
+                  <div className="w-6 h-6 bg-primary rounded-md flex items-center justify-center text-[10px] text-background font-bold">T</div>
+                  <span className="text-sm font-display font-medium tracking-tight uppercase text-foreground">TCHOHLO K. HONORE © 2026</span>
                 </div>
                 <div className="flex gap-8 text-xs font-mono text-foreground/50 uppercase tracking-widest">
                   <a href="https://github.com/LonewolfGan" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">GitHub</a>

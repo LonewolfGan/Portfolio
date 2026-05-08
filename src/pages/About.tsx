@@ -5,7 +5,7 @@ import { Button } from '../components/Button';
 import { useLanguage } from '../context/LanguageContext';
 import { SEO } from '../components/SEO';
 
-const ABOUT_IMAGE = "/atlas.png";
+const ABOUT_IMAGE = "/atlas.webp";
 
 export const About: React.FC = () => {
   const { t, language } = useLanguage();
@@ -119,7 +119,7 @@ export const About: React.FC = () => {
                 <div className="w-72 h-[22rem] md:w-96 md:h-[30rem] rounded-[48px] overflow-hidden shadow-2xl relative z-10">
                   <img
                     src={ABOUT_IMAGE}
-                    alt="Atlas Lonewolf — Junior Full-Stack Developer"
+                    alt="TCHOHLO K. Honore — Junior Full-Stack Developer"
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover"
@@ -127,7 +127,7 @@ export const About: React.FC = () => {
                   />
                   {/* Bottom name tag */}
                   <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/70 via-black/30 to-transparent">
-                    <p className="text-white font-display font-bold text-lg leading-none">Atlas Lonewolf</p>
+                    <p className="text-white font-display font-bold text-lg leading-none">TCHOHLO K. Honore</p>
                     <p className="text-white/60 text-xs font-mono uppercase tracking-widest mt-1">
                       {language === 'en' ? 'Full-Stack Developer' : 'Développeur Full-Stack'}
                     </p>

@@ -43,10 +43,10 @@ export const Navbar: React.FC = () => {
         <div className="hidden md:flex items-center gap-2 px-6 py-2 pointer-events-auto glass rounded-full shadow-2xl backdrop-blur-xl">
           <Link to="/" className="flex items-center gap-3 group shrink-0">
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-background font-display font-bold text-sm">
-              A
+              T
             </div>
             <span className="font-display font-bold text-base tracking-tighter text-foreground uppercase">
-              ATLAS LONEWOLF
+              TCHOHLO K. HONORE
             </span>
           </Link>
 
@@ -90,10 +90,10 @@ export const Navbar: React.FC = () => {
         <div className="flex md:hidden w-full items-center justify-between px-4 py-2.5 pointer-events-auto glass rounded-2xl shadow-2xl backdrop-blur-xl">
           <Link to="/" className="flex items-center gap-2.5">
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-background font-display font-bold text-sm">
-              A
+              T
             </div>
             <span className="font-display font-bold text-sm tracking-tighter text-foreground uppercase">
-              ATLAS LONEWOLF
+              TCHOHLO K. HONORE
             </span>
           </Link>
 

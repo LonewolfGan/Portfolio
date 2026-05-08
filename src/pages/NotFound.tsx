@@ -19,7 +19,7 @@ export const NotFound: React.FC = () => {
 
   return (
     <main className="relative min-h-[calc(100vh-5rem)] flex items-center justify-center px-6 overflow-hidden">
-      <title>404 — Page Not Found | Atlas Lonewolf</title>
+      <title>404 — Page Not Found | TCHOHLO K. Honore</title>
 
       {/* Large background 404 */}
       <span

@@ -115,8 +115,8 @@ export const Home: React.FC = () => {
           style={{ width: '58%', zIndex: 0 }}
         >
           <img
-            src="/atlas.png"
-            alt="Atlas — Junior Full-Stack Developer"
+            src="/atlas.webp"
+            alt="TCHOHLO K. Honore — Junior Full-Stack Developer"
             className="w-full h-full object-cover"
             style={{ objectPosition: 'center 20%' }}
             fetchPriority="high"
@@ -180,7 +180,7 @@ export const Home: React.FC = () => {
               ref={signatureRef}
               className="block text-[clamp(4rem,10vw,9rem)] leading-none tracking-tight"
             >
-              Atlas.
+              Honore.
             </span>
             <span className="block text-xl md:text-2xl lg:text-3xl font-medium text-foreground/60 mt-3 leading-snug max-w-sm">
               {t('hero.title.part2')}

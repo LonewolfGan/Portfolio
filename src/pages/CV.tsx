@@ -122,7 +122,7 @@ export const CV: React.FC = () => {
                 Curriculum Vitae
               </p>
               <h1 className="text-5xl md:text-7xl font-display font-clash font-bold text-foreground leading-none mb-4">
-                Atlas<br /><span className="text-gradient font-serif italic font-normal">Lonewolf.</span>
+                TCHOHLO<br /><span className="text-gradient font-serif italic font-normal">K. Honore.</span>
               </h1>
               <p className="text-lg text-foreground/50 font-light">
                 {language === 'en' ? 'Junior Full-Stack Developer' : 'Développeur Full-Stack Junior'}
@@ -154,7 +154,7 @@ export const CV: React.FC = () => {
                 className="min-w-[180px] h-12 whitespace-nowrap rounded-full shadow-lg shadow-primary/20"
                 rightIcon={<Download size={18} />}
               >
-                <a href="/atlas-cv.pdf" download="Atlas-Lonewolf-CV.pdf">
+                <a href="/cv.pdf" download="Atlas-Lonewolf-CV.pdf">
                   {language === 'en' ? 'Download PDF' : 'Télécharger PDF'}
                 </a>
               </Button>
@@ -378,7 +378,7 @@ export const CV: React.FC = () => {
               className="min-w-[180px] h-12 whitespace-nowrap rounded-full shadow-lg shadow-primary/20"
               rightIcon={<Download size={18} />}
             >
-              <a href="/atlas-cv.pdf" download="Atlas-Lonewolf-CV.pdf">
+              <a href="/cv.pdf" download="Atlas-Lonewolf-CV.pdf">
                 {language === 'en' ? 'Download PDF CV' : 'Télécharger CV PDF'}
               </a>
             </Button>

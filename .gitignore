@@ -20,10 +20,16 @@ Thumbs.db
 npm-debug.log*
 
 # Replit internals
+.replit
+.replit.*
+replit.nix
 .cache/
 .local/
+.config/
+.upm/
 .agents/
 metadata.json
 skills-lock.json
 attached_assets/
 replit.md
+.breakpoints

@@ -24,7 +24,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       from: 'Portfolio Contact <onboarding@resend.dev>',
       to: 'atlaslonewolf00@gmail.com',
       replyTo: email,
-      subject: `New message from ${name} — Atlas Lonewolf Portfolio`,
+      subject: `New message from ${name} — TCHOHLO K. Honore Portfolio`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 32px; background: #f9fafb; border-radius: 12px;">
           <h2 style="color: #111; margin-bottom: 4px;">New Contact Message</h2>
@@ -35,7 +35,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           <p style="margin: 0 0 8px;"><strong>Message:</strong></p>
           <p style="background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 16px; white-space: pre-wrap; color: #374151;">${message}</p>
           <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 24px 0;" />
-          <p style="color: #9ca3af; font-size: 12px; text-align: center;">atlaslonewolf.dev</p>
+          <p style="color: #9ca3af; font-size: 12px; text-align: center;">hdev.is-a.dev</p>
         </div>
       `,
     });

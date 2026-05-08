@@ -1,14 +1,14 @@
-import sharp from 'sharp';
-import { readFileSync } from 'fs';
+import sharp from "sharp";
+import { readFileSync } from "fs";
 
 const W = 1200;
 const H = 630;
 
-const photoBuffer = readFileSync('./public/atlas.png');
+const photoBuffer = readFileSync("./public/atlas.webp");
 
 // Resize photo to fit right side (crop to card height)
 const photoResized = await sharp(photoBuffer)
-  .resize({ height: H, fit: 'cover', position: 'top' })
+  .resize({ height: H, fit: "cover", position: "top" })
   .toBuffer();
 
 const { width: pw } = await sharp(photoResized).metadata();
@@ -57,17 +57,17 @@ const textSvg = `
   <!-- Mono label -->
   <text x="84" y="122"
     font-family="monospace" font-size="12" fill="#2d7a3a"
-    letter-spacing="5" opacity="0.85">PORTFOLIO · 2025</text>
+    letter-spacing="5" opacity="0.85">PORTFOLIO · 2026</text>
 
   <!-- Name line 1 -->
   <text x="82" y="258"
     font-family="serif" font-size="88" font-weight="bold"
-    fill="#f2f2f2" letter-spacing="-3">Atlas</text>
+    fill="#f2f2f2" letter-spacing="-3">TCHOHLO</text>
 
   <!-- Name line 2 -->
   <text x="82" y="355"
     font-family="serif" font-size="88" font-weight="bold"
-    fill="#f2f2f2" letter-spacing="-3">Lonewolf.</text>
+    fill="#f2f2f2" letter-spacing="-3">K. Honore</text>
 
   <!-- Green divider -->
   <rect x="82" y="376" width="56" height="2.5" fill="#2d7a3a"/>
@@ -88,7 +88,7 @@ const textSvg = `
   <!-- URL text -->
   <text x="204" y="552"
     font-family="monospace" font-size="13" fill="#3a9a4a"
-    text-anchor="middle">atlaslonewolf.dev</text>
+    text-anchor="middle">hdev.is-a.dev</text>
 </svg>`;
 
 // ── Composite everything ───────────────────────────────────────────────────
@@ -102,6 +102,6 @@ await sharp(Buffer.from(bgSvg))
     { input: Buffer.from(textSvg), left: 0, top: 0 },
   ])
   .png({ compressionLevel: 8 })
-  .toFile('./public/og-image.png');
+  .toFile("./public/og-image.png");
 
-console.log('✅  OG image generated → public/og-image.png (1200×630)');
+console.log("✅  OG image generated → public/og-image.png (1200×630)");

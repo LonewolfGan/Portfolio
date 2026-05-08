@@ -1,34 +1,34 @@
-# Atlas Lonewolf — Portfolio
+# TCHOHLO K. Honore — Portfolio
 
-Personal portfolio for **Atlas Lonewolf**, junior full-stack developer.  
+Personal portfolio for **TCHOHLO K. Honore**, junior full-stack developer.  
 Built with React 19, Vite 6, TypeScript, and Tailwind CSS v4.
 
 ---
 
 ## Stack
 
-| Layer | Tech |
-|---|---|
-| Framework | React 19 + TypeScript |
-| Build | Vite 6 |
-| Styling | Tailwind CSS v4 |
+| Layer      | Tech                                |
+| ---------- | ----------------------------------- |
+| Framework  | React 19 + TypeScript               |
+| Build      | Vite 6                              |
+| Styling    | Tailwind CSS v4                     |
 | Animations | Framer Motion, GSAP + ScrollTrigger |
-| Routing | React Router DOM v7 |
-| Email | Resend API (serverless) |
-| Deployment | Vercel |
+| Routing    | React Router DOM v7                 |
+| Email      | Resend API (serverless)             |
+| Deployment | Vercel                              |
 
 ---
 
 ## Pages
 
-| Route | Description |
-|---|---|
-| `/` | Home — editorial hero, tech marquee, featured works |
-| `/works` | Works — project case studies |
-| `/skills` | Skills — tech stack & skill groups |
-| `/about` | About — bio & contact form |
-| `/cv` | CV — downloadable résumé |
-| `*` | 404 — countdown redirect to home |
+| Route     | Description                                         |
+| --------- | --------------------------------------------------- |
+| `/`       | Home — editorial hero, tech marquee, featured works |
+| `/works`  | Works — project case studies                        |
+| `/skills` | Skills — tech stack & skill groups                  |
+| `/about`  | About — bio & contact form                          |
+| `/cv`     | CV — downloadable résumé                            |
+| `*`       | 404 — countdown redirect to home                    |
 
 ---
 
@@ -44,9 +44,9 @@ npm run build      # production build → dist/
 
 ## Environment Variables
 
-| Variable | Where | Purpose |
-|---|---|---|
-| `RESEND_API_KEY` | Replit Secrets + Vercel Dashboard | Powers the contact form |
+| Variable         | Where           | Purpose                 |
+| ---------------- | --------------- | ----------------------- |
+| `RESEND_API_KEY` | Resend Platform | Powers the contact form |
 
 ---
 
@@ -64,11 +64,11 @@ To deploy: push to GitHub and connect the repo in the Vercel dashboard. Add `RES
 
 ## Assets
 
-| File | Purpose |
-|---|---|
-| `public/atlas.png` | Hero portrait |
-| `public/atlas-cv.pdf` | CV download (add your own) |
-| `public/favicon.svg` | Site favicon |
+| File                | Purpose       |
+| ------------------- | ------------- |
+| `public/atlas.webp` | Hero portrait |
+| `public/brand.ico`  | Site favicon  |
+| `public/cv.pdf`     | CV download   |
 
 ---
 

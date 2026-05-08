@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://atlaslonewolf.dev/sitemap.xml
+Sitemap: https://hdev.is-a.dev/sitemap.xml

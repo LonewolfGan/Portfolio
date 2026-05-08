@@ -4,7 +4,7 @@ import { useLanguage } from '../context/LanguageContext';
 
 type Page = 'home' | 'works' | 'skills' | 'about' | 'cv';
 
-const BASE_URL = 'https://atlaslonewolf.dev';
+const BASE_URL = 'https://hdev.is-a.dev';
 const OG_IMAGE = typeof window !== 'undefined'
   ? `${window.location.origin}/og-image.png`
   : `${BASE_URL}/og-image.png`;
@@ -12,61 +12,61 @@ const OG_IMAGE = typeof window !== 'undefined'
 const META: Record<Page, { en: { title: string; description: string; url: string }; fr: { title: string; description: string; url: string } }> = {
   home: {
     en: {
-      title: 'Atlas Lonewolf | Junior Full-Stack Developer',
+      title: 'TCHOHLO K. Honore | Junior Full-Stack Developer',
       description: 'Junior Full-Stack Developer building clean React interfaces and solid SQL backends. Based in France.',
       url: BASE_URL + '/',
     },
     fr: {
-      title: 'Atlas Lonewolf | Développeur Full-Stack Junior',
+      title: 'TCHOHLO K. Honore | Développeur Full-Stack Junior',
       description: 'Développeur Full-Stack Junior construisant des interfaces React épurées et des backends SQL robustes. Basé en France.',
       url: BASE_URL + '/',
     },
   },
   works: {
     en: {
-      title: 'Works | Atlas Lonewolf',
-      description: 'Browse Atlas Lonewolf\'s portfolio — full-stack projects built with React, Node.js, Python and SQL.',
+      title: 'Works | TCHOHLO K. Honore',
+      description: 'Browse TCHOHLO K. Honore\'s portfolio — full-stack projects built with React, Node.js, Python and SQL.',
       url: BASE_URL + '/works',
     },
     fr: {
-      title: 'Projets | Atlas Lonewolf',
-      description: 'Découvrez les projets full-stack d\'Atlas Lonewolf — apps React, APIs Node.js et systèmes pilotés par base de données.',
+      title: 'Projets | TCHOHLO K. Honore',
+      description: 'Découvrez les projets full-stack d\'TCHOHLO K. Honore — apps React, APIs Node.js et systèmes pilotés par base de données.',
       url: BASE_URL + '/works',
     },
   },
   skills: {
     en: {
-      title: 'Skills | Atlas Lonewolf',
-      description: 'Technical skills of Atlas Lonewolf — React, TypeScript, Node.js, Python, SQL, Docker and more.',
+      title: 'Skills | TCHOHLO K. Honore',
+      description: 'Technical skills of TCHOHLO K. Honore — React, TypeScript, Node.js, Python, SQL, Docker and more.',
       url: BASE_URL + '/skills',
     },
     fr: {
-      title: 'Compétences | Atlas Lonewolf',
-      description: 'Compétences techniques d\'Atlas Lonewolf — React, TypeScript, Node.js, Python, SQL, Docker et plus encore.',
+      title: 'Compétences | TCHOHLO K. Honore',
+      description: 'Compétences techniques d\'TCHOHLO K. Honore — React, TypeScript, Node.js, Python, SQL, Docker et plus encore.',
       url: BASE_URL + '/skills',
     },
   },
   about: {
     en: {
-      title: 'About | Atlas Lonewolf',
-      description: 'Meet Atlas Lonewolf — a junior full-stack developer passionate about clean interfaces, solid data engineering and minimalist design.',
+      title: 'About | TCHOHLO K. Honore',
+      description: 'Meet TCHOHLO K. Honore — a junior full-stack developer passionate about clean interfaces, solid data engineering and minimalist design.',
       url: BASE_URL + '/about',
     },
     fr: {
-      title: 'À Propos | Atlas Lonewolf',
-      description: 'Découvrez Atlas Lonewolf — développeur full-stack junior passionné par les interfaces épurées et l\'ingénierie des données.',
+      title: 'À Propos | TCHOHLO K. Honore',
+      description: 'Découvrez TCHOHLO K. Honore — développeur full-stack junior passionné par les interfaces épurées et l\'ingénierie des données.',
       url: BASE_URL + '/about',
     },
   },
   cv: {
     en: {
-      title: 'CV | Atlas Lonewolf',
-      description: 'Atlas Lonewolf\'s curriculum vitae — education, projects and technical skills as a junior full-stack developer.',
+      title: 'CV | TCHOHLO K. Honore',
+      description: 'TCHOHLO K. Honore\'s curriculum vitae — education, projects and technical skills as a junior full-stack developer.',
       url: BASE_URL + '/cv',
     },
     fr: {
-      title: 'CV | Atlas Lonewolf',
-      description: 'Curriculum vitae d\'Atlas Lonewolf — formation, projets et compétences techniques en tant que développeur full-stack junior.',
+      title: 'CV | TCHOHLO K. Honore',
+      description: 'Curriculum vitae d\'TCHOHLO K. Honore — formation, projets et compétences techniques en tant que développeur full-stack junior.',
       url: BASE_URL + '/cv',
     },
   },
