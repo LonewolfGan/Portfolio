@@ -17,8 +17,8 @@ const translations = {
     'nav.about': 'About',
     // Hero
     'hero.tagline': 'Building Tomorrow • Junior Dev',
-    'hero.title.part1': "Hi, I'm Atlas.",
-    'hero.title.part2': 'I build clean interfaces & powerful websites.',
+    'hero.title.part1': "Hi, I'm Atlas",
+    'hero.title.part2': 'I build clean interfaces & powerful websites',
     'hero.subtitle': 'Junior Full-Stack Dev with a focus on React, Node.js and WordPress. I love minimalist design and solving complex problems.',
     'hero.cta.primary': 'View my projects',
     'hero.cta.secondary': "Let's talk",
@@ -32,7 +32,7 @@ const translations = {
     'services.card3.title': 'WordPress & CMS',
     'services.card3.desc': 'Building custom themes, plugins and performant WordPress sites — from simple blogs to full client projects.',
     // Works
-    'works.title': 'The Gallery.',
+    'works.title': 'The Gallery',
     'works.subtitle': 'An archive of academic projects, technical deep-dives, and early-stage commercial explorations.',
     'works.viewAll': 'View All Projects',
     'works.featured': 'Featured Work',
@@ -43,7 +43,7 @@ const translations = {
     'home.contact.cta': 'Get in touch',
     // About
     'about.title': 'The Architect behind',
-    'about.logic': 'the logic.',
+    'about.logic': 'the logic',
     'about.bio': "Hello, I'm Atlas. A motivated developer focused on mastering scalable digital ecosystems. I believe that true innovation starts with solid fundamentals and professional-grade engineering.",
     'about.contact': 'Contact Me',
     'about.location': 'Location',
@@ -57,7 +57,7 @@ const translations = {
     'about.spec2.desc': 'Devoted to the philosophy of "Less is More". I study how to remove friction and highlight core value.',
     // Contact
     'contact.title': "Let's build the",
-    'contact.future': 'future.',
+    'contact.future': 'future',
     'contact.subtitle': 'Got a project or an opportunity? Reach out and I\'ll get back to you within 24 hours.',
     'contact.name': 'Your Name',
     'contact.email': 'Email Address',
@@ -73,8 +73,8 @@ const translations = {
     'nav.about': 'À Propos',
     // Hero
     'hero.tagline': 'Bâtir Demain • Dév Junior',
-    'hero.title.part1': 'Salut, je suis Atlas.',
-    'hero.title.part2': 'Je crée des interfaces épurées et des sites web puissants.',
+    'hero.title.part1': 'Salut, je suis Atlas',
+    'hero.title.part2': 'Je crée des interfaces épurées et des sites web puissants',
     'hero.subtitle': 'Dév Full-stack Junior axé sur React, Node.js et WordPress. Passionné par le design minimaliste et la résolution de problèmes complexes.',
     'hero.cta.primary': 'Voir mes projets',
     'hero.cta.secondary': 'Discutons',
@@ -88,7 +88,7 @@ const translations = {
     'services.card3.title': 'WordPress & CMS',
     'services.card3.desc': 'Création de thèmes personnalisés, plugins et sites WordPress performants — des blogs simples aux projets clients complets.',
     // Works
-    'works.title': 'La Galerie.',
+    'works.title': 'La Galerie',
     'works.subtitle': 'Une archive de projets académiques, d\'approfondissements techniques et de premières explorations commerciales.',
     'works.viewAll': 'Voir tous les projets',
     'works.featured': 'Projets Phares',
@@ -99,7 +99,7 @@ const translations = {
     'home.contact.cta': 'Me contacter',
     // About
     'about.title': "L'Architecte derrière",
-    'about.logic': 'la logique.',
+    'about.logic': 'la logique',
     'about.bio': "Bonjour, je suis Atlas. Un développeur motivé axé sur la maîtrise des écosystèmes numériques évolutifs. Je crois que la véritable innovation commence par des bases solides.",
     'about.contact': 'Me Contacter',
     'about.location': 'Lieu',
@@ -113,7 +113,7 @@ const translations = {
     'about.spec2.desc': 'Voué à la philosophie "Less is More". J\'étudie comment supprimer les frictions et souligner la valeur fondamentale.',
     // Contact
     'contact.title': 'Bâtissons le',
-    'contact.future': 'futur.',
+    'contact.future': 'futur',
     'contact.subtitle': 'Un projet ou une opportunité ? Contactez-moi et je vous répondrai sous 24 heures.',
     'contact.name': 'Votre Nom',
     'contact.email': 'Adresse Email',

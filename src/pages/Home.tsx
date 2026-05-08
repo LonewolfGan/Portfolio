@@ -18,7 +18,7 @@ const getFeaturedProjects = (language: string) => [
     description: language === 'en'
       ? "React + Redux Toolkit app for browsing and saving quotes with smooth state transitions."
       : "Application React + Redux Toolkit pour parcourir et sauvegarder des citations avec des transitions d'état fluides.",
-    image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1024&auto=format&fit=crop",
+    image: "/quoter.webp",
     tags: ["React", "Redux", "Tailwind"],
     link: "https://quoter-ebon.vercel.app/",
   },
@@ -27,7 +27,7 @@ const getFeaturedProjects = (language: string) => [
     description: language === 'en'
       ? "Movie discovery platform with real-time TMDB search, lazy-loaded images and local storage caching."
       : "Plateforme de découverte de films avec recherche TMDB en temps réel et mise en cache locale.",
-    image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1024&auto=format&fit=crop",
+    image: "/cinemate.webp",
     tags: ["React", "TMDB API", "Framer Motion"],
     link: "https://cinematelone.netlify.app/",
   },
@@ -36,7 +36,7 @@ const getFeaturedProjects = (language: string) => [
     description: language === 'en'
       ? "Secure PHP file archive with encrypted metadata search and a moody minimalist UI."
       : "Archive de fichiers PHP sécurisée avec recherche de métadonnées chiffrée et UI minimaliste.",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1024&auto=format&fit=crop",
+    image: "/xfiles.webp",
     tags: ["PHP", "MySQL", "Security"],
     link: "https://hdev.great-site.net",
   },
