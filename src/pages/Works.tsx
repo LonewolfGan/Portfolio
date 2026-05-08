@@ -99,13 +99,13 @@ export const Works: React.FC = () => {
                 className={`flex flex-col ${idx % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 lg:gap-24 items-center`}
               >
                 <div className="flex-1 w-full group overflow-hidden rounded-[40px] glass border border-border relative">
-                  <div className="absolute inset-0 bg-primary/20 mix-blend-overlay opacity-0 lg:group-hover:opacity-100 transition-opacity pointer-events-none" />
+                  <div className="absolute inset-0 bg-primary/20 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                   <img
                     src={project.image}
                     alt={`${project.title} — ${project.tech_details}`}
                     loading="lazy"
                     decoding="async"
-                    className="w-full aspect-[4/3] object-cover lg:grayscale lg:opacity-50 lg:group-hover:grayscale-0 lg:group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105"
+                    className="w-full aspect-[4/3] object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105"
                     referrerPolicy="no-referrer"
                   />
                 </div>

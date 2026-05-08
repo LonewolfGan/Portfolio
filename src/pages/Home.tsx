@@ -68,14 +68,14 @@ export const Home: React.FC = () => {
 
     gsap.from('.service-card', {
       opacity: 0,
-      y: 40,
-      stagger: 0.12,
-      duration: 1.2,
-      ease: 'expo.out',
+      y: 20,
+      stagger: 0.1,
+      duration: 0.8,
+      ease: 'power2.out',
       immediateRender: false,
       scrollTrigger: {
         trigger: '.services-grid',
-        start: 'top 90%',
+        start: 'top 95%',
         once: true,
       },
       force3D: true
@@ -83,14 +83,14 @@ export const Home: React.FC = () => {
 
     gsap.from('.project-card', {
       opacity: 0,
-      y: 50,
-      stagger: 0.15,
-      duration: 1.3,
-      ease: 'expo.out',
+      y: 25,
+      stagger: 0.12,
+      duration: 0.8,
+      ease: 'power2.out',
       immediateRender: false,
       scrollTrigger: {
         trigger: '.projects-grid',
-        start: 'top 90%',
+        start: 'top 95%',
         once: true,
       },
       force3D: true
@@ -98,14 +98,14 @@ export const Home: React.FC = () => {
 
     gsap.from('.learning-item', {
       opacity: 0,
-      x: -20,
-      stagger: 0.1,
-      duration: 1.1,
-      ease: 'expo.out',
+      x: -10,
+      stagger: 0.08,
+      duration: 0.7,
+      ease: 'power2.out',
       immediateRender: false,
       scrollTrigger: {
         trigger: '.learning-section',
-        start: 'top 90%',
+        start: 'top 95%',
         once: true,
       },
       force3D: true
@@ -123,7 +123,7 @@ export const Home: React.FC = () => {
         style={{ height: 'calc(100vh - 5rem)', minHeight: 560 }}
       >
         <div
-          className="hidden sm:block absolute top-0 right-0 h-full"
+          className="hidden lg:block absolute top-0 right-0 h-full"
           style={{ width: '58%', zIndex: 0 }}
         >
           <img
@@ -166,7 +166,7 @@ export const Home: React.FC = () => {
 
         {/* ── Main text content — left column ── */}
         <div
-          className="relative h-full flex flex-col justify-start pt-[12vh] pl-6 pr-6 sm:pl-[7%] lg:pl-[9%] z-10 w-full sm:max-w-[68%]"
+          className="relative h-full flex flex-col justify-start pt-[12vh] px-6 lg:pl-[9%] z-10 w-full lg:max-w-[68%]"
         >
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -251,13 +251,13 @@ export const Home: React.FC = () => {
             </div>
           </div>
 
-          <div className="services-grid grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="services-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               { title: t('services.card1.title'), icon: <Server className="text-primary" size={32} />, description: t('services.card1.desc') },
               { title: t('services.card2.title'), icon: <Layout className="text-primary" size={32} />, description: t('services.card2.desc') },
               { title: t('services.card3.title'), icon: <Globe className="text-primary" size={32} />, description: t('services.card3.desc') },
             ].map((service, idx) => (
-              <article key={idx} className="service-card glass p-8 rounded-3xl border border-border hover:border-primary/20 group transition-all">
+              <article key={idx} className="service-card glass p-8 rounded-3xl border border-border hover:border-primary/20 group transition-all will-change-transform">
                 <div className="mb-6 w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                   {service.icon}
                 </div>
@@ -284,14 +284,14 @@ export const Home: React.FC = () => {
 
           <div className="projects-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
             {FEATURED_PROJECTS.map((project, idx) => (
-              <article key={idx} className="project-card flex flex-col gap-6 group">
+              <article key={idx} className="project-card flex flex-col gap-6 group will-change-transform">
                 <div className="aspect-video rounded-3xl overflow-hidden glass border border-border relative cursor-pointer">
                   <img
                     src={project.image}
                     alt={`Screenshot of ${project.title} project`}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-full object-cover lg:grayscale lg:opacity-60 lg:group-hover:grayscale-0 lg:group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
+                    className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent flex items-end p-6">
@@ -336,7 +336,7 @@ export const Home: React.FC = () => {
                 { title: 'Docker', desc: language === 'en' ? 'Containerising apps for reproducible deployments' : 'Conteneuriser les apps pour des déploiements reproductibles' },
                 { title: 'PostgreSQL', desc: language === 'en' ? 'Advanced querying, indexing & data modeling' : 'Requêtes avancées, indexation & modélisation de données' },
               ].map(item => (
-                <div key={item.title} className="learning-item flex flex-col gap-2 border-l-2 border-primary/20 pl-6">
+                <div key={item.title} className="learning-item flex flex-col gap-2 border-l-2 border-primary/20 pl-6 will-change-transform">
                   <h4 className="text-foreground font-bold">{item.title}</h4>
                   <p className="text-foreground/40 text-sm font-light leading-relaxed">{item.desc}</p>
                 </div>

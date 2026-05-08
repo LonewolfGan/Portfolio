@@ -53,8 +53,8 @@ export default function App() {
           <ScrollToTop />
           <div ref={containerRef} className="relative min-h-screen">
             <div className="fixed inset-0 grid-bg pointer-events-none opacity-30 text-foreground" />
-            <div className="fixed -top-[20%] -left-[10%] w-[500px] h-[500px] glow-sphere opacity-25 pointer-events-none" />
-            <div className="fixed bottom-[10%] -right-[5%] w-[350px] h-[350px] glow-sphere opacity-15 pointer-events-none" />
+            <div className="fixed -top-[20%] -left-[10%] w-[500px] h-[500px] glow-sphere opacity-30 dark:opacity-25 pointer-events-none" />
+            <div className="fixed bottom-[10%] -right-[5%] w-[350px] h-[350px] glow-sphere opacity-20 dark:opacity-15 pointer-events-none" />
 
             <ErrorBoundary fallback={null}>
               <BackgroundScene />

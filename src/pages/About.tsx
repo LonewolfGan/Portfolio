@@ -146,7 +146,7 @@ export const About: React.FC = () => {
                 {t('about.bio')}
               </p>
 
-                <div className="flex grid grid-cols-2 gap-6 mt-2">
+                <div className="grid grid-cols-2 gap-6 mt-2">
                   <div className="flex flex-col gap-2">
                     <div className="flex items-center gap-2 text-foreground/40 uppercase text-[10px] tracking-widest font-bold">
                       <MapPin size={12} /> {t('about.location')}

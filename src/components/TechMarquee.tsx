@@ -22,7 +22,7 @@ const TECHS = [
 interface Tech { name: string; logo: string; dark: boolean }
 
 const Item: React.FC<Tech> = ({ name, logo, dark }) => (
-  <div className="flex items-center gap-3 px-6 py-3 rounded-2xl border border-border bg-background/60 backdrop-blur-sm hover:border-primary/30 transition-colors select-none shrink-0">
+  <div className="flex items-center gap-3 px-6 py-3 rounded-2xl border border-border bg-background/60 backdrop-blur-sm hover:border-primary/30 transition-all select-none shrink-0 group">
     <img
       src={logo}
       alt={name}
@@ -30,9 +30,9 @@ const Item: React.FC<Tech> = ({ name, logo, dark }) => (
       height={28}
       loading="lazy"
       decoding="async"
-      className={`object-contain grayscale${dark ? ' dark:invert' : ''}`}
+      className={`object-contain grayscale transition-all duration-300${dark ? ' dark:invert' : ''}`}
     />
-    <span className="text-sm font-mono text-foreground/60 whitespace-nowrap">{name}</span>
+    <span className="text-sm font-mono text-foreground/60 group-hover:text-foreground transition-colors whitespace-nowrap">{name}</span>
   </div>
 );
 
