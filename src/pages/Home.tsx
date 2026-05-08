@@ -192,7 +192,7 @@ export const Home: React.FC = () => {
               ref={signatureRef}
               className="block text-[clamp(4rem,10vw,9rem)] leading-none tracking-tight will-change-transform"
             >
-              Honore.
+              Honore
             </span>
             <span className="block text-xl md:text-2xl lg:text-3xl font-medium text-foreground/60 mt-3 leading-snug max-w-sm">
               {t('hero.title.part2')}
