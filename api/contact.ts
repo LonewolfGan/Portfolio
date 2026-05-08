@@ -22,7 +22,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     await resend.emails.send({
       from: 'Portfolio Contact <onboarding@resend.dev>',
-      to: 'atlaslonewolf00@gmail.com',
+      to: 'h.dev.contact@gmail.com',
       replyTo: email,
       subject: `New message from ${name} — TCHOHLO K. Honore Portfolio`,
       html: `

@@ -115,7 +115,7 @@ export const Home: React.FC = () => {
           style={{ width: '58%', zIndex: 0 }}
         >
           <img
-            src="/atlas.webp"
+            src="/profile.webp"
             alt="TCHOHLO K. Honore — Junior Full-Stack Developer"
             className="w-full h-full object-cover"
             style={{ objectPosition: 'center 20%' }}

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Mail, Linkedin, Github, Send, Briefcase, GraduationCap, MapPin, BookOpen } from 'lucide-react';
+import { Mail, Linkedin, Github, Send, Briefcase, GraduationCap, MapPin, BookOpen, Phone } from 'lucide-react';
 import { Button } from '../components/Button';
 import { useLanguage } from '../context/LanguageContext';
 import { SEO } from '../components/SEO';
 
-const ABOUT_IMAGE = "/atlas.webp";
+const ABOUT_IMAGE = "/profile.webp";
 
 export const About: React.FC = () => {
   const { t, language } = useLanguage();
@@ -44,52 +44,46 @@ export const About: React.FC = () => {
 
   const experienceData = [
     {
-      year: '2024–Now',
-      role: language === 'en' ? 'Freelance Web Developer' : 'Développeur Web Freelance',
+      year: '2024 – Present',
+      role: language === 'en' ? 'Freelance Full-Stack Developer' : 'Développeur Full-Stack Freelance',
       company: language === 'en' ? 'Self-employed / Personal Projects' : 'Indépendant / Projets personnels',
       desc: language === 'en'
-        ? 'Building full-stack web apps end-to-end: React frontends, Express/Node.js APIs, and relational SQL databases. Deployed on Vercel and Netlify.'
-        : "Développement complet d'applications web : frontends React, APIs Express/Node.js, et bases de données SQL relationnelles. Déploiement sur Vercel et Netlify.",
+        ? 'Building full-stack web applications from end to end using React, Node.js/Express, and SQL databases. Focused on creating responsive interfaces, RESTful APIs, and scalable architectures while deploying projects on platforms like Vercel and Netlify.'
+        : "Développement d'applications web full-stack de bout en bout avec React, Node.js/Express et des bases de données SQL. Focus sur les interfaces responsives, APIs RESTful et architectures scalables, avec déploiement sur Vercel et Netlify.",
     },
     {
       year: '2023',
       role: language === 'en' ? 'Creative Tech Exploration' : 'Exploration Tech Créative',
       company: language === 'en' ? 'Independent Experiments' : 'Expérimentations indépendantes',
       desc: language === 'en'
-        ? 'Explored WebGL and Three.js through self-directed projects. Built a face recognition system with Python + OpenCV + Flask, serving results to a custom JS frontend.'
-        : "Exploration de WebGL et Three.js via des projets auto-dirigés. Développement d'un système de reconnaissance faciale avec Python + OpenCV + Flask.",
+        ? 'Explored creative and experimental technologies through self-directed projects using WebGL and Three.js. Developed a facial recognition system with Python, OpenCV, and Flask connected to a custom JavaScript frontend for real-time interaction.'
+        : "Exploration de technologies créatives et expérimentales via des projets auto-dirigés avec WebGL et Three.js. Développement d'un système de reconnaissance faciale avec Python, OpenCV et Flask connecté à un frontend JavaScript personnalisé pour une interaction en temps réel.",
     },
     {
-      year: '2022',
+      year: '2022 – Present',
       role: language === 'en' ? 'Computer Science Student' : 'Étudiant en Informatique',
       company: language === 'en' ? 'Academic Programme' : 'Programme Académique',
       desc: language === 'en'
-        ? 'Mastered core CS fundamentals: algorithms, data structures, Python OOP, SQL database modeling (MCD/MLD), and low-level programming in C++.'
-        : 'Maîtrise des fondamentaux CS : algorithmes, structures de données, POO Python, modélisation SQL (MCD/MLD), et programmation bas niveau en C++.',
+        ? 'Built strong foundations in computer science including algorithms, data structures, object-oriented programming in Python, SQL database modeling, and low-level programming with C++.'
+        : "Construction de bases solides en informatique : algorithmes, structures de données, programmation orientée objet en Python, modélisation de bases de données SQL et programmation bas niveau en C++.",
     },
   ];
 
   const specs = [
     {
       icon: <BookOpen size={20} className="text-primary" />,
-      title: language === 'en' ? 'Self-taught & Academic' : 'Autodidacte & Académique',
-      desc: language === 'en'
-        ? 'Combining a formal CS background with self-directed learning. I build real projects to solidify every concept — courses alone are not enough.'
-        : "Combinaison d'une base CS formelle et d'apprentissage autonome. Je construis de vrais projets pour consolider chaque concept — les cours seuls ne suffisent pas.",
+      title: t('about.specializations.self.title'),
+      desc: t('about.specializations.self.desc'),
     },
     {
       icon: <Briefcase size={20} className="text-primary" />,
-      title: language === 'en' ? 'Open to Junior Roles' : 'Ouvert aux postes Junior',
-      desc: language === 'en'
-        ? 'Actively seeking my first junior developer position or internship. Comfortable with code reviews, pair programming, and collaborative Git workflows.'
-        : "À la recherche de mon premier poste de développeur junior ou stage. À l'aise avec les revues de code, la programmation en pair et les workflows Git collaboratifs.",
+      title: t('about.specializations.junior.title'),
+      desc: t('about.specializations.junior.desc'),
     },
     {
       icon: <GraduationCap size={20} className="text-primary" />,
-      title: language === 'en' ? 'Always Growing' : 'Toujours en croissance',
-      desc: language === 'en'
-        ? 'Currently diving into Next.js, Docker, and PostgreSQL. I maintain a personal learning log and build a side project for every new concept I study.'
-        : "En train d'approfondir Next.js, Docker et PostgreSQL. Je maintiens un journal d'apprentissage personnel et construis un projet annexe pour chaque concept étudié.",
+      title: t('about.specializations.growth.title'),
+      desc: t('about.specializations.growth.desc'),
     },
   ];
 
@@ -251,17 +245,23 @@ export const About: React.FC = () => {
                 <p className="text-foreground/40 font-light">{t('contact.subtitle')}</p>
 
                 <address className="flex flex-col gap-6 mt-4 not-italic">
-                  <a href="mailto:atlaslonewolf00@gmail.com" className="flex items-center gap-4 group cursor-pointer">
+                  <a href="mailto:h.dev.contact@gmail.com" className="flex items-center gap-4 group cursor-pointer">
                     <div className="w-12 h-12 rounded-2xl bg-foreground/5 flex items-center justify-center text-foreground/50 group-hover:bg-primary/20 group-hover:text-primary transition-all">
                       <Mail size={20} />
                     </div>
-                    <span className="text-foreground/60 font-medium group-hover:text-foreground transition-colors">atlaslonewolf00@gmail.com</span>
+                    <span className="text-foreground/60 font-medium group-hover:text-foreground transition-colors">h.dev.contact@gmail.com</span>
                   </a>
-                  <a href="https://www.linkedin.com/in/atlas-lonewolf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group cursor-pointer">
+                  <a href="https://www.linkedin.com/in/h-dev" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group cursor-pointer">
                     <div className="w-12 h-12 rounded-2xl bg-foreground/5 flex items-center justify-center text-foreground/50 group-hover:bg-primary/20 group-hover:text-primary transition-all">
                       <Linkedin size={20} />
                     </div>
-                    <span className="text-foreground/60 font-medium group-hover:text-foreground transition-colors">linkedin.com/in/atlas-lonewolf</span>
+                    <span className="text-foreground/60 font-medium group-hover:text-foreground transition-colors">linkedin.com/in/h-dev</span>
+                  </a>
+                  <a href="https://wa.me/212706135005" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group cursor-pointer">
+                    <div className="w-12 h-12 rounded-2xl bg-foreground/5 flex items-center justify-center text-foreground/50 group-hover:bg-primary/20 group-hover:text-primary transition-all">
+                      <Phone size={20} />
+                    </div>
+                    <span className="text-foreground/60 font-medium group-hover:text-foreground transition-colors">+212 706 135 005</span>
                   </a>
                   <a href="https://github.com/LonewolfGan" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group cursor-pointer">
                     <div className="w-12 h-12 rounded-2xl bg-foreground/5 flex items-center justify-center text-foreground/50 group-hover:bg-primary/20 group-hover:text-primary transition-all">

@@ -66,7 +66,7 @@ To deploy: push to GitHub and connect the repo in the Vercel dashboard. Add `RES
 
 | File                | Purpose       |
 | ------------------- | ------------- |
-| `public/atlas.webp` | Hero portrait |
+| `public/profile.webp` | Hero portrait |
 | `public/brand.ico`  | Site favicon  |
 | `public/cv.pdf`     | CV download   |
 

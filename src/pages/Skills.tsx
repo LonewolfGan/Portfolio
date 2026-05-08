@@ -11,7 +11,7 @@ const getSkillGroups = (language: string) => [
     skills: [
       { name: 'JavaScript / TypeScript', details: language === 'en' ? 'ES6+, async/await, type-safe React' : 'ES6+, async/await, React typé' },
       { name: 'Python', details: language === 'en' ? 'OOP, scripting, Flask APIs, OpenCV' : 'POO, scripts, APIs Flask, OpenCV' },
-      { name: 'SQL', details: language === 'en' ? 'MariaDB, MySQL, MCD/MLD design' : 'MariaDB, MySQL, conception MCD/MLD' },
+      { name: 'SQL', details: language === 'en' ? 'MariaDB, MySQL, relational design' : 'MariaDB, MySQL, conception relationnelle' },
       { name: 'PHP', details: language === 'en' ? 'Server-side logic, file handling' : 'Logique serveur, gestion de fichiers' },
       { name: 'C++', details: language === 'en' ? 'Fundamentals, embedded systems basics' : 'Fondamentaux, bases systèmes embarqués' },
     ],
@@ -33,7 +33,7 @@ const getSkillGroups = (language: string) => [
     icon: <Database className="text-primary" size={24} />,
     skills: [
       { name: 'Node.js / Express', details: language === 'en' ? 'REST APIs, middleware, routing' : 'APIs REST, middleware, routage' },
-      { name: 'Database Modeling', details: language === 'en' ? 'MCD/MLD, relational schemas, integrity' : 'MCD/MLD, schémas relationnels, intégrité' },
+      { name: 'Database Modeling', details: language === 'en' ? 'Relational schemas, normalization, integrity' : 'Schémas relationnels, normalisation, intégrité' },
       { name: 'REST API Integration', details: language === 'en' ? 'TMDB, third-party services, JSON' : 'TMDB, services tiers, JSON' },
       { name: 'Flask', details: language === 'en' ? 'Python microservices, image processing' : "Microservices Python, traitement d'images" },
     ],

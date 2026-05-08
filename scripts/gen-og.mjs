@@ -4,7 +4,7 @@ import { readFileSync } from "fs";
 const W = 1200;
 const H = 630;
 
-const photoBuffer = readFileSync("./public/atlas.webp");
+const photoBuffer = readFileSync("./public/profile.webp");
 
 // Resize photo to fit right side (crop to card height)
 const photoResized = await sharp(photoBuffer)

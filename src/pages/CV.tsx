@@ -11,7 +11,7 @@ import { SEO } from '../components/SEO';
 const SKILLS = {
   languages: ['JavaScript / TypeScript', 'Python', 'SQL (MariaDB, MySQL)', 'PHP', 'C++'],
   frontend: ['React 19', 'Tailwind CSS v4', 'Framer Motion', 'Three.js', 'GSAP', 'Redux Toolkit'],
-  backend: ['Node.js / Express', 'Flask', 'REST APIs', 'Database Modeling (MCD/MLD)'],
+  backend: ['Node.js / Express', 'Flask', 'REST APIs', 'Database Modeling'],
   tools: ['Git / GitHub', 'Vite', 'VS Code', 'Vercel', 'Netlify'],
 };
 
@@ -54,10 +54,10 @@ const getProjects = (language: string) => [
   },
   {
     title: 'E-Commerce Architecture',
-    tech: 'SQL · Node.js · MCD/MLD',
+    tech: 'SQL · Node.js · Multi-Page Logic',
     desc: language === 'en'
-      ? 'Robust cart system with a comprehensive MCD/MLD database schema ensuring industrial-grade data integrity across multiple tables.'
-      : "Système de panier robuste avec schéma MCD/MLD complet garantissant l'intégrité des données entre plusieurs tables.",
+      ? 'Robust cart system with a comprehensive relational database schema ensuring industrial-grade data integrity across multiple tables.'
+      : "Système de panier robuste avec schéma relationnel complet garantissant l'intégrité des données entre plusieurs tables.",
     link: 'https://ecomat.netlify.app/products',
     github: 'https://github.com/LonewolfGan/E-commerce_sample',
   },
@@ -65,35 +65,53 @@ const getProjects = (language: string) => [
 
 const getExperience = (language: string) => [
   {
-    period: '2024 – Present',
-    role: language === 'en' ? 'Freelance Web Developer' : 'Développeur Web Freelance',
-    org: language === 'en' ? 'Self-employed / Personal Projects' : 'Indépendant / Projets personnels',
+    period: '2025',
+    role: language === 'en' ? 'Web Development Intern' : 'Stagiaire Développement Web',
+    org: 'Weblinking',
     points: language === 'en'
       ? [
-        'Built 5+ full-stack web apps end-to-end with React, Node.js, and SQL databases',
-        'Deployed projects on Vercel and Netlify with CI/CD pipelines',
-        'Implemented RESTful APIs and third-party integrations (TMDB, custom backends)',
+        'Developed and customized WordPress websites based on responsive UI mockups',
+        'Configured themes and plugins while optimizing website performance and SEO',
+        'Improved user experience and maintained clean, scalable website structures',
       ]
       : [
-        'Développé 5+ applications web full-stack de bout en bout avec React, Node.js et SQL',
-        'Déploiements sur Vercel et Netlify avec pipelines CI/CD',
-        'Implémenté des APIs RESTful et des intégrations tierces (TMDB, backends personnalisés)',
+        'Développement et personnalisation de sites WordPress basés sur des maquettes UI responsives',
+        'Configuration de thèmes et plugins avec optimisation des performances et du SEO',
+        "Amélioration de l'expérience utilisateur et maintenance de structures de site propres et évolutives",
       ],
   },
   {
-    period: '2023',
+    period: '2024 – Present',
+    role: language === 'en' ? 'Full-Stack Developer' : 'Développeur Full-Stack',
+    org: language === 'en' ? 'Personal Projects' : 'Projets personnels',
+    points: language === 'en'
+      ? [
+        'Designed and developed multiple full-stack web applications using React, Node.js, PHP, and SQL',
+        'Built responsive user interfaces with focus on performance, usability, and clean design',
+        'Implemented REST APIs, authentication systems, and database architectures',
+        'Deployed projects using modern hosting platforms and version control workflows with Git/GitHub',
+      ]
+      : [
+        'Conception et développement de plusieurs applications web full-stack avec React, Node.js, PHP et SQL',
+        "Création d'interfaces utilisateurs responsives axées sur les performances, l'ergonomie et le design épuré",
+        'Implémentation des APIs REST, systèmes d\'authentification et architectures de base de données',
+        'Déploiement via des plateformes modernes et workflows de contrôle de version avec Git/GitHub',
+      ],
+  },
+  {
+    period: '2023 – Present',
     role: language === 'en' ? 'Independent Research & Development' : 'Recherche & Développement Indépendant',
     org: language === 'en' ? 'Personal Lab' : 'Lab Personnel',
     points: language === 'en'
       ? [
-        'Developed face recognition system combining Python/OpenCV with a Flask API and JS frontend',
-        'Explored WebGL and Three.js for interactive 3D web experiences',
-        'Built secure PHP file archive with custom encryption and metadata search',
+        'Developed a facial recognition authentication system using Python, OpenCV, Flask, and React',
+        'Explored interactive 3D web experiences with Three.js and WebGL',
+        'Built secure archive and file management systems with custom encryption and metadata handling using PHP and MySQL',
       ]
       : [
-        'Système de reconnaissance faciale combinant Python/OpenCV avec API Flask et frontend JS',
-        'Exploration de WebGL et Three.js pour des expériences web 3D interactives',
-        'Archive PHP sécurisée avec chiffrement personnalisé et recherche de métadonnées',
+        "Développement d'un système d'authentification par reconnaissance faciale avec Python, OpenCV, Flask et React",
+        'Exploration des expériences web 3D interactives avec Three.js and WebGL',
+        'Création de systèmes d\'archives sécurisés avec chiffrement personnalisé et gestion des métadonnées via PHP et MySQL',
       ],
   },
 ];
@@ -130,9 +148,10 @@ export const CV: React.FC = () => {
 
               <address className="flex flex-wrap gap-4 mt-6 not-italic">
                 {[
-                  { icon: <Mail size={13} />, label: 'atlaslonewolf00@gmail.com', href: 'mailto:atlaslonewolf00@gmail.com' },
+                  { icon: <Mail size={13} />, label: 'h.dev.contact@gmail.com', href: 'mailto:h.dev.contact@gmail.com' },
                   { icon: <Github size={13} />, label: 'github.com/LonewolfGan', href: 'https://github.com/LonewolfGan' },
-                  { icon: <Linkedin size={13} />, label: 'LinkedIn', href: 'https://www.linkedin.com/in/atlas-lonewolf' },
+                  { icon: <Linkedin size={13} />, label: 'LinkedIn', href: 'https://www.linkedin.com/in/h-dev' },
+                  { icon: <Phone size={13} />, label: '+212 706 135 005', href: 'https://wa.me/212706135005' },
                   { icon: <MapPin size={13} />, label: 'Remote / Global', href: null },
                 ].map(item => (
                   item.href
@@ -154,7 +173,7 @@ export const CV: React.FC = () => {
                 className="min-w-[180px] h-12 whitespace-nowrap rounded-full shadow-lg shadow-primary/20"
                 rightIcon={<Download size={18} />}
               >
-                <a href="/cv.pdf" download="Atlas-Lonewolf-CV.pdf">
+                <a href="/cv.pdf" download="Honore-CV.pdf">
                   {language === 'en' ? 'Download PDF' : 'Télécharger PDF'}
                 </a>
               </Button>
@@ -233,40 +252,68 @@ export const CV: React.FC = () => {
                 <GraduationCap size={14} />
                 {language === 'en' ? 'Education' : 'Formation'}
               </h2>
-              <article className="glass border border-border rounded-2xl p-7">
-                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-3">
-                  <div>
-                    <h3 className="text-lg font-bold text-foreground">
-                      {language === 'en' ? 'Computer Science — Database Management & Systems' : 'Informatique — Gestion de Bases de Données & Systèmes'}
-                    </h3>
-                    <p className="text-primary/70 text-sm font-medium">
-                      {language === 'en' ? 'Academic Programme' : 'Programme Académique'}
-                    </p>
+              <div className="space-y-6">
+                <article className="glass border border-border rounded-2xl p-7">
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-3">
+                    <div>
+                      <h3 className="text-lg font-bold text-foreground">
+                        {language === 'en' ? 'Computer Science Engineering — Information Systems Management & Governance' : 'Génie Informatique — Management & Gouvernance des Systèmes d\'Information'}
+                      </h3>
+                      <p className="text-primary/70 text-sm font-medium">ENSIASD</p>
+                    </div>
+                    <span className="text-xs font-mono text-foreground/40 bg-foreground/5 px-3 py-1 rounded-full shrink-0">2025 – Present</span>
                   </div>
-                  <span className="text-xs font-mono text-foreground/40 bg-foreground/5 px-3 py-1 rounded-full shrink-0">2021 – 2023</span>
-                </div>
-                <ul className="space-y-2 mt-4">
-                  {(language === 'en'
-                    ? [
-                      'Database design: MCD/MLD relational modeling with MariaDB & MySQL',
-                      'Algorithms, data structures, and object-oriented programming in Python',
-                      'Low-level programming fundamentals in C++',
-                      'Systems analysis and software architecture principles',
-                    ]
-                    : [
-                      'Conception de bases de données : modélisation relationnelle MCD/MLD avec MariaDB & MySQL',
-                      'Algorithmes, structures de données et programmation orientée objet en Python',
-                      'Fondamentaux de programmation bas niveau en C++',
-                      "Analyse des systèmes et principes d'architecture logicielle",
-                    ]
-                  ).map((pt, i) => (
-                    <li key={i} className="flex gap-3 text-sm text-foreground/60 font-light">
-                      <span className="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span>
-                      {pt}
-                    </li>
-                  ))}
-                </ul>
-              </article>
+                  <ul className="space-y-2 mt-4">
+                    {(language === 'en'
+                      ? [
+                        'Engineering curriculum focused on information systems, software architecture, databases, and digital governance',
+                        'Developing advanced skills in full-stack web development, system design, and project management',
+                        'Working on practical software engineering and business-oriented IT projects',
+                      ]
+                      : [
+                        'Cursus d\'ingénierie axé sur les systèmes d\'information, l\'architecture logicielle, les bases de données et la gouvernance digitale',
+                        'Développement de compétences avancées en développement web full-stack, conception de systèmes et gestion de projet',
+                        'Réalisation de projets pratiques en ingénierie logicielle et informatique orientée business',
+                      ]
+                    ).map((pt, i) => (
+                      <li key={i} className="flex gap-3 text-sm text-foreground/60 font-light">
+                        <span className="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span>
+                        {pt}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+                <article className="glass border border-border rounded-2xl p-7">
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-3">
+                    <div>
+                      <h3 className="text-lg font-bold text-foreground">
+                        {language === 'en' ? 'DEUG in Mathematics & Computer Science' : 'DEUG en Mathématiques & Informatique'}
+                      </h3>
+                      <p className="text-primary/70 text-sm font-medium">Faculté des Sciences d\'Agadir</p>
+                    </div>
+                    <span className="text-xs font-mono text-foreground/40 bg-foreground/5 px-3 py-1 rounded-full shrink-0">2023 – 2025</span>
+                  </div>
+                  <ul className="space-y-2 mt-4">
+                    {(language === 'en'
+                      ? [
+                        'Studied algorithms, data structures, object-oriented programming, and database systems',
+                        'Built strong foundations in mathematics, programming logic, and software development',
+                        'Worked with technologies such as Java, PHP, Python, SQL, and web development tools',
+                      ]
+                      : [
+                        'Étude des algorithmes, structures de données, programmation orientée objet et systèmes de bases de données',
+                        'Construction de bases solides en mathématiques, logique de programmation et développement logiciel',
+                        'Maîtrise des technologies Java, PHP, Python, SQL et outils de développement web',
+                      ]
+                    ).map((pt, i) => (
+                      <li key={i} className="flex gap-3 text-sm text-foreground/60 font-light">
+                        <span className="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span>
+                        {pt}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              </div>
             </motion.section>
 
             {/* ── Projects ── */}
@@ -378,7 +425,7 @@ export const CV: React.FC = () => {
               className="min-w-[180px] h-12 whitespace-nowrap rounded-full shadow-lg shadow-primary/20"
               rightIcon={<Download size={18} />}
             >
-              <a href="/cv.pdf" download="Atlas-Lonewolf-CV.pdf">
+              <a href="/cv.pdf" download="Honore-CV.pdf">
                 {language === 'en' ? 'Download PDF CV' : 'Télécharger CV PDF'}
               </a>
             </Button>

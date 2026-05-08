@@ -83,8 +83,9 @@ export default function App() {
                 </div>
                 <div className="flex gap-8 text-xs font-mono text-foreground/50 uppercase tracking-widest">
                   <a href="https://github.com/LonewolfGan" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">GitHub</a>
-                  <a href="mailto:atlaslonewolf00@gmail.com" className="hover:text-primary transition-colors">Email</a>
-                  <a href="https://www.linkedin.com/in/atlas-lonewolf" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">LinkedIn</a>
+                  <a href="mailto:h.dev.contact@gmail.com" className="hover:text-primary transition-colors">Email</a>
+                  <a href="https://www.linkedin.com/in/h-dev" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">LinkedIn</a>
+                  <a href="https://wa.me/212706135005" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">WhatsApp</a>
                 </div>
                 <div className="text-xs text-foreground/30">
                   Crafted with Precision.

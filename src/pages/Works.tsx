@@ -43,8 +43,8 @@ const getProjects = (language: string) => [
     title: "E-Commerce Architecture",
     tech_details: "SQL Modeling • Node.js • Multi-Page Logic",
     description: language === 'en'
-      ? "A deep dive into backend integrity and relational modeling. The Challenge: Building a robust cart system where data consistency is critical across multiple tables. The Solution: I designed a comprehensive MCD/MLD database schema in SQL, ensuring that every product, order, and user relationship remains industrial-strength and scalable."
-      : "Une immersion profonde dans l'intégrité du backend et la modélisation relationnelle. Le Défi : Construire un système de panier robuste où la cohérence des données est critique entre plusieurs tables. La Solution : J'ai conçu un schéma de base de données MCD/MLD complet en SQL, garantissant que chaque relation produit, commande et utilisateur reste industrielle et évolutive.",
+      ? "A deep dive into backend integrity and relational modeling. The Challenge: Building a robust cart system where data consistency is critical across multiple tables. The Solution: I designed a comprehensive database schema in SQL, ensuring that every product, order, and user relationship remains industrial-strength and scalable."
+      : "Une immersion profonde dans l'intégrité du backend et la modélisation relationnelle. Le Défi : Construire un système de panier robuste où la cohérence des données est critique entre plusieurs tables. La Solution : J'ai conçu un schéma de base de données complet en SQL, garantissant que chaque relation produit, commande et utilisateur reste industrielle et évolutive.",
     image: "/codebook.webp",
     liveLink: "https://ecomat.netlify.app/products",
     githubLink: "https://github.com/LonewolfGan/E-commerce_sample",
