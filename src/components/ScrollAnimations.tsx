@@ -1,8 +1,7 @@
-import React, { useRef, useEffect } from 'react';
-import { useGSAP } from '@gsap/react';
+import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useMobile } from '../hooks/useMobile';
+import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,11 +11,8 @@ interface ScrollAnimationsProps {
 }
 
 export const ScrollAnimations: React.FC<ScrollAnimationsProps> = ({ containerRef, language }) => {
+  // Store triggers for cleanup
   const triggersRef = useRef<ScrollTrigger[]>([]);
-  const isMobile = useMobile();
-
-  // Skip animations on mobile to reduce forced reflow
-  if (isMobile) return null;
 
   useGSAP(() => {
     // Clear previous triggers

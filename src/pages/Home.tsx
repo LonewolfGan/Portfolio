@@ -8,7 +8,6 @@ import { TechMarquee } from '../components/TechMarquee';
 import { SEO } from '../components/SEO';
 import { OptimizedImage } from '../components/OptimizedImage';
 import { ScrollAnimations } from '../components/ScrollAnimations';
-import { useMobile } from '../hooks/useMobile';
 
 const getFeaturedProjects = (language: string) => [
   {
@@ -45,7 +44,6 @@ export const Home: React.FC = () => {
   const container    = useRef<HTMLDivElement>(null);
   const signatureRef = useRef<HTMLSpanElement>(null);
   const FEATURED_PROJECTS = getFeaturedProjects(language);
-  const isMobile = useMobile();
 
 
   return (
@@ -106,9 +104,9 @@ export const Home: React.FC = () => {
           className="relative h-full flex flex-col justify-start pt-[12vh] px-6 lg:pl-[9%] z-10 w-full lg:max-w-[68%]"
         >
           <motion.p
-            initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            animate={isMobile ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
-            transition={isMobile ? { duration: 0 } : { duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="font-serif italic text-foreground/65 text-xl md:text-2xl mb-2 font-normal will-change-transform"
           >
             {language === 'en' ? "Hey, I'm" : 'Salut, je suis'}
@@ -127,18 +125,18 @@ export const Home: React.FC = () => {
           </h1>
 
           <motion.p
-            initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            animate={isMobile ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
-            transition={isMobile ? { duration: 0 } : { delay: 0.8, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="text-sm md:text-base text-foreground/45 max-w-xs font-light leading-relaxed mb-5 will-change-transform"
           >
             {t('hero.subtitle')}
           </motion.p>
 
           <motion.div
-            initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            animate={isMobile ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
-            transition={isMobile ? { duration: 0 } : { delay: 1.0, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.0, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-col sm:flex-row gap-3 mb-5 will-change-transform"
           >
             <Button
@@ -158,9 +156,9 @@ export const Home: React.FC = () => {
 
           {/* ── Stats ── */}
           <motion.div
-            initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            animate={isMobile ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
-            transition={isMobile ? { duration: 0 } : { delay: 1.3, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.3, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="flex gap-8 pt-2 will-change-transform"
           >
             {[
@@ -288,30 +286,30 @@ export const Home: React.FC = () => {
       <section aria-label="Contact" className="py-32 px-6 border-t border-border bg-foreground/[0.01]">
         <div className="max-w-4xl mx-auto text-center">
           <motion.h2
-            initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            whileInView={isMobile ? undefined : { opacity: 1, y: 0 }}
-            viewport={isMobile ? undefined : { once: true, amount: 0.15 }}
-            transition={isMobile ? { duration: 0 } : { duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="text-4xl md:text-6xl font-display font-clash font-bold text-foreground mb-8 will-change-transform"
           >
             {t('home.contact.title')}
           </motion.h2>
 
           <motion.p
-            initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            whileInView={isMobile ? undefined : { opacity: 1, y: 0 }}
-            viewport={isMobile ? undefined : { once: true, amount: 0.15 }}
-            transition={isMobile ? { duration: 0 } : { delay: 0.15, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ delay: 0.15, duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="text-lg text-foreground/65 max-w-xl mx-auto mb-12 font-light leading-relaxed will-change-transform"
           >
             {t('home.contact.subtitle')}
           </motion.p>
 
           <motion.div
-            initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            whileInView={isMobile ? undefined : { opacity: 1, y: 0 }}
-            viewport={isMobile ? undefined : { once: true, amount: 0.15 }}
-            transition={isMobile ? { duration: 0 } : { delay: 0.3, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ delay: 0.3, duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-col sm:flex-row gap-4 justify-center will-change-transform"
           >
             <Button asChild size="md" className="rounded-full shadow-lg shadow-primary/20 min-w-[180px] h-12 whitespace-nowrap">
