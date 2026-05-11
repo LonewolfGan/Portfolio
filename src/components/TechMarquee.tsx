@@ -38,7 +38,7 @@ const Item: React.FC<Tech> = ({ name, logo, dark }) => (
 
 export const TechMarquee: React.FC<{ language: string }> = ({ language }) => (
   <section aria-label="Technologies" className="py-16 border-y border-border overflow-hidden">
-    <p className="text-center text-[10px] font-mono uppercase tracking-[0.3em] text-foreground/30 mb-10 px-6">
+    <p className="text-center text-[10px] font-mono uppercase tracking-[0.3em] text-foreground/60 mb-10 px-6">
       {language === 'en' ? 'Technologies I work with' : 'Technologies avec lesquelles je travaille'}
     </p>
 

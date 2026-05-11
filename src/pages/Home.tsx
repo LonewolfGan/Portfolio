@@ -228,7 +228,7 @@ export const Home: React.FC = () => {
                     src={project.image}
                     alt={`Screenshot of ${project.title} project`}
                     className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 350px"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent flex items-end p-6">
                     <div className="lg:translate-y-4 lg:group-hover:translate-y-0 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-500">
