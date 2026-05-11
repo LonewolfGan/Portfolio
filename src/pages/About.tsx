@@ -4,9 +4,8 @@ import { Mail, Linkedin, Github, Send, Briefcase, GraduationCap, MapPin, BookOpe
 import { Button } from '../components/Button';
 import { useLanguage } from '../context/LanguageContext';
 import { SEO } from '../components/SEO';
-import { getOptimizedImage, IMAGES } from '../utils/cloudinary';
 
-const ABOUT_IMAGE = getOptimizedImage(IMAGES.profile, { width: 1000, quality: 90 });
+const ABOUT_IMAGE = "/profile.webp";
 
 export const About: React.FC = () => {
   const { t, language } = useLanguage();

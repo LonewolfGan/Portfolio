@@ -1,12 +1,13 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '../context/LanguageContext';
-import { getOptimizedImage, IMAGES } from '../utils/cloudinary';
 
 type Page = 'home' | 'works' | 'skills' | 'about' | 'cv';
 
 const BASE_URL = 'https://hdev.is-a.dev';
-const OG_IMAGE = getOptimizedImage(IMAGES.og, { width: 1200, height: 630, crop: 'fill' });
+const OG_IMAGE = typeof window !== 'undefined'
+  ? `${window.location.origin}/og-image.png`
+  : `${BASE_URL}/og-image.png`;
 
 const META: Record<Page, { en: { title: string; description: string; url: string }; fr: { title: string; description: string; url: string } }> = {
   home: {
