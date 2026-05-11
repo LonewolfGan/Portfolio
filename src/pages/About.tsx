@@ -4,8 +4,9 @@ import { Mail, Linkedin, Github, Send, Briefcase, GraduationCap, MapPin, BookOpe
 import { Button } from '../components/Button';
 import { useLanguage } from '../context/LanguageContext';
 import { SEO } from '../components/SEO';
+import { OptimizedImage } from '../components/OptimizedImage';
 
-const ABOUT_IMAGE = "/profile.webp";
+const ABOUT_IMAGE = "https://res.cloudinary.com/dbkjpn2db/image/upload/v1778522425/profile_t0csqu.webp";
 
 export const About: React.FC = () => {
   const { t, language } = useLanguage();
@@ -111,13 +112,12 @@ export const About: React.FC = () => {
                 <div className="absolute inset-0 rounded-[56px] border border-primary/10 -rotate-2 scale-110 -z-10" />
 
                 <div className="w-72 h-[22rem] md:w-96 md:h-[30rem] rounded-[48px] overflow-hidden shadow-2xl relative z-10">
-                  <img
+                  <OptimizedImage
                     src={ABOUT_IMAGE}
                     alt="TCHOHLO K. Honore — Junior Full-Stack Developer"
-                    loading="lazy"
-                    decoding="async"
                     className="w-full h-full object-cover"
-                    style={{ objectPosition: 'center 15%' }}
+                    sizes="(max-width: 1024px) 80vw, 40vw"
+                    objectPosition="center 15%"
                   />
                   {/* Bottom name tag */}
                   <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/70 via-black/30 to-transparent">

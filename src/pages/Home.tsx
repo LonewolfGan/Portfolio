@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { TechMarquee } from '../components/TechMarquee';
 import { SEO } from '../components/SEO';
+import { OptimizedImage } from '../components/OptimizedImage';
 
 // Lazy load GSAP animations to reduce initial bundle
 const ScrollAnimations = lazy(() => import('../components/ScrollAnimations'));
@@ -16,7 +17,7 @@ const getFeaturedProjects = (language: string) => [
     description: language === 'en'
       ? "React + Redux Toolkit app for browsing and saving quotes with smooth state transitions."
       : "Application React + Redux Toolkit pour parcourir et sauvegarder des citations avec des transitions d'état fluides.",
-    image: "/quoter.webp",
+    image: "https://res.cloudinary.com/dbkjpn2db/image/upload/v1778522425/quoter_owfiro.webp",
     tags: ["React", "Redux", "Tailwind"],
     link: "https://quoter-ebon.vercel.app/",
   },
@@ -25,7 +26,7 @@ const getFeaturedProjects = (language: string) => [
     description: language === 'en'
       ? "Movie discovery platform with real-time TMDB search, lazy-loaded images and local storage caching."
       : "Plateforme de découverte de films avec recherche TMDB en temps réel et mise en cache locale.",
-    image: "/cinemate.webp",
+    image: "https://res.cloudinary.com/dbkjpn2db/image/upload/v1778522425/cinemate_bd7zxl.webp",
     tags: ["React", "TMDB API", "Framer Motion"],
     link: "https://cinematelone.netlify.app/",
   },
@@ -34,7 +35,7 @@ const getFeaturedProjects = (language: string) => [
     description: language === 'en'
       ? "Secure PHP file archive with encrypted metadata search and a moody minimalist UI."
       : "Archive de fichiers PHP sécurisée avec recherche de métadonnées chiffrée et UI minimaliste.",
-    image: "/xfiles.webp",
+    image: "https://res.cloudinary.com/dbkjpn2db/image/upload/v1778522428/xfiles_gadwrk.webp",
     tags: ["PHP", "MySQL", "Security"],
     link: "https://hdev.great-site.net",
   },
@@ -61,12 +62,13 @@ export const Home: React.FC = () => {
           className="hidden lg:block absolute top-0 right-0 h-full"
           style={{ width: '58%', zIndex: 0 }}
         >
-          <img
-            src="/profile.webp"
+          <OptimizedImage
+            src="https://res.cloudinary.com/dbkjpn2db/image/upload/v1778522425/profile_t0csqu.webp"
             alt="TCHOHLO K. Honore — Junior Full-Stack Developer"
             className="w-full h-full object-cover"
-            style={{ objectPosition: 'center 20%' }}
-            fetchPriority="high"
+            priority={true}
+            sizes="(max-width: 1024px) 100vw, 58vw"
+            objectPosition="center 20%"
           />
           {/* Overlay — dark mode only */}
           <div className="absolute inset-0 hidden dark:block dark:bg-black/35" style={{ zIndex: 1 }} />
@@ -226,13 +228,11 @@ export const Home: React.FC = () => {
             {FEATURED_PROJECTS.map((project, idx) => (
               <article key={idx} className="project-card flex flex-col gap-6 group will-change-transform">
                 <div className="aspect-video rounded-3xl overflow-hidden glass border border-border relative cursor-pointer">
-                  <img
+                  <OptimizedImage
                     src={project.image}
                     alt={`Screenshot of ${project.title} project`}
-                    loading="lazy"
-                    decoding="async"
                     className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
-                    referrerPolicy="no-referrer"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent flex items-end p-6">
                     <div className="lg:translate-y-4 lg:group-hover:translate-y-0 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-500">
