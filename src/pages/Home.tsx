@@ -8,6 +8,7 @@ import { TechMarquee } from '../components/TechMarquee';
 import { SEO } from '../components/SEO';
 import { OptimizedImage } from '../components/OptimizedImage';
 import { ScrollAnimations } from '../components/ScrollAnimations';
+import { useMobile } from '../hooks/useMobile';
 
 const getFeaturedProjects = (language: string) => [
   {
@@ -44,6 +45,7 @@ export const Home: React.FC = () => {
   const container    = useRef<HTMLDivElement>(null);
   const signatureRef = useRef<HTMLSpanElement>(null);
   const FEATURED_PROJECTS = getFeaturedProjects(language);
+  const isMobile = useMobile();
 
 
   return (
@@ -104,9 +106,9 @@ export const Home: React.FC = () => {
           className="relative h-full flex flex-col justify-start pt-[12vh] px-6 lg:pl-[9%] z-10 w-full lg:max-w-[68%]"
         >
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            initial={isMobile ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            animate={isMobile ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+            transition={isMobile ? { duration: 0 } : { duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="font-serif italic text-foreground/65 text-xl md:text-2xl mb-2 font-normal will-change-transform"
           >
             {language === 'en' ? "Hey, I'm" : 'Salut, je suis'}
