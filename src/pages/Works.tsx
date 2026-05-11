@@ -135,7 +135,7 @@ export const Works: React.FC = () => {
                       size="md"
                       className="rounded-full group justify-center min-w-[180px] h-12 whitespace-nowrap"
                       rightIcon={<ExternalLink size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
-                      aria-label={`${t('works.caseStudy')} — ${project.title}`}
+                      aria-label={`${language === 'en' ? 'View live demo of' : 'Voir la démo de'} ${project.title} — ${project.liveLink}`}
                     >
                       <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
                         {language === 'en' ? 'View Project' : 'Voir le projet'}
@@ -146,7 +146,7 @@ export const Works: React.FC = () => {
                       variant="outline"
                       size="md"
                       className="rounded-full w-12 h-12 min-w-0 p-0 text-foreground/40 hover:text-foreground shrink-0"
-                      aria-label={`View ${project.title} source on GitHub`}
+                      aria-label={`${language === 'en' ? 'View source code for' : 'Voir le code source de'} ${project.title} on GitHub`}
                     >
                       <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
                         <Github size={20} />

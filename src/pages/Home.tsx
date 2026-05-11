@@ -1,16 +1,14 @@
-import React, { useRef } from 'react';
+import React, { useRef, lazy, Suspense } from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Layout, Server, Globe, Sparkles, Code2 } from 'lucide-react';
 import { Button } from '../components/Button';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
 import { TechMarquee } from '../components/TechMarquee';
 import { SEO } from '../components/SEO';
 
-gsap.registerPlugin(ScrollTrigger);
+// Lazy load GSAP animations to reduce initial bundle
+const ScrollAnimations = lazy(() => import('../components/ScrollAnimations'));
 
 const getFeaturedProjects = (language: string) => [
   {
@@ -48,69 +46,6 @@ export const Home: React.FC = () => {
   const signatureRef = useRef<HTMLSpanElement>(null);
   const FEATURED_PROJECTS = getFeaturedProjects(language);
 
-  useGSAP(() => {
-    if (signatureRef.current) {
-      gsap.fromTo(
-        signatureRef.current,
-        { opacity: 0, y: 30, skewX: -10, filter: 'blur(8px)' },
-        { 
-          opacity: 1, 
-          y: 0, 
-          skewX: 0, 
-          filter: 'blur(0px)', 
-          duration: 1.8, 
-          ease: 'expo.out', 
-          delay: 0.4,
-          force3D: true 
-        }
-      );
-    }
-
-    gsap.from('.service-card', {
-      opacity: 0,
-      y: 20,
-      stagger: 0.1,
-      duration: 0.8,
-      ease: 'power2.out',
-      immediateRender: false,
-      scrollTrigger: {
-        trigger: '.services-grid',
-        start: 'top 95%',
-        once: true,
-      },
-      force3D: true
-    });
-
-    gsap.from('.project-card', {
-      opacity: 0,
-      y: 25,
-      stagger: 0.12,
-      duration: 0.8,
-      ease: 'power2.out',
-      immediateRender: false,
-      scrollTrigger: {
-        trigger: '.projects-grid',
-        start: 'top 95%',
-        once: true,
-      },
-      force3D: true
-    });
-
-    gsap.from('.learning-item', {
-      opacity: 0,
-      x: -10,
-      stagger: 0.08,
-      duration: 0.7,
-      ease: 'power2.out',
-      immediateRender: false,
-      scrollTrigger: {
-        trigger: '.learning-section',
-        start: 'top 95%',
-        once: true,
-      },
-      force3D: true
-    });
-  }, { scope: container });
 
   return (
     <div ref={container} className="flex flex-col">
@@ -271,6 +206,11 @@ export const Home: React.FC = () => {
 
       {/* ── Tech Stack infinite marquee ── */}
       <TechMarquee language={language} />
+
+      {/* Lazy load GSAP scroll animations */}
+      <Suspense fallback={null}>
+        <ScrollAnimations containerRef={container} language={language} />
+      </Suspense>
 
       {/* ── Featured Work ── */}
       <section aria-label="Featured Projects" className="py-24 px-6">

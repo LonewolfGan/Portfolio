@@ -1,23 +1,26 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
 import { ThemeProvider } from './context/ThemeContext';
 import { LanguageProvider } from './context/LanguageContext';
 import { ErrorBoundary } from './components/ErrorBoundary';
-
 import { Navbar } from './components/Navbar';
-import { BackgroundScene } from './components/BackgroundScene';
-import { Home } from './pages/Home';
-import { Works } from './pages/Works';
-import { Skills } from './pages/Skills';
-import { About } from './pages/About';
-import { CV } from './pages/CV';
-import { NotFound } from './pages/NotFound';
 
-gsap.registerPlugin(ScrollTrigger);
+// Lazy load heavy components and pages
+const BackgroundScene = lazy(() => import('./components/BackgroundScene'));
+const Home = lazy(() => import('./pages/Home'));
+const Works = lazy(() => import('./pages/Works'));
+const Skills = lazy(() => import('./pages/Skills'));
+const About = lazy(() => import('./pages/About'));
+const CV = lazy(() => import('./pages/CV'));
+const NotFound = lazy(() => import('./pages/NotFound'));
+
+// Lightweight loading fallback
+const PageLoader = () => (
+  <div className="min-h-[50vh] flex items-center justify-center">
+    <div className="w-8 h-8 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+  </div>
+);
 
 const ScrollToTop: React.FC = () => {
   const { pathname } = useLocation();
@@ -34,7 +37,7 @@ const PageWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }} // Reduced duration for faster transitions
     >
       {children}
     </motion.div>
@@ -43,8 +46,6 @@ const PageWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
 export default function App() {
   const containerRef = useRef<HTMLDivElement>(null);
-
-  useGSAP(() => {}, { scope: containerRef });
 
   return (
     <ThemeProvider>
@@ -57,7 +58,9 @@ export default function App() {
             <div className="fixed bottom-[10%] -right-[5%] w-[350px] h-[350px] glow-sphere opacity-20 dark:opacity-15 pointer-events-none" />
 
             <ErrorBoundary fallback={null}>
-              <BackgroundScene />
+              <Suspense fallback={null}>
+                <BackgroundScene />
+              </Suspense>
             </ErrorBoundary>
 
             <Navbar />
@@ -65,12 +68,12 @@ export default function App() {
             <main className="relative z-10 pt-20">
               <AnimatePresence mode="wait">
                 <Routes>
-                  <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
-                  <Route path="/works" element={<PageWrapper><Works /></PageWrapper>} />
-                  <Route path="/skills" element={<PageWrapper><Skills /></PageWrapper>} />
-                  <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
-                  <Route path="/cv" element={<PageWrapper><CV /></PageWrapper>} />
-                  <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
+                  <Route path="/" element={<PageWrapper><Suspense fallback={<PageLoader />}><Home /></Suspense></PageWrapper>} />
+                  <Route path="/works" element={<PageWrapper><Suspense fallback={<PageLoader />}><Works /></Suspense></PageWrapper>} />
+                  <Route path="/skills" element={<PageWrapper><Suspense fallback={<PageLoader />}><Skills /></Suspense></PageWrapper>} />
+                  <Route path="/about" element={<PageWrapper><Suspense fallback={<PageLoader />}><About /></Suspense></PageWrapper>} />
+                  <Route path="/cv" element={<PageWrapper><Suspense fallback={<PageLoader />}><CV /></Suspense></PageWrapper>} />
+                  <Route path="*" element={<PageWrapper><Suspense fallback={<PageLoader />}><NotFound /></Suspense></PageWrapper>} />
                 </Routes>
               </AnimatePresence>
             </main>
