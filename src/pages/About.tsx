@@ -350,3 +350,5 @@ export const About: React.FC = () => {
     </main>
   );
 };
+
+export default About;

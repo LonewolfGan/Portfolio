@@ -162,3 +162,5 @@ export const Works: React.FC = () => {
     </main>
   );
 };
+
+export default Works;

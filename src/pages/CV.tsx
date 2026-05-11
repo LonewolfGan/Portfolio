@@ -433,3 +433,5 @@ export const CV: React.FC = () => {
     </main>
   );
 };
+
+export default CV;

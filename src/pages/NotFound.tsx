@@ -110,3 +110,5 @@ export const NotFound: React.FC = () => {
     </main>
   );
 };
+
+export default NotFound;
