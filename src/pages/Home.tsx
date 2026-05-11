@@ -1,4 +1,4 @@
-import React, { useRef, lazy, Suspense } from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Layout, Server, Globe, Sparkles, Code2 } from 'lucide-react';
 import { Button } from '../components/Button';
@@ -7,9 +7,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { TechMarquee } from '../components/TechMarquee';
 import { SEO } from '../components/SEO';
 import { OptimizedImage } from '../components/OptimizedImage';
-
-// Lazy load GSAP animations to reduce initial bundle
-const ScrollAnimations = lazy(() => import('../components/ScrollAnimations'));
+import { ScrollAnimations } from '../components/ScrollAnimations';
 
 const getFeaturedProjects = (language: string) => [
   {
@@ -209,10 +207,8 @@ export const Home: React.FC = () => {
       {/* ── Tech Stack infinite marquee ── */}
       <TechMarquee language={language} />
 
-      {/* Lazy load GSAP scroll animations */}
-      <Suspense fallback={null}>
-        <ScrollAnimations containerRef={container} language={language} />
-      </Suspense>
+      {/* GSAP scroll animations */}
+      <ScrollAnimations containerRef={container} language={language} />
 
       {/* ── Featured Work ── */}
       <section aria-label="Featured Projects" className="py-24 px-6">
