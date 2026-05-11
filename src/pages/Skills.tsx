@@ -83,7 +83,7 @@ export const Skills: React.FC = () => {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-foreground/50 text-lg leading-relaxed font-light"
+              className="text-foreground/65 text-lg leading-relaxed font-light"
             >
               {language === 'en'
                 ? "A practical overview of the tools and languages I use to build real projects — from React frontends to WordPress sites and backend APIs."
@@ -162,7 +162,7 @@ export const Skills: React.FC = () => {
             <h2 className="text-2xl font-display font-clash text-foreground mb-4">
               {language === 'en' ? 'The Logic-First Approach' : "L'approche orientée logique"}
             </h2>
-            <p className="max-w-2xl mx-auto text-foreground/50 leading-relaxed font-light">
+            <p className="max-w-2xl mx-auto text-foreground/65 leading-relaxed font-light">
               {language === 'en'
                 ? "I focus on understanding the fundamentals deeply before reaching for libraries. Every tool I add must solve a real problem — not just look impressive on a resume."
                 : "Je me concentre sur une compréhension profonde des fondamentaux avant d'utiliser des bibliothèques. Chaque outil que j'ajoute doit résoudre un vrai problème — pas juste impressionner sur un CV."}

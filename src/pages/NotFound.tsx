@@ -54,7 +54,7 @@ export const NotFound: React.FC = () => {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-foreground/50 text-base leading-relaxed mb-10"
+          className="text-foreground/65 text-base leading-relaxed mb-10"
         >
           {language === 'en'
             ? "This page doesn't exist. Heading back home in"

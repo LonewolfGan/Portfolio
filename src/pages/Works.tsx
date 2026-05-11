@@ -83,7 +83,7 @@ export const Works: React.FC = () => {
               >
                 {t('works.title')}
               </motion.h1>
-              <p className="text-foreground/50 text-xl leading-relaxed font-light">
+              <p className="text-foreground/65 text-xl leading-relaxed font-light">
                 {t('works.subtitle')}
               </p>
             </div>
@@ -105,7 +105,7 @@ export const Works: React.FC = () => {
                     src={project.image}
                     alt={`${project.title} — ${project.tech_details}`}
                     className="w-full aspect-[4/3] object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    sizes="(max-width: 1024px) 100vw, 600px"
                   />
                 </div>
 
@@ -118,7 +118,7 @@ export const Works: React.FC = () => {
                   </div>
 
                   <h2 className="text-4xl md:text-5xl font-display font-clash font-bold text-foreground">{project.title}</h2>
-                  <p className="text-foreground/50 text-lg leading-relaxed max-w-xl font-light">
+                  <p className="text-foreground/65 text-lg leading-relaxed max-w-xl font-light">
                     {project.description}
                   </p>
 

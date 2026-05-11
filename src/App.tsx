@@ -15,6 +15,21 @@ const About = lazy(() => import('./pages/About'));
 const CV = lazy(() => import('./pages/CV'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
+// Only load BackgroundScene on desktop (not mobile)
+const BackgroundSceneWrapper = () => {
+  const [isDesktop, setIsDesktop] = React.useState(false);
+  
+  React.useEffect(() => {
+    const checkDesktop = () => setIsDesktop(window.innerWidth >= 1024);
+    checkDesktop();
+    window.addEventListener('resize', checkDesktop);
+    return () => window.removeEventListener('resize', checkDesktop);
+  }, []);
+  
+  if (!isDesktop) return null;
+  return <BackgroundScene />;
+};
+
 // Lightweight loading fallback
 const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center">
@@ -59,7 +74,7 @@ export default function App() {
 
             <ErrorBoundary fallback={null}>
               <Suspense fallback={null}>
-                <BackgroundScene />
+                <BackgroundSceneWrapper />
               </Suspense>
             </ErrorBoundary>
 
@@ -84,7 +99,7 @@ export default function App() {
                   <div className="w-6 h-6 bg-primary rounded-md flex items-center justify-center text-[10px] text-background font-bold">T</div>
                   <span className="text-sm font-display font-medium tracking-tight uppercase text-foreground">TCHOHLO K. HONORE © 2026</span>
                 </div>
-                <div className="flex items-center gap-3 text-xs font-mono text-foreground/50 uppercase tracking-widest">
+                <div className="flex items-center gap-3 text-xs font-mono text-foreground/65 uppercase tracking-widest">
                   <a href="https://github.com/LonewolfGan" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">GitHub</a>
                   <span className="w-1 h-1 rounded-full bg-foreground/20" />
                   <a href="mailto:atlaslonewolf00@gmail.com" className="hover:text-primary transition-colors">Email</a>

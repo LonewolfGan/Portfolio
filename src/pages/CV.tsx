@@ -142,7 +142,7 @@ export const CV: React.FC = () => {
               <h1 className="text-4xl md:text-6xl font-display font-clash font-bold text-foreground leading-none mb-4">
                 TCHOHLO<br /><span className="text-gradient font-serif italic font-normal">K. Honore</span>
               </h1>
-              <p className="text-lg text-foreground/50 font-light">
+              <p className="text-lg text-foreground/65 font-light">
                 {language === 'en' ? 'Junior Full-Stack Developer' : 'Développeur Full-Stack Junior'}
               </p>
 
@@ -156,10 +156,10 @@ export const CV: React.FC = () => {
                 ].map(item => (
                   item.href
                     ? <a key={item.label} href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-xs font-mono text-primary sm:text-foreground/50 sm:hover:text-primary transition-colors">
+                      className="flex items-center gap-1.5 text-xs font-mono text-primary sm:text-foreground/65 sm:hover:text-primary transition-colors">
                       <span className="text-primary">{item.icon}</span>{item.label}
                     </a>
-                    : <span key={item.label} className="flex items-center gap-1.5 text-xs font-mono text-primary sm:text-foreground/50">
+                    : <span key={item.label} className="flex items-center gap-1.5 text-xs font-mono text-primary sm:text-foreground/65">
                       <span className="text-primary">{item.icon}</span>{item.label}
                     </span>
                 ))}
@@ -342,7 +342,7 @@ export const CV: React.FC = () => {
                       </div>
                     </div>
                     <p className="text-[10px] font-mono text-primary/60 mb-3 uppercase tracking-wider">{project.tech}</p>
-                    <p className="text-sm text-foreground/50 leading-relaxed font-light">{project.desc}</p>
+                    <p className="text-sm text-foreground/65 leading-relaxed font-light">{project.desc}</p>
                   </article>
                 ))}
               </div>
@@ -369,7 +369,7 @@ export const CV: React.FC = () => {
                     { icon: <GitBranch size={15} />, label: language === 'en' ? 'Tools' : 'Outils', items: SKILLS.tools },
                   ].map(group => (
                     <div key={group.label}>
-                      <h3 className="flex items-center gap-2 text-xs font-bold text-foreground/50 uppercase tracking-widest mb-3">
+                      <h3 className="flex items-center gap-2 text-xs font-bold text-foreground/65 uppercase tracking-widest mb-3">
                         <span className="text-primary">{group.icon}</span>
                         {group.label}
                       </h3>

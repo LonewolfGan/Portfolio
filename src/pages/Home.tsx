@@ -65,7 +65,7 @@ export const Home: React.FC = () => {
             alt="TCHOHLO K. Honore — Junior Full-Stack Developer"
             className="w-full h-full object-cover"
             priority={true}
-            sizes="(max-width: 1024px) 100vw, 58vw"
+            sizes="(max-width: 1024px) 100vw, 600px"
             objectPosition="center 20%"
           />
           {/* Overlay — dark mode only */}
@@ -107,7 +107,7 @@ export const Home: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="font-serif italic text-foreground/50 text-xl md:text-2xl mb-2 font-normal will-change-transform"
+            className="font-serif italic text-foreground/65 text-xl md:text-2xl mb-2 font-normal will-change-transform"
           >
             {language === 'en' ? "Hey, I'm" : 'Salut, je suis'}
           </motion.p>
@@ -182,7 +182,7 @@ export const Home: React.FC = () => {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-16">
             <div className="max-w-2xl">
               <h2 className="text-3xl md:text-4xl font-display font-clash font-medium text-foreground mb-6">{t('services.title')}</h2>
-              <p className="text-foreground/50 text-lg">{t('services.subtitle')}</p>
+              <p className="text-foreground/65 text-lg">{t('services.subtitle')}</p>
             </div>
           </div>
 
@@ -197,7 +197,7 @@ export const Home: React.FC = () => {
                   {service.icon}
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-3">{service.title}</h3>
-                <p className="text-foreground/50 leading-relaxed font-light">{service.description}</p>
+                <p className="text-foreground/65 leading-relaxed font-light">{service.description}</p>
               </article>
             ))}
           </div>
@@ -228,7 +228,7 @@ export const Home: React.FC = () => {
                     src={project.image}
                     alt={`Screenshot of ${project.title} project`}
                     className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent flex items-end p-6">
                     <div className="lg:translate-y-4 lg:group-hover:translate-y-0 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-500">
@@ -242,7 +242,7 @@ export const Home: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-foreground mb-2">{project.title}</h3>
-                  <p className="text-foreground/50 line-clamp-2 mb-4 font-light leading-relaxed">{project.description}</p>
+                  <p className="text-foreground/65 line-clamp-2 mb-4 font-light leading-relaxed">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map(tag => (
                       <span key={tag} className="text-[10px] font-mono border border-border rounded-full px-3 py-1 text-foreground/40 uppercase tracking-widest">{tag}</span>
@@ -300,7 +300,7 @@ export const Home: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ delay: 0.15, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-lg text-foreground/50 max-w-xl mx-auto mb-12 font-light leading-relaxed will-change-transform"
+            className="text-lg text-foreground/65 max-w-xl mx-auto mb-12 font-light leading-relaxed will-change-transform"
           >
             {t('home.contact.subtitle')}
           </motion.p>

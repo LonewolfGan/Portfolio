@@ -116,7 +116,7 @@ export const About: React.FC = () => {
                     src={ABOUT_IMAGE}
                     alt="TCHOHLO K. Honore — Junior Full-Stack Developer"
                     className="w-full h-full object-cover"
-                    sizes="(max-width: 1024px) 80vw, 40vw"
+                    sizes="(max-width: 768px) 80vw, 400px"
                     objectPosition="center 15%"
                   />
                   {/* Bottom name tag */}
@@ -248,25 +248,25 @@ export const About: React.FC = () => {
 
                 <address className="flex flex-col gap-6 mt-4 not-italic">
                   <a href="mailto:atlaslonewolf00@gmail.com" className="flex items-center gap-4 group cursor-pointer">
-                    <div className="w-12 h-12 rounded-2xl bg-foreground/5 flex items-center justify-center text-foreground/50 group-hover:bg-primary/20 group-hover:text-primary transition-all">
+                    <div className="w-12 h-12 rounded-2xl bg-foreground/5 flex items-center justify-center text-foreground/65 group-hover:bg-primary/20 group-hover:text-primary transition-all">
                       <Mail size={20} />
                     </div>
                     <span className="text-foreground/60 font-medium group-hover:text-foreground transition-colors">atlaslonewolf00@gmail.com</span>
                   </a>
                   <a href="https://www.linkedin.com/in/h-dev" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group cursor-pointer">
-                    <div className="w-12 h-12 rounded-2xl bg-foreground/5 flex items-center justify-center text-foreground/50 group-hover:bg-primary/20 group-hover:text-primary transition-all">
+                    <div className="w-12 h-12 rounded-2xl bg-foreground/5 flex items-center justify-center text-foreground/65 group-hover:bg-primary/20 group-hover:text-primary transition-all">
                       <Linkedin size={20} />
                     </div>
                     <span className="text-foreground/60 font-medium group-hover:text-foreground transition-colors">linkedin.com/in/h-dev</span>
                   </a>
                   <a href="https://wa.me/212706135005" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group cursor-pointer">
-                    <div className="w-12 h-12 rounded-2xl bg-foreground/5 flex items-center justify-center text-foreground/50 group-hover:bg-primary/20 group-hover:text-primary transition-all">
+                    <div className="w-12 h-12 rounded-2xl bg-foreground/5 flex items-center justify-center text-foreground/65 group-hover:bg-primary/20 group-hover:text-primary transition-all">
                       <Phone size={20} />
                     </div>
                     <span className="text-foreground/60 font-medium group-hover:text-foreground transition-colors">+212 706 135 005</span>
                   </a>
                   <a href="https://github.com/LonewolfGan" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group cursor-pointer">
-                    <div className="w-12 h-12 rounded-2xl bg-foreground/5 flex items-center justify-center text-foreground/50 group-hover:bg-primary/20 group-hover:text-primary transition-all">
+                    <div className="w-12 h-12 rounded-2xl bg-foreground/5 flex items-center justify-center text-foreground/65 group-hover:bg-primary/20 group-hover:text-primary transition-all">
                       <Github size={20} />
                     </div>
                     <span className="text-foreground/60 font-medium group-hover:text-foreground transition-colors">github.com/LonewolfGan</span>
@@ -287,7 +287,7 @@ export const About: React.FC = () => {
                     <h3 className="text-2xl font-bold text-foreground mb-2">
                       {language === 'en' ? 'Message Sent!' : 'Message Envoyé !'}
                     </h3>
-                    <p className="text-foreground/50 max-w-xs">
+                    <p className="text-foreground/65 max-w-xs">
                       {language === 'en'
                         ? "Thank you for reaching out. I'll reply within 24 hours."
                         : "Merci de m'avoir contacté. Je répondrai sous 24 heures."}

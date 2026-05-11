@@ -24,9 +24,13 @@
   --color-hero-shape: oklch(86% 0.1 150);
 
   /* WCAG AA Compliant text colors - improved contrast ratios */
-  --color-text-muted: oklch(15% 0 0 / 0.65); /* 4.5:1 contrast on light bg */
-  --color-text-subtle: oklch(15% 0 0 / 0.55); /* 4.5:1 contrast on light bg */
-  --color-text-disabled: oklch(15% 0 0 / 0.45); /* 4.5:1 contrast */
+  --color-text-muted: oklch(
+    15% 0 0 / 0.75
+  ); /* 7:1 contrast on light bg - AAA */
+  --color-text-subtle: oklch(
+    15% 0 0 / 0.65
+  ); /* 4.5:1 contrast on light bg - AA */
+  --color-text-disabled: oklch(15% 0 0 / 0.55); /* 4.5:1 contrast */
 
   --radius-card: 8px;
   --radius-button: 12px;

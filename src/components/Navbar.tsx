@@ -163,7 +163,7 @@ export const Navbar: React.FC = () => {
                   href="https://github.com/LonewolfGan"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-[11px] font-mono text-foreground/50 hover:text-foreground transition-colors"
+                  className="flex items-center gap-2 text-[11px] font-mono text-foreground/65 hover:text-foreground transition-colors"
                 >
                   <Github size={15} />
                   GitHub
