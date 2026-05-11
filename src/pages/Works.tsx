@@ -124,7 +124,7 @@ export const Works: React.FC = () => {
 
                   <div className="flex flex-wrap gap-2 mt-2">
                     {project.tags.map(tag => (
-                      <span key={tag} className="px-4 py-1.5 rounded-full border border-border bg-foreground/5 text-[10px] uppercase tracking-widest text-foreground/40">{tag}</span>
+                      <span key={tag} className="px-4 py-1.5 rounded-full border border-border bg-foreground/5 text-[10px] uppercase tracking-widest text-foreground/60">{tag}</span>
                     ))}
                   </div>
 
@@ -144,7 +144,7 @@ export const Works: React.FC = () => {
                       asChild
                       variant="outline"
                       size="md"
-                      className="rounded-full w-12 h-12 min-w-0 p-0 text-foreground/40 hover:text-foreground shrink-0"
+                      className="rounded-full w-12 h-12 min-w-0 p-0 text-foreground/60 hover:text-foreground shrink-0"
                       aria-label={`${language === 'en' ? 'View source code for' : 'Voir le code source de'} ${project.title} on GitHub`}
                     >
                       <a href={project.githubLink} target="_blank" rel="noopener noreferrer">

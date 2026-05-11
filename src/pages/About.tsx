@@ -148,13 +148,13 @@ export const About: React.FC = () => {
 
                 <div className="grid grid-cols-2 gap-6 mt-2">
                   <div className="flex flex-col gap-2">
-                    <div className="flex items-center gap-2 text-foreground/40 uppercase text-[10px] tracking-widest font-bold">
+                    <div className="flex items-center gap-2 text-foreground/60 uppercase text-[10px] tracking-widest font-bold">
                       <MapPin size={12} /> {t('about.location')}
                     </div>
                     <span className="text-foreground font-medium">{t('about.location.value')}</span>
                   </div>
                   <div className="flex flex-col gap-2">
-                    <div className="flex items-center gap-2 text-foreground/40 uppercase text-[10px] tracking-widest font-bold">
+                    <div className="flex items-center gap-2 text-foreground/60 uppercase text-[10px] tracking-widest font-bold">
                       <Briefcase size={12} /> {t('about.role')}
                     </div>
                     <span className="text-foreground font-medium">{t('about.role.value')}</span>
@@ -165,7 +165,7 @@ export const About: React.FC = () => {
                 <Button asChild size="md" className="rounded-full justify-center min-w-[180px] h-12 whitespace-nowrap">
                   <a href="#contact">{t('about.contact')}</a>
                 </Button>
-                <Button asChild variant="outline" size="md" className="rounded-full w-12 h-12 min-w-0 p-0 text-foreground/40 hover:text-foreground shrink-0" aria-label="GitHub">
+                <Button asChild variant="outline" size="md" className="rounded-full w-12 h-12 min-w-0 p-0 text-foreground/60 hover:text-foreground shrink-0" aria-label="GitHub">
                   <a href="https://github.com/LonewolfGan" target="_blank" rel="noopener noreferrer">
                     <Github size={20} />
                   </a>
@@ -200,7 +200,7 @@ export const About: React.FC = () => {
                       <div className="flex-1">
                         <h3 className="text-foreground font-bold text-lg mb-1">{exp.role}</h3>
                         <p className="text-primary/70 text-sm font-medium mb-3">{exp.company}</p>
-                        <p className="text-foreground/40 text-sm leading-relaxed font-light">{exp.desc}</p>
+                        <p className="text-foreground/60 text-sm leading-relaxed font-light">{exp.desc}</p>
                       </div>
                     </motion.div>
                   ))}
@@ -221,7 +221,7 @@ export const About: React.FC = () => {
                       </div>
                       <div>
                         <h3 className="text-foreground font-bold mb-2">{spec.title}</h3>
-                        <p className="text-foreground/40 text-sm leading-relaxed font-light">{spec.desc}</p>
+                        <p className="text-foreground/60 text-sm leading-relaxed font-light">{spec.desc}</p>
                       </div>
                     </div>
                   ))}
@@ -243,7 +243,7 @@ export const About: React.FC = () => {
                     {t('contact.title')}<br />
                     <span className="italic font-serif">{t('contact.future')}</span>
                   </h2>
-                  <p className="text-foreground/40 font-light max-w-sm">{t('contact.subtitle')}</p>
+                  <p className="text-foreground/60 font-light max-w-sm">{t('contact.subtitle')}</p>
                 </div>
 
                 <address className="flex flex-col gap-6 mt-4 not-italic">

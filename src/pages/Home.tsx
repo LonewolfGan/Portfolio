@@ -245,7 +245,7 @@ export const Home: React.FC = () => {
                   <p className="text-foreground/65 line-clamp-2 mb-4 font-light leading-relaxed">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map(tag => (
-                      <span key={tag} className="text-[10px] font-mono border border-border rounded-full px-3 py-1 text-foreground/40 uppercase tracking-widest">{tag}</span>
+                      <span key={tag} className="text-[10px] font-mono border border-border rounded-full px-3 py-1 text-foreground/60 uppercase tracking-widest">{tag}</span>
                     ))}
                   </div>
                 </div>
@@ -274,7 +274,7 @@ export const Home: React.FC = () => {
               ].map(item => (
                 <div key={item.title} className="learning-item flex flex-col gap-2 border-l-2 border-primary/20 pl-6 will-change-transform">
                   <h4 className="text-foreground font-bold">{item.title}</h4>
-                  <p className="text-foreground/40 text-sm font-light leading-relaxed">{item.desc}</p>
+                  <p className="text-foreground/60 text-sm font-light leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>

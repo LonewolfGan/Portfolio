@@ -222,7 +222,7 @@ export const CV: React.FC = () => {
                         <h3 className="text-lg font-bold text-foreground">{exp.role}</h3>
                         <p className="text-primary/70 text-sm font-medium">{exp.org}</p>
                       </div>
-                      <span className="text-xs font-mono text-foreground/40 bg-foreground/5 px-3 py-1 rounded-full shrink-0">{exp.period}</span>
+                      <span className="text-xs font-mono text-foreground/60 bg-foreground/5 px-3 py-1 rounded-full shrink-0">{exp.period}</span>
                     </div>
                     <ul className="space-y-2">
                       {exp.points.map((pt, i) => (
@@ -258,7 +258,7 @@ export const CV: React.FC = () => {
                       </h3>
                       <p className="text-primary/70 text-sm font-medium">ENSIASD</p>
                     </div>
-                    <span className="text-xs font-mono text-foreground/40 bg-foreground/5 px-3 py-1 rounded-full shrink-0">2025 – Present</span>
+                    <span className="text-xs font-mono text-foreground/60 bg-foreground/5 px-3 py-1 rounded-full shrink-0">2025 – Present</span>
                   </div>
                   <ul className="space-y-2 mt-4">
                     {(language === 'en'
@@ -288,7 +288,7 @@ export const CV: React.FC = () => {
                       </h3>
                       <p className="text-primary/70 text-sm font-medium">Faculté des Sciences d\'Agadir</p>
                     </div>
-                    <span className="text-xs font-mono text-foreground/40 bg-foreground/5 px-3 py-1 rounded-full shrink-0">2023 – 2025</span>
+                    <span className="text-xs font-mono text-foreground/60 bg-foreground/5 px-3 py-1 rounded-full shrink-0">2023 – 2025</span>
                   </div>
                   <ul className="space-y-2 mt-4">
                     {(language === 'en'

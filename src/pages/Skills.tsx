@@ -117,7 +117,7 @@ export const Skills: React.FC = () => {
                   {group.skills.map((skill) => (
                     <div key={skill.name} className="flex flex-col gap-1 border-l-2 border-border pl-6 hover:border-primary/40 transition-colors">
                       <h3 className="text-foreground font-semibold tracking-wide uppercase text-xs">{skill.name}</h3>
-                      <p className="text-foreground/40 text-sm font-light">{skill.details}</p>
+                      <p className="text-foreground/60 text-sm font-light">{skill.details}</p>
                     </div>
                   ))}
                 </div>
@@ -144,7 +144,7 @@ export const Skills: React.FC = () => {
               {LEARNING.map(item => (
                 <div key={item.name} className="flex flex-col gap-2">
                   <h3 className="text-foreground font-bold">{item.name}</h3>
-                  <p className="text-foreground/40 text-sm font-light">{item.desc}</p>
+                  <p className="text-foreground/60 text-sm font-light">{item.desc}</p>
                 </div>
               ))}
             </div>

@@ -60,7 +60,7 @@ export const Navbar: React.FC = () => {
                 end={item.path === '/'}
                 className={({ isActive }) =>
                   cn('transition-colors whitespace-nowrap',
-                    isActive ? 'text-primary' : 'text-foreground/40 hover:text-foreground'
+                    isActive ? 'text-primary' : 'text-foreground/60 hover:text-foreground'
                   )
                 }
               >
@@ -79,7 +79,7 @@ export const Navbar: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub Profile"
-              className="p-1.5 rounded-full hover:bg-foreground/5 transition-colors text-foreground/40 hover:text-foreground"
+              className="p-1.5 rounded-full hover:bg-foreground/5 transition-colors text-foreground/60 hover:text-foreground"
             >
               <Github size={16} />
             </a>
