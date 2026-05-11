@@ -83,6 +83,18 @@
       />
     </noscript>
 
+    <!-- Preload CSS for non-blocking load -->
+    <link
+      rel="preload"
+      href="/src/index.css"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript><link rel="stylesheet" href="/src/index.css" /></noscript>
+
     <!-- Preload LCP image for faster paint -->
     <link
       rel="preload"

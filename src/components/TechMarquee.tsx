@@ -1,22 +1,22 @@
 import React from 'react';
 
 const TECHS = [
-  { name: 'React',      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',          dark: false },
-  { name: 'TypeScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg', dark: false },
-  { name: 'Node.js',    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg',         dark: false },
-  { name: 'Python',     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg',         dark: false },
-  { name: 'MySQL',      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg',           dark: false },
-  { name: 'Tailwind',   logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg', dark: false },
-  { name: 'Git',        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg',               dark: false },
-  { name: 'Express',    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg',       dark: true  },
-  { name: 'PHP',        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg',               dark: false },
-  { name: 'PostgreSQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg', dark: false },
-  { name: 'Docker',     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg',         dark: false },
-  { name: 'Next.js',    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg',         dark: true  },
-  { name: 'HTML5',      logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg',           dark: false },
-  { name: 'CSS3',       logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg',             dark: false },
-  { name: 'WordPress',  logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/wordpress/wordpress-plain.svg',   dark: true  },
-  { name: 'VS Code',    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg',         dark: false },
+  { name: 'React',      logo: '/icons/react.svg',          dark: false },
+  { name: 'TypeScript', logo: '/icons/typescript.svg', dark: false },
+  { name: 'Node.js',    logo: '/icons/nodejs.svg',         dark: false },
+  { name: 'Python',     logo: '/icons/python.svg',         dark: false },
+  { name: 'MySQL',      logo: '/icons/mysql.svg',           dark: false },
+  { name: 'Tailwind',   logo: '/icons/tailwindcss.svg', dark: false },
+  { name: 'Git',        logo: '/icons/git.svg',               dark: false },
+  { name: 'Express',    logo: '/icons/express.svg',       dark: true  },
+  { name: 'PHP',        logo: '/icons/php.svg',               dark: false },
+  { name: 'PostgreSQL', logo: '/icons/postgresql.svg', dark: false },
+  { name: 'Docker',     logo: '/icons/docker.svg',         dark: false },
+  { name: 'Next.js',    logo: '/icons/nextjs.svg',         dark: true  },
+  { name: 'HTML5',      logo: '/icons/html5.svg',           dark: false },
+  { name: 'CSS3',       logo: '/icons/css3.svg',             dark: false },
+  { name: 'WordPress',  logo: '/icons/wordpress.svg',   dark: true  },
+  { name: 'VS Code',    logo: '/icons/vscode.svg',         dark: false },
 ];
 
 interface Tech { name: string; logo: string; dark: boolean }
