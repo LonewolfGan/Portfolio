@@ -19,13 +19,7 @@ export default defineConfig(({mode}) => {
   }
   return {
     plugins: [
-      react({
-        babel: {
-          plugins: [
-            ['babel-plugin-react-compiler', {}], // React Compiler for automatic memoization
-          ],
-        },
-      }),
+      react(),
       tailwindcss(),
     ],
     define: {
