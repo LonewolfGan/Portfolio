@@ -11,24 +11,42 @@
   --color-background: oklch(98% 0.01 260);
   --color-foreground: oklch(15% 0 0);
 
-  --color-primary: oklch(
-    40% 0.24 150
-  ); /* Even more visible green for light mode */
-  --color-accent: oklch(88% 0.08 150);
+  /* Accessibility: Increased contrast for primary green */
+  --color-primary: oklch(40% 0.26 150); /* Even deeper for WCAG compliance */
+  --color-primary-foreground: oklch(98% 0.01 150);
+  
+  --color-secondary: oklch(96% 0.01 150);
+  --color-secondary-foreground: oklch(25% 0.02 150);
+  
+  --color-accent: oklch(92% 0.04 150);
+  --color-accent-foreground: oklch(25% 0.02 150);
+  
+  --color-destructive: oklch(55% 0.22 25);
+  --color-destructive-foreground: oklch(98% 0.01 25);
+  
+  --color-border: oklch(90% 0.01 150);
+  --color-input: oklch(90% 0.01 150);
+  --color-ring: oklch(40% 0.26 150);
+  
+  --color-chart-1: oklch(60% 0.22 150);
+  --color-chart-2: oklch(70% 0.18 150);
+  --color-chart-3: oklch(50% 0.15 150);
+  --color-chart-4: oklch(75% 0.12 150);
+  --color-chart-5: oklch(85% 0.1 150);
+  
+  --radius-lg: 1.25rem;
+  --radius-md: 1rem;
+  --radius-sm: 0.75rem;
+}
 
-  --color-surface: oklch(95% 0.01 260);
-  --color-border: oklch(0% 0 0 / 5%);
-  --color-glass: oklch(100% 0 0 / 40%);
-
-  --color-brand-surface: oklch(92% 0.01 260);
-  --color-hero-shape: oklch(86% 0.1 150);
-
-  --radius-card: 8px;
-  --radius-button: 12px;
-  --radius-control: 8px;
-  --radius-pill: 9999px;
-
-  --animate-bounce-slow: bounce 3s infinite;
+/* Accessibility: Improve default text contrast on light mode */
+@media (prefers-color-scheme: light) {
+  .text-foreground\/50 {
+    color: oklch(45% 0.02 150 / 0.85); /* Increased opacity and darker base */
+  }
+  .text-foreground\/40 {
+    color: oklch(40% 0.02 150 / 0.8);
+  }
 }
 
 /* Dark Mode Overrides */

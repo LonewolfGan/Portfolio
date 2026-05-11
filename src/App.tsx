@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { gsap } from 'gsap';
@@ -10,12 +10,14 @@ import { ErrorBoundary } from './components/ErrorBoundary';
 
 import { Navbar } from './components/Navbar';
 import { BackgroundScene } from './components/BackgroundScene';
-import { Home } from './pages/Home';
-import { Works } from './pages/Works';
-import { Skills } from './pages/Skills';
-import { About } from './pages/About';
-import { CV } from './pages/CV';
-import { NotFound } from './pages/NotFound';
+
+// Lazy load pages for code splitting
+const Home = lazy(() => import('./pages/Home').then(module => ({ default: module.Home })));
+const Works = lazy(() => import('./pages/Works').then(module => ({ default: module.Works })));
+const Skills = lazy(() => import('./pages/Skills').then(module => ({ default: module.Skills })));
+const About = lazy(() => import('./pages/About').then(module => ({ default: module.About })));
+const CV = lazy(() => import('./pages/CV').then(module => ({ default: module.CV })));
+const NotFound = lazy(() => import('./pages/NotFound').then(module => ({ default: module.NotFound })));
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -35,11 +37,18 @@ const PageWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      className="will-change-transform"
     >
       {children}
     </motion.div>
   );
 };
+
+const LoadingFallback = () => (
+  <div className="fixed inset-0 flex items-center justify-center bg-background z-[100]">
+    <div className="w-12 h-12 border-2 border-primary/20 border-t-primary rounded-full animate-spin" />
+  </div>
+);
 
 export default function App() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -63,16 +72,18 @@ export default function App() {
             <Navbar />
 
             <main className="relative z-10 pt-20">
-              <AnimatePresence mode="wait">
-                <Routes>
-                  <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
-                  <Route path="/works" element={<PageWrapper><Works /></PageWrapper>} />
-                  <Route path="/skills" element={<PageWrapper><Skills /></PageWrapper>} />
-                  <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
-                  <Route path="/cv" element={<PageWrapper><CV /></PageWrapper>} />
-                  <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
-                </Routes>
-              </AnimatePresence>
+              <Suspense fallback={<LoadingFallback />}>
+                <AnimatePresence mode="wait">
+                  <Routes>
+                    <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
+                    <Route path="/works" element={<PageWrapper><Works /></PageWrapper>} />
+                    <Route path="/skills" element={<PageWrapper><Skills /></PageWrapper>} />
+                    <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
+                    <Route path="/cv" element={<PageWrapper><CV /></PageWrapper>} />
+                    <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
+                  </Routes>
+                </AnimatePresence>
+              </Suspense>
             </main>
 
             <footer className="relative z-10 py-12 px-6 border-t border-border">

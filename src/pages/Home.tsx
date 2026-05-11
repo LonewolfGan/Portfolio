@@ -9,6 +9,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { TechMarquee } from '../components/TechMarquee';
 import { SEO } from '../components/SEO';
+import { getOptimizedImage, IMAGES } from '../utils/cloudinary';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,7 +19,7 @@ const getFeaturedProjects = (language: string) => [
     description: language === 'en'
       ? "React + Redux Toolkit app for browsing and saving quotes with smooth state transitions."
       : "Application React + Redux Toolkit pour parcourir et sauvegarder des citations avec des transitions d'état fluides.",
-    image: "/quoter.webp",
+    image: getOptimizedImage(IMAGES.quoter, { width: 800 }),
     tags: ["React", "Redux", "Tailwind"],
     link: "https://quoter-ebon.vercel.app/",
   },
@@ -27,7 +28,7 @@ const getFeaturedProjects = (language: string) => [
     description: language === 'en'
       ? "Movie discovery platform with real-time TMDB search, lazy-loaded images and local storage caching."
       : "Plateforme de découverte de films avec recherche TMDB en temps réel et mise en cache locale.",
-    image: "/cinemate.webp",
+    image: getOptimizedImage(IMAGES.cinemate, { width: 800 }),
     tags: ["React", "TMDB API", "Framer Motion"],
     link: "https://cinematelone.netlify.app/",
   },
@@ -36,7 +37,7 @@ const getFeaturedProjects = (language: string) => [
     description: language === 'en'
       ? "Secure PHP file archive with encrypted metadata search and a moody minimalist UI."
       : "Archive de fichiers PHP sécurisée avec recherche de métadonnées chiffrée et UI minimaliste.",
-    image: "/xfiles.webp",
+    image: getOptimizedImage(IMAGES.xfiles, { width: 800 }),
     tags: ["PHP", "MySQL", "Security"],
     link: "https://hdev.great-site.net",
   },
@@ -122,17 +123,16 @@ export const Home: React.FC = () => {
         className="grain relative overflow-hidden bg-background mb-12"
         style={{ height: 'calc(100vh - 5rem)', minHeight: 560 }}
       >
-        <div
-          className="hidden lg:block absolute top-0 right-0 h-full"
-          style={{ width: '58%', zIndex: 0 }}
-        >
-          <img
-            src="/profile.webp"
-            alt="TCHOHLO K. Honore — Junior Full-Stack Developer"
-            className="w-full h-full object-cover"
-            style={{ objectPosition: 'center 20%' }}
-            fetchPriority="high"
-          />
+          <div className="lg:w-[58%] absolute top-0 right-0 h-full hidden lg:block" style={{ zIndex: 0 }}>
+            <img
+              src={getOptimizedImage(IMAGES.profile, { width: 1200, quality: 90 })}
+              alt="TCHOHLO K. Honore — Junior Full-Stack Developer"
+              className="w-full h-full object-cover"
+              style={{ objectPosition: 'center 20%' }}
+              fetchPriority="high"
+              decoding="async"
+              sizes="(max-width: 1024px) 0vw, 58vw"
+            />
           {/* Overlay — dark mode only */}
           <div className="absolute inset-0 hidden dark:block dark:bg-black/35" style={{ zIndex: 1 }} />
           {/* Left edge: fades photo into page background */}
@@ -258,11 +258,11 @@ export const Home: React.FC = () => {
               { title: t('services.card3.title'), icon: <Globe className="text-primary" size={32} />, description: t('services.card3.desc') },
             ].map((service, idx) => (
               <article key={idx} className="service-card glass p-8 rounded-3xl border border-border hover:border-primary/20 group transition-all will-change-transform">
-                <div className="mb-6 w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <div className="mb-6 w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform" aria-hidden="true">
                   {service.icon}
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-3">{service.title}</h3>
-                <p className="text-foreground/50 leading-relaxed font-light">{service.description}</p>
+                <p className="text-foreground/70 leading-relaxed font-light">{service.description}</p>
               </article>
             ))}
           </div>
@@ -288,16 +288,17 @@ export const Home: React.FC = () => {
                 <div className="aspect-video rounded-3xl overflow-hidden glass border border-border relative cursor-pointer">
                   <img
                     src={project.image}
-                    alt={`Screenshot of ${project.title} project`}
+                    alt={language === 'en' ? `View ${project.title} project` : `Voir le projet ${project.title}`}
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
                     referrerPolicy="no-referrer"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent flex items-end p-6">
                     <div className="lg:translate-y-4 lg:group-hover:translate-y-0 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-500">
                       <Button asChild size="sm" className="rounded-full min-w-[130px] h-10 whitespace-nowrap">
-                        <a href={project.link} target="_blank" rel="noopener noreferrer">
+                        <a href={project.link} target="_blank" rel="noopener noreferrer" aria-label={language === 'en' ? `View ${project.title} project` : `Voir le projet ${project.title}`}>
                           {language === 'en' ? 'View Project' : 'Voir le projet'}
                         </a>
                       </Button>
@@ -306,10 +307,10 @@ export const Home: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-foreground mb-2">{project.title}</h3>
-                  <p className="text-foreground/50 line-clamp-2 mb-4 font-light leading-relaxed">{project.description}</p>
+                  <p className="text-foreground/70 line-clamp-2 mb-4 font-light leading-relaxed">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map(tag => (
-                      <span key={tag} className="text-[10px] font-mono border border-border rounded-full px-3 py-1 text-foreground/40 uppercase tracking-widest">{tag}</span>
+                      <span key={tag} className="text-[10px] font-mono border border-border rounded-full px-3 py-1 text-foreground/70 uppercase tracking-widest">{tag}</span>
                     ))}
                   </div>
                 </div>
