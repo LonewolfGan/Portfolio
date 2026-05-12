@@ -43,15 +43,15 @@ export const TechMarquee: React.FC<{ language: string }> = ({ language }) => (
     </p>
 
     {/* Track 1 — left to right */}
-    <div className="relative flex mb-4" style={{ maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)' }}>
-      <div className="flex gap-4 animate-marquee">
+    <div className="relative flex mb-4" role="marquee" aria-label={language === 'en' ? 'Technology logos scrolling' : 'Logos de technologies défilants'} style={{ maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)' }}>
+      <div className="flex gap-4 animate-marquee" aria-hidden="true">
         {TECHS.map(t => <Item key={t.name}       {...t} />)}
         {TECHS.map(t => <Item key={t.name + '2'}  {...t} />)}
       </div>
     </div>
 
     {/* Track 2 — right to left (offset) */}
-    <div className="relative flex" style={{ maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)' }}>
+    <div className="relative flex" role="marquee" aria-hidden="true" style={{ maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)' }}>
       <div className="flex gap-4 animate-marquee-reverse">
         {[...TECHS].reverse().map(t => <Item key={t.name + 'r'}  {...t} />)}
         {[...TECHS].reverse().map(t => <Item key={t.name + 'r2'} {...t} />)}

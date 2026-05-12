@@ -37,6 +37,7 @@ export const Navbar: React.FC = () => {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        aria-label="Main navigation"
         className="fixed top-0 left-0 right-0 z-50 flex justify-center p-4 md:p-6 pointer-events-none"
       >
         {/* ── Desktop pill ── */}

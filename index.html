@@ -4,13 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- Security: Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      script-src 'self' 'unsafe-inline';
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      font-src 'self' https://fonts.gstatic.com;
+      img-src 'self' data: https://res.cloudinary.com https://cdn.jsdelivr.net;
+      connect-src 'self' https://hdev.is-a.dev http://localhost:3001;
+      frame-src 'none';
+      object-src 'none';
+      base-uri 'self';
+    " />
+
+    <!-- Security: Additional headers via meta tags -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
     <!-- Preconnect early for external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
 
     <!-- DNS prefetch for faster resolution -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 
     <!-- Primary SEO -->
     <title>TCHOHLO K. Honore | Junior Full-Stack Developer</title>
@@ -27,7 +47,7 @@
 
     <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="%VITE_APP_URL%/" />
+    <meta property="og:url" content="https://hdev.is-a.dev/" />
     <meta
       property="og:title"
       content="TCHOHLO K. Honore | Junior Full-Stack Developer"
@@ -69,12 +89,12 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/brand.ico" />
 
-    <!-- Async font loading to prevent render blocking -->
+    <!-- Performance: Async font loading to prevent render blocking -->
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
       media="print"
-      onload="this.media = 'all'"
+      onload="this.media='all'"
     />
     <noscript>
       <link
@@ -83,7 +103,7 @@
       />
     </noscript>
 
-    <!-- Preload LCP image for faster paint -->
+    <!-- Performance: Preload LCP image for faster paint -->
     <link
       rel="preload"
       as="image"
@@ -93,6 +113,10 @@
     />
   </head>
   <body>
+    <!-- Accessibility: Skip to content link -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-primary focus:text-background focus:rounded-lg focus:text-sm focus:font-semibold focus:outline-none focus:ring-2 focus:ring-primary/50">
+      Skip to main content
+    </a>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

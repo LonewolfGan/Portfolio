@@ -18,7 +18,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({ className }) => {
         "relative w-12 h-12 flex items-center justify-center rounded-full glass border-border hover:bg-foreground/5 transition-all duration-300 outline-none",
         className
       )}
-      aria-label="Toggle theme"
+      aria-label={theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'}
     >
       <AnimatePresence mode="wait" initial={false}>
         <motion.div
