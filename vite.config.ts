@@ -32,12 +32,12 @@ export default defineConfig(() => {
       rollupOptions: {
         output: {
           manualChunks: {
-            // Separate heavy libraries into their own chunks
+            // Code-split heavy libraries into separate async chunks
             'three': ['three'],
             'gsap': ['gsap', '@gsap/react'],
-            'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+            'react-vendor': ['react', 'react-dom', 'react-router-dom', 'react-helmet-async'],
             'motion': ['motion'],
-            'ui': ['lucide-react'],
+            'ui': ['lucide-react', 'clsx', 'tailwind-merge'],
           },
         },
       },

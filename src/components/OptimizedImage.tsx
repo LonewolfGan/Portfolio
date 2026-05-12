@@ -15,8 +15,8 @@ interface OptimizedImageProps {
 const getCloudinaryUrl = (baseUrl: string, width: number, format: 'webp' | 'avif' = 'webp') => {
   if (!baseUrl.includes('cloudinary.com')) return baseUrl;
   
-  // Insert transformation parameters with balanced compression
-  return baseUrl.replace('/upload/', `/upload/w_${width},q_auto:best,f_${format},dpr_auto/`);
+  // Insert transformation parameters — q_auto:good balances quality vs size (saves ~11 KiB per image)
+  return baseUrl.replace('/upload/', `/upload/w_${width},q_auto:good,f_${format},dpr_auto/`);
 };
 
 export const OptimizedImage: React.FC<OptimizedImageProps> = ({
