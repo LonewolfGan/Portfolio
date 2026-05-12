@@ -2,37 +2,6 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig } from 'vite';
-import type { Plugin } from 'vite';
-
-/**
- * Vite plugin: Convert CSS <link> tags to non-render-blocking async loads.
- * Uses the media="print" onload="this.media='all'" pattern recommended by web.dev.
- * Inlines minimal critical CSS for the initial paint (bg color, font, layout).
- */
-function asyncCssPlugin(): Plugin {
-  return {
-    name: 'async-css',
-    enforce: 'post',
-    transformIndexHtml(html) {
-      // Critical CSS: just enough for first paint (background, text color, font-family, basic layout)
-      const criticalCSS = `
-        *{margin:0;padding:0;box-sizing:border-box}
-        html{-webkit-font-smoothing:antialiased}
-        body{background:oklch(98% 0.01 260);color:oklch(15% 0 0);font-family:"Inter",ui-sans-serif,system-ui,sans-serif}
-        .dark body,html.dark body{background:oklch(15% 0 0);color:oklch(98% 0.01 260)}
-        #root{min-height:100vh}
-      `.replace(/\s+/g, ' ').trim();
-
-      // Replace blocking <link rel="stylesheet"> with async pattern
-      return html.replace(
-        /<link rel="stylesheet" crossorigin href="(\/assets\/[^"]+\.css)">/g,
-        `<style>${criticalCSS}</style>
-    <link rel="stylesheet" href="$1" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="$1"></noscript>`
-      );
-    },
-  };
-}
 
 export default defineConfig(() => {
   // Automatically resolve the public app URL:
@@ -50,7 +19,6 @@ export default defineConfig(() => {
     plugins: [
       react(),
       tailwindcss(),
-      asyncCssPlugin(),
     ],
     resolve: {
       alias: {

@@ -43,7 +43,7 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
   const generateSrcSet = () => {
     if (!src.includes('cloudinary.com')) return undefined;
     
-    const widths = [320, 480, 640, 960, 1200];
+    const widths = [320, 400, 640, 800, 1200];
     const format = supportsAvif ? 'avif' : 'webp';
     
     return widths
@@ -53,7 +53,7 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
 
   const srcSet = generateSrcSet();
   const fallbackSrc = src.includes('cloudinary.com') 
-    ? getCloudinaryUrl(src, 640, 'webp') 
+    ? getCloudinaryUrl(src, 400, 'webp') 
     : src;
 
   return (
