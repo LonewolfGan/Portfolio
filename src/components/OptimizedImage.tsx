@@ -15,8 +15,8 @@ interface OptimizedImageProps {
 const getCloudinaryUrl = (baseUrl: string, width: number, format: 'webp' | 'avif' = 'webp') => {
   if (!baseUrl.includes('cloudinary.com')) return baseUrl;
   
-  // Insert transformation parameters — q_auto:good balances quality vs size (saves ~11 KiB per image)
-  return baseUrl.replace('/upload/', `/upload/w_${width},q_auto:good,f_${format},dpr_auto/`);
+  // q_auto:good balances quality vs size; no dpr_auto to prevent serving 2x oversized images on mobile
+  return baseUrl.replace('/upload/', `/upload/w_${width},q_auto:good,f_${format}/`);
 };
 
 export const OptimizedImage: React.FC<OptimizedImageProps> = ({
@@ -39,11 +39,11 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
     img.onload = () => setSupportsAvif(true);
   }, []);
 
-  // Generate srcset for responsive images
+  // Generate srcset for responsive images — widths tuned to actual mobile/tablet/desktop display sizes
   const generateSrcSet = () => {
     if (!src.includes('cloudinary.com')) return undefined;
     
-    const widths = [400, 800, 1200, 1600, 2000];
+    const widths = [320, 480, 640, 960, 1200];
     const format = supportsAvif ? 'avif' : 'webp';
     
     return widths
@@ -53,7 +53,7 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
 
   const srcSet = generateSrcSet();
   const fallbackSrc = src.includes('cloudinary.com') 
-    ? getCloudinaryUrl(src, 800, 'webp') 
+    ? getCloudinaryUrl(src, 640, 'webp') 
     : src;
 
   return (

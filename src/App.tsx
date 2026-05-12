@@ -4,9 +4,9 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ThemeProvider } from './context/ThemeContext';
 import { LanguageProvider } from './context/LanguageContext';
 import { ErrorBoundary } from './components/ErrorBoundary';
-import { Navbar } from './components/Navbar';
 
 // Lazy load heavy components and pages
+const Navbar = lazy(() => import('./components/Navbar').then(m => ({ default: m.Navbar })));
 const BackgroundScene = lazy(() => import('./components/BackgroundScene'));
 const Home = lazy(() => import('./pages/Home'));
 const Works = lazy(() => import('./pages/Works'));
@@ -78,7 +78,9 @@ export default function App() {
               </Suspense>
             </ErrorBoundary>
 
-            <Navbar />
+            <Suspense fallback={null}>
+              <Navbar />
+            </Suspense>
 
             <main id="main-content" className="relative z-10 pt-20">
               <AnimatePresence mode="wait">
