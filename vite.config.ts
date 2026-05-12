@@ -1,11 +1,9 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
-import { defineConfig, loadEnv } from 'vite';
+import { defineConfig } from 'vite';
 
-export default defineConfig(({mode}) => {
-  const env = loadEnv(mode, '.', '');
-
+export default defineConfig(() => {
   // Automatically resolve the public app URL:
   // 1. VITE_APP_URL if explicitly set (e.g. custom domain in Vercel settings)
   // 2. VERCEL_URL injected automatically by Vercel on every deployment
@@ -22,9 +20,6 @@ export default defineConfig(({mode}) => {
       react(),
       tailwindcss(),
     ],
-    define: {
-      'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
-    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),

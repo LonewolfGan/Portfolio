@@ -41,7 +41,7 @@ export const Button: React.FC<ButtonProps> = ({
     // 1. No-Wrap Structure
     'inline-flex items-center justify-center flex-nowrap whitespace-nowrap',
     // 2. Standardization & Gap Control
-    'gap-3 rounded-button transition-all duration-300 border font-semibold outline-none focus:ring-2 focus:ring-primary/20',
+    'gap-3 rounded-button transition-all duration-300 border font-semibold outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background',
     variants[variant],
     sizes[size],
     className

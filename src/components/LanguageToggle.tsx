@@ -12,6 +12,7 @@ export const LanguageToggle: React.FC = () => {
   return (
     <button
       onClick={toggleLanguage}
+      aria-label={language === 'en' ? 'Switch to French' : 'Passer en anglais'}
       className="flex items-center gap-1.5 px-3 py-1.5 rounded-full glass border-border hover:bg-foreground/5 transition-all outline-none font-mono text-[10px] uppercase tracking-wider font-bold"
     >
       <span className={cn(language === 'en' ? "text-primary" : "text-foreground/60")}>EN</span>

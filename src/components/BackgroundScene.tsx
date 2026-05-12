@@ -20,6 +20,10 @@ const BackgroundScene: React.FC = () => {
 
   // Only render when visible and after initial paint
   useEffect(() => {
+    // Accessibility: Respect prefers-reduced-motion
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (motionQuery.matches) return;
+
     // Delay Three.js initialization until after critical rendering
     const timer = setTimeout(() => {
       setShouldRender(true);

@@ -107,7 +107,7 @@ export const Home: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="font-serif italic text-foreground/65 text-xl md:text-2xl mb-2 font-normal will-change-transform"
+            className="font-serif italic text-foreground/65 text-xl md:text-2xl mb-2 font-normal"
           >
             {language === 'en' ? "Hey, I'm" : 'Salut, je suis'}
           </motion.p>
@@ -115,7 +115,7 @@ export const Home: React.FC = () => {
           <h1 className="font-display font-bold font-clash text-foreground leading-none mb-4">
             <span
               ref={signatureRef}
-              className="block text-[clamp(4rem,8vw,7rem)] leading-none tracking-tight will-change-transform"
+              className="block text-[clamp(4rem,8vw,7rem)] leading-none tracking-tight"
             >
               Honore
             </span>
@@ -128,7 +128,7 @@ export const Home: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="text-sm md:text-base text-foreground/45 max-w-xs font-light leading-relaxed mb-5 will-change-transform"
+            className="text-sm md:text-base text-foreground/45 max-w-xs font-light leading-relaxed mb-5"
           >
             {t('hero.subtitle')}
           </motion.p>
@@ -137,7 +137,7 @@ export const Home: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.0, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col sm:flex-row gap-3 mb-5 will-change-transform"
+            className="flex flex-col sm:flex-row gap-3 mb-5"
           >
             <Button
               asChild size="md"
@@ -159,7 +159,7 @@ export const Home: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.3, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="flex gap-8 pt-2 will-change-transform"
+            className="flex gap-8 pt-2"
           >
             {[
               { value: '5+', label: language === 'en' ? 'Projects' : 'Projets' },
@@ -192,7 +192,7 @@ export const Home: React.FC = () => {
               { title: t('services.card2.title'), icon: <Layout className="text-primary" size={32} />, description: t('services.card2.desc') },
               { title: t('services.card3.title'), icon: <Globe className="text-primary" size={32} />, description: t('services.card3.desc') },
             ].map((service, idx) => (
-              <article key={idx} className="service-card glass p-8 rounded-3xl border border-border hover:border-primary/20 group transition-all will-change-transform">
+              <article key={idx} className="service-card glass p-8 rounded-3xl border border-border hover:border-primary/20 group transition-all">
                 <div className="mb-6 w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                   {service.icon}
                 </div>
@@ -222,7 +222,7 @@ export const Home: React.FC = () => {
 
           <div className="projects-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
             {FEATURED_PROJECTS.map((project, idx) => (
-              <article key={idx} className="project-card flex flex-col gap-6 group will-change-transform">
+              <article key={idx} className="project-card flex flex-col gap-6 group">
                 <div className="aspect-video rounded-3xl overflow-hidden glass border border-border relative cursor-pointer">
                   <OptimizedImage
                     src={project.image}
@@ -272,7 +272,7 @@ export const Home: React.FC = () => {
                 { title: 'Docker', desc: language === 'en' ? 'Containerising apps for reproducible deployments' : 'Conteneuriser les apps pour des déploiements reproductibles' },
                 { title: 'PostgreSQL', desc: language === 'en' ? 'Advanced querying, indexing & data modeling' : 'Requêtes avancées, indexation & modélisation de données' },
               ].map(item => (
-                <div key={item.title} className="learning-item flex flex-col gap-2 border-l-2 border-primary/20 pl-6 will-change-transform">
+                <div key={item.title} className="learning-item flex flex-col gap-2 border-l-2 border-primary/20 pl-6">
                   <h4 className="text-foreground font-bold">{item.title}</h4>
                   <p className="text-foreground/60 text-sm font-light leading-relaxed">{item.desc}</p>
                 </div>
@@ -290,7 +290,7 @@ export const Home: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl md:text-6xl font-display font-clash font-bold text-foreground mb-8 will-change-transform"
+            className="text-4xl md:text-6xl font-display font-clash font-bold text-foreground mb-8"
           >
             {t('home.contact.title')}
           </motion.h2>
@@ -300,7 +300,7 @@ export const Home: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ delay: 0.15, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-lg text-foreground/65 max-w-xl mx-auto mb-12 font-light leading-relaxed will-change-transform"
+            className="text-lg text-foreground/65 max-w-xl mx-auto mb-12 font-light leading-relaxed"
           >
             {t('home.contact.subtitle')}
           </motion.p>
@@ -310,7 +310,7 @@ export const Home: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ delay: 0.3, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col sm:flex-row gap-4 justify-center will-change-transform"
+            className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Button asChild size="md" className="rounded-full shadow-lg shadow-primary/20 min-w-[180px] h-12 whitespace-nowrap">
               <Link to="/about#contact">{t('home.contact.cta')}</Link>

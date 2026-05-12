@@ -297,12 +297,15 @@ export const About: React.FC = () => {
                     </Button>
                   </motion.div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+                  <form onSubmit={handleSubmit} className="flex flex-col gap-6" noValidate>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="flex flex-col gap-3">
                         <label htmlFor="name" className="text-[10px] font-bold text-foreground/30 uppercase tracking-[.2em] ml-2">{t('contact.name')}</label>
                         <input
                           required id="name" type="text" placeholder="John Doe"
+                          maxLength={100}
+                          autoComplete="name"
+                          aria-describedby={errorMsg ? 'form-error' : undefined}
                           value={formState.name}
                           onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                           className="bg-foreground/5 border border-border rounded-2xl p-5 text-foreground placeholder:text-foreground/20 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
@@ -312,6 +315,9 @@ export const About: React.FC = () => {
                         <label htmlFor="email" className="text-[10px] font-bold text-foreground/30 uppercase tracking-[.2em] ml-2">{t('contact.email')}</label>
                         <input
                           required id="email" type="email" placeholder="john@example.com"
+                          maxLength={254}
+                          autoComplete="email"
+                          aria-describedby={errorMsg ? 'form-error' : undefined}
                           value={formState.email}
                           onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                           className="bg-foreground/5 border border-border rounded-2xl p-5 text-foreground placeholder:text-foreground/20 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
@@ -322,6 +328,8 @@ export const About: React.FC = () => {
                       <label htmlFor="message" className="text-[10px] font-bold text-foreground/30 uppercase tracking-[.2em] ml-2">{t('contact.message')}</label>
                       <textarea
                         required id="message" rows={8}
+                        maxLength={5000}
+                        aria-describedby={errorMsg ? 'form-error' : undefined}
                         placeholder={language === 'en' ? 'Tell me about your project or opportunity...' : 'Parlez-moi de votre projet ou opportunité...'}
                         value={formState.message}
                         onChange={(e) => setFormState({ ...formState, message: e.target.value })}
@@ -329,7 +337,7 @@ export const About: React.FC = () => {
                       />
                     </div>
                     {errorMsg && (
-                      <p className="text-red-500 text-sm px-1">{errorMsg}</p>
+                      <p id="form-error" role="alert" aria-live="polite" className="text-red-500 text-sm px-1">{errorMsg}</p>
                     )}
                     <Button
                       type="submit"

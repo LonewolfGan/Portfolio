@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
+import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '../context/LanguageContext';
 
 export const NotFound: React.FC = () => {
@@ -19,7 +20,10 @@ export const NotFound: React.FC = () => {
 
   return (
     <main className="relative min-h-[calc(100vh-5rem)] flex items-center justify-center px-6 overflow-hidden">
-      <title>404 — Page Not Found | TCHOHLO K. Honore</title>
+      <Helmet>
+        <title>404 — Page Not Found | TCHOHLO K. Honore</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
 
       {/* Large background 404 */}
       <span
